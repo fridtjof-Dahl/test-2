@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback } from 'react';
 import { useLoanCalculation } from './hooks/useLoanCalculation';
 import { useFormValidation } from './hooks/useFormValidation';
 import { FormData, WARRANTIES, WarrantyType } from './types/form';
@@ -54,14 +54,12 @@ export default function MultiStepForm() {
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isValid) return;
-    
+
     setIsSubmitting(true);
     try {
       const response = await fetch('/api/loan-application', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 

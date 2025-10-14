@@ -82,7 +82,7 @@ export default function ContactPage() {
                 </svg>
               </div>
               <div className="text-sm uppercase tracking-wide text-gray-500 mb-1">E-post</div>
-              <a href="mailto:post@enkelfinansiering.no" className="text-lg font-semibold text-[#004D61] hover:underline">post@enkelfinansiering.no</a>
+              <a href="mailto:kontakt@enkelfinansiering.no" className="text-lg font-semibold text-[#004D61] hover:underline">kontakt@enkelfinansiering.no</a>
             </div>
 
             <div className="bg-white border border-gray-200 rounded-2xl p-6 text-center">

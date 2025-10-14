@@ -37,6 +37,12 @@ const LoanCalculator = memo(function LoanCalculator() {
     trackCalculatorUsage('calculate');
   }, [loanAmount]);
 
+  const handleYearsChange = useCallback((value: number) => {
+    setYears(value);
+    // Track calculator usage
+    trackCalculatorUsage('calculate');
+  }, []);
+
   return (
     <section id="calculator" className="py-16 bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -105,7 +111,7 @@ const LoanCalculator = memo(function LoanCalculator() {
                 max="10"
                 step="1"
                 value={years}
-                onChange={(e) => setYears(Number(e.target.value))}
+                onChange={(e) => handleYearsChange(Number(e.target.value))}
                 className="w-full h-2 bg-blue-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
               />
               <div className="flex justify-between text-xs text-gray-500 mt-1">

@@ -33,6 +33,7 @@ Set these in Vercel Dashboard → Project Settings → Environment Variables:
 ```bash
 # Required
 NEXT_PUBLIC_GA_ID=G-MZZN40H83P
+NEXT_PUBLIC_GTM_ID=GTM-T22X3C9X
 NEXT_PUBLIC_SITE_URL=https://enkelfinansiering.no
 
 # Email Configuration
@@ -50,7 +51,6 @@ LOAN_EMAIL_ADMIN=kontakt@enkelfinansiering.no
 LOAN_EMAIL_BACKUP=fridtjof@visionmedia.no
 
 # Optional
-NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID=AW-XXXXXXXXX
 NEXTAUTH_SECRET=your_secret_here
 ```
 
@@ -85,13 +85,7 @@ vercel --prod
 3. Get your Measurement ID (G-XXXXXXXXX)
 4. Add to environment variables
 
-### 2. Google Ads Setup
-1. Go to [Google Ads](https://ads.google.com)
-2. Create conversion actions
-3. Get your Conversion ID (AW-XXXXXXXXX)
-4. Add to environment variables
-
-### 3. Performance Testing
+### 2. Performance Testing
 ```bash
 # Run Lighthouse audit
 pnpm run perf

@@ -1,6 +1,4 @@
-// Google Analytics event tracking utilities
-import { trackConversion as trackGoogleAdsConversion } from './google-ads';
-
+// Analytics event tracking utilities - direct Google Analytics
 declare global {
   interface Window {
     gtag: (...args: any[]) => void;
@@ -64,24 +62,10 @@ export function trackPageView(pageName: string) {
 
 // Track conversion events
 export function trackConversion(conversionType: 'lead_generation' | 'loan_application', value?: number) {
-  // Track in Google Analytics
   trackEvent({
     action: 'conversion',
     category: 'conversion',
     label: conversionType,
     value: value,
   });
-
-  // Track in Google Ads (if conversion ID is available)
-  const conversionId = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID;
-  if (conversionId) {
-    switch (conversionType) {
-      case 'lead_generation':
-        trackGoogleAdsConversion(conversionId, 'lead_generation', value);
-        break;
-      case 'loan_application':
-        trackGoogleAdsConversion(conversionId, 'loan_application', value);
-        break;
-    }
-  }
 }

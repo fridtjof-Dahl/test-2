@@ -4,42 +4,21 @@ export const FORM_CONFIG = {
   // Email recipients
   contact: {
     primary: 'vainio@panther.no',
-    admin: 'admin@enkelfinansiering.no',
+    admin: 'kontakt@enkelfinansiering.no',
     backup: 'fridtjof@visionmedia.no',
   },
   
   loanApplications: {
     primary: 'vainio@panther.no',
-    admin: 'admin@enkelfinansiering.no',
+    admin: 'kontakt@enkelfinansiering.no',
     backup: 'fridtjof@visionmedia.no',
   },
 
-  // External integrations
-  integrations: {
-    // CRM systems
-    crm: {
-      webhook: process.env.CRM_WEBHOOK_URL,
-      apiKey: process.env.CRM_API_KEY,
-    },
-    
-    // Email service (SendGrid, Mailgun, etc.)
-    email: {
-      service: process.env.EMAIL_SERVICE || 'smtp',
-      apiKey: process.env.EMAIL_API_KEY,
-      fromEmail: process.env.FROM_EMAIL || 'noreply@enkelfinansiering.no',
-    },
-    
-    // Database
-    database: {
-      url: process.env.DATABASE_URL,
-      type: process.env.DATABASE_TYPE || 'postgresql',
-    },
-    
-    // Partner integrations
-    partner: {
-      webhook: process.env.PARTNER_WEBHOOK_URL,
-      apiKey: process.env.PARTNER_API_KEY,
-    },
+  // Email service configuration
+  email: {
+    service: process.env.EMAIL_SERVICE || 'smtp',
+    apiKey: process.env.EMAIL_API_KEY,
+    fromEmail: process.env.FROM_EMAIL || 'kontakt@enkelfinansiering.no',
   },
 
   // Form settings
@@ -82,20 +61,7 @@ export function getEmailRecipients(type: 'contact' | 'loan'): string[] {
   ].filter(Boolean) as string[];
 }
 
-// Helper function to check if integrations are configured
-export function isIntegrationEnabled(service: keyof typeof FORM_CONFIG.integrations) {
-  const config = FORM_CONFIG.integrations[service];
-  
-  switch (service) {
-    case 'crm':
-      return !!((config as any).webhook || (config as any).apiKey);
-    case 'email':
-      return !!((config as any).apiKey || (config as any).service === 'smtp');
-    case 'database':
-      return !!(config as any).url;
-    case 'partner':
-      return !!((config as any).webhook || (config as any).apiKey);
-    default:
-      return false;
-  }
+// Helper function to check if email is configured
+export function isEmailConfigured(): boolean {
+  return !!(FORM_CONFIG.email.apiKey || FORM_CONFIG.email.service === 'smtp');
 }

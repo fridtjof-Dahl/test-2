@@ -43,14 +43,14 @@ export default function ImprovedHero() {
               <a 
                 href="#lead-form" 
                 onClick={() => trackButtonClick('sok_billan_na', 'hero')}
-                className="inline-block bg-[#FF6B35] hover:bg-[#E55A24] text-white font-bold text-lg px-12 py-5 rounded-full transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl"
+                className="inline-block bg-[#FF6B35] hover:bg-[#E55A24] text-white font-bold text-lg px-12 py-3 rounded-full transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl"
               >
                 Søk billån nå →
               </a>
               <a
                 href="/kalkulator"
                 onClick={() => trackButtonClick('proev_kalkulatoren', 'hero')}
-                className="inline-block border-2 border-[#004D61] text-[#004D61] hover:bg-[#004D61] hover:text-white font-bold text-lg px-8 py-4 rounded-full transition-all"
+                className="inline-block border-2 border-[#004D61] text-[#004D61] hover:bg-[#004D61] hover:text-white font-bold text-lg px-8 py-2 rounded-full transition-all"
               >
                 Prøv kalkulatoren
               </a>
@@ -58,19 +58,30 @@ export default function ImprovedHero() {
 
           </div>
 
-          {/* Right Column - Illustration Placeholder */}
+          {/* Right Column - Optimized Illustration */}
           <div className="hidden lg:block">
             <div className="relative">
-              {/* Simple illustration with SVG */}
-              <svg viewBox="0 0 500 400" className="w-full h-auto">
+              {/* Optimized SVG with better performance */}
+              <svg viewBox="0 0 500 400" className="w-full h-auto" aria-hidden="true">
+                <defs>
+                  <linearGradient id="carGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#004D61"/>
+                    <stop offset="100%" stopColor="#003847"/>
+                  </linearGradient>
+                  <linearGradient id="moneyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#10B981"/>
+                    <stop offset="100%" stopColor="#059669"/>
+                  </linearGradient>
+                </defs>
+                
                 {/* Background circles */}
                 <circle cx="250" cy="200" r="180" fill="#FFF4E6" opacity="0.5"/>
                 <circle cx="250" cy="200" r="140" fill="#E8F8F0" opacity="0.5"/>
                 
                 {/* Car illustration */}
                 <g transform="translate(150, 180)">
-                  {/* Car body */}
-                  <rect x="0" y="30" width="200" height="60" rx="10" fill="#004D61"/>
+                  {/* Car body with gradient */}
+                  <rect x="0" y="30" width="200" height="60" rx="10" fill="url(#carGradient)"/>
                   <rect x="20" y="10" width="160" height="40" rx="8" fill="#003847"/>
                   
                   {/* Windows */}
@@ -84,9 +95,9 @@ export default function ImprovedHero() {
                   <circle cx="150" cy="90" r="12" fill="#6B7280"/>
                 </g>
                 
-                {/* Money/Check icon */}
+                {/* Money/Check icon with gradient */}
                 <g transform="translate(320, 100)">
-                  <rect x="0" y="0" width="80" height="50" rx="6" fill="#10B981" opacity="0.9"/>
+                  <rect x="0" y="0" width="80" height="50" rx="6" fill="url(#moneyGradient)"/>
                   <circle cx="40" cy="25" r="12" fill="white"/>
                   <text x="40" y="30" textAnchor="middle" fill="#10B981" fontSize="16" fontWeight="bold">kr</text>
                 </g>
