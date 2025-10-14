@@ -1,31 +1,37 @@
+import dynamic from 'next/dynamic';
 import Header from '@/components/Header';
 import ImprovedHero from '@/components/ImprovedHero';
-import LoanCalculator from '@/components/LoanCalculator';
-import HowItWorks from '@/components/HowItWorks';
-import DarkBenefits from '@/components/DarkBenefits';
-import MultiStepForm from '@/components/MultiStepForm';
-import TrustSignals from '@/components/TrustSignals';
-import FAQ from '@/components/FAQ';
-import Footer from '@/components/Footer';
+
+// Lazy load non-critical components
+const LoanCalculator = dynamic(() => import('@/components/LoanCalculator'), {
+  loading: () => <div className="py-16 bg-gray-50 animate-pulse"><div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"><div className="bg-white rounded-2xl shadow-xl p-8 h-96"></div></div></div>
+});
+const HowItWorks = dynamic(() => import('@/components/HowItWorks'), {
+  loading: () => <div className="py-20 bg-gray-50 animate-pulse"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div className="h-96"></div></div></div>
+});
+const DarkBenefits = dynamic(() => import('@/components/DarkBenefits'), {
+  loading: () => <div className="py-24 bg-gradient-to-br from-[#003847] via-[#004D61] to-[#003847] animate-pulse"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div className="h-96"></div></div></div>
+});
+const MultiStepForm = dynamic(() => import('@/components/MultiStepForm'), {
+  loading: () => <div className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 animate-pulse"><div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"><div className="h-96"></div></div></div>
+});
+const TrustSignals = dynamic(() => import('@/components/TrustSignals'), {
+  loading: () => <div className="py-20 bg-gray-50 animate-pulse"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div className="h-96"></div></div></div>
+});
+const FAQ = dynamic(() => import('@/components/FAQ'), {
+  loading: () => <div className="py-20 bg-white animate-pulse"><div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"><div className="h-96"></div></div></div>
+});
+const Footer = dynamic(() => import('@/components/Footer'), {
+  loading: () => <div className="bg-gray-900 text-white py-12 animate-pulse"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div className="h-32"></div></div></div>
+});
 
 export const metadata = {
   title: 'Billån på dagen: Uforpliktende tilbud innen 24 timer | Enkel Finansiering',
-  description: 'Billån gjort enkelt. Få et uforpliktende tilbud på billån innen 24 timer fra vår samarbeidspartner. Rask behandling og personlig oppfølging.',
-  keywords: [
-    'billån på dagen',
-    'billån Norge',
-    'billån uten egenkapital',
-    'billån kalkulator',
-    'billån rente',
-    'billån søknad',
-    'billån samarbeidspartner',
-    'billån 24 timer',
-    'billån uforpliktende',
-    'billån rask behandling'
-  ],
+  description: 'Få et uforpliktende tilbud på billån innen 24 timer. Rask behandling og personlig oppfølging. 100% gratis.',
+  keywords: 'billån på dagen, billån Norge, billån uten egenkapital, billån kalkulator, billån rente, billån søknad, billån samarbeidspartner, billån 24 timer, billån uforpliktende, billån rask behandling',
   openGraph: {
     title: 'Billån på dagen: Uforpliktende tilbud innen 24 timer',
-    description: 'Få et uforpliktende tilbud på billån innen 24 timer. Rask behandling og personlig oppfølging.',
+    description: 'Få et uforpliktende tilbud på billån innen 24 timer. Rask behandling og personlig oppfølging. 100% gratis.',
     type: 'website',
     url: 'https://enkelfinansiering.no',
     siteName: 'Enkel Finansiering',
@@ -34,7 +40,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Billån på dagen: Uforpliktende tilbud innen 24 timer',
-    description: 'Få et uforpliktende tilbud på billån innen 24 timer. Rask behandling og personlig oppfølging.',
+    description: 'Få et uforpliktende tilbud på billån innen 24 timer. Rask behandling og personlig oppfølging. 100% gratis.',
   },
   alternates: {
     canonical: '/',
@@ -49,6 +55,10 @@ export const metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  other: {
+    'theme-color': '#004D61',
+    'msapplication-TileColor': '#004D61',
   },
 };
 

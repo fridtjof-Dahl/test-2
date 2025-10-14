@@ -23,9 +23,6 @@ importers:
       react-dom:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
-      web-vitals:
-        specifier: ^3.5.0
-        version: 3.5.2
     devDependencies:
       '@types/node':
         specifier: ^20
@@ -2294,9 +2291,6 @@ packages:
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
-
-  web-vitals@3.5.2:
-    resolution: {integrity: sha512-c0rhqNcHXRkY/ogGDJQxZ9Im9D19hDihbzSQJrsioex+KnFgmMzBiy57Z1EjkhX/+OjyBpclDCzz2ITtjokFmg==}
 
   which-boxed-primitive@1.1.1:
     resolution: {integrity: sha512-TbX3mj8n0odCBFVlY8AxkqcHASw3L60jIuF8jFP78az3C2YhmGvqbHBpAjTRH2/xqYunrJ9g1jSyjCjpoWzIAA==}
@@ -4984,8 +4978,6 @@ snapshots:
   urlpattern-polyfill@10.0.0: {}
 
   util-deprecate@1.0.2: {}
-
-  web-vitals@3.5.2: {}
 
   which-boxed-primitive@1.1.1:
     dependencies:

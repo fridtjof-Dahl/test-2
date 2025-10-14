@@ -6,14 +6,22 @@ import "./globals.css";
 const inter = Inter({ 
   subsets: ["latin"],
   display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
 });
 
 export const metadata: Metadata = {
-  title: "Billån på dagen: Uforpliktende tilbud innen 24 timer | Enkel Finansiering",
-  description: "Få et uforpliktende tilbud på billån innen 24 timer fra vår samarbeidspartner. Rask behandling og personlig oppfølging.",
+  title: {
+    default: "Billån på dagen: Uforpliktende tilbud innen 24 timer | Enkel Finansiering",
+    template: "%s | Enkel Finansiering"
+  },
+  description: "Få et uforpliktende tilbud på billån innen 24 timer fra vår samarbeidspartner. Rask behandling og personlig oppfølging. 100% gratis.",
   metadataBase: new URL('https://enkelfinansiering.no'),
   alternates: {
     canonical: '/',
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
   },
 };
 
@@ -28,15 +36,11 @@ export default function RootLayout({
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* Google Tag Manager */}
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-T22X3C9X');
-          `
-        }} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-T22X3C9X');`
+          }}
+        />
       </head>
       <body>
         {children}
