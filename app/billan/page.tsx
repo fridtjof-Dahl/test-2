@@ -82,25 +82,11 @@ export default function BillanGuidePage() {
         <section className="bg-gradient-to-br from-[#004D61] to-[#006B7D] text-white py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Den Ultimate Guiden til Billån i Norge (2025)
+              Den Ultimate Guiden til Billån i Norge
             </h1>
             <p className="text-xl text-blue-100 mb-8">
               Alt du trenger å vite om billån - fra søknad til signering. Få et uforpliktende tilbud innen 24 timer.
             </p>
-            <div className="flex flex-wrap gap-4 text-sm">
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"/>
-                </svg>
-                <span>Lesetid: 12 minutter</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"/>
-                </svg>
-                <span>Sist oppdatert: 14. oktober 2025</span>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -356,7 +342,6 @@ export default function BillanGuidePage() {
         {/* FAQ Section */}
         <section id="faq" className="py-16 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Ofte stilte spørsmål om billån</h2>
             <FAQ items={faqItems} />
           </div>
         </section>
