@@ -1,9 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendEmail, generateContactEmail } from '@/lib/email';
 import { FORM_CONFIG, getEmailRecipients } from '@/lib/config';
+import { rateLimit } from '@/lib/rate-limit';
 
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting
+    const clientIP = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
+    if (!rateLimit(`contact:${clientIP}`, 5, 15 * 60 * 1000)) {
+      return NextResponse.json(
+        { error: 'For mange forespørsler. Prøv igjen senere.' },
+        { status: 429 }
+      );
+    }
+
     const body = await request.json().catch(() => ({}));
     const { name, email, phone, message } = body;
 

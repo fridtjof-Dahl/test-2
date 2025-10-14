@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useCallback, memo } from 'react';
+import { useState, useCallback, memo, useEffect } from 'react';
 import { useLoanCalculation } from './hooks/useLoanCalculation';
+import { trackButtonClick, trackCalculatorUsage } from '@/lib/analytics';
 
 const LoanCalculator = memo(function LoanCalculator() {
   const [loanAmount, setLoanAmount] = useState(300000);
@@ -15,16 +16,25 @@ const LoanCalculator = memo(function LoanCalculator() {
     interestRate: 0.092
   });
 
+  // Track when calculator is opened
+  useEffect(() => {
+    trackCalculatorUsage('open');
+  }, []);
+
   const handleLoanAmountChange = useCallback((value: number) => {
     setLoanAmount(value);
     // Auto-adjust down payment if it exceeds loan amount
     if (downPayment > value) {
       setDownPayment(Math.max(0, value - 10000));
     }
+    // Track calculator usage
+    trackCalculatorUsage('calculate');
   }, [downPayment]);
 
   const handleDownPaymentChange = useCallback((value: number) => {
     setDownPayment(Math.min(value, loanAmount));
+    // Track calculator usage
+    trackCalculatorUsage('calculate');
   }, [loanAmount]);
 
   return (
@@ -119,9 +129,13 @@ const LoanCalculator = memo(function LoanCalculator() {
             </div>
           </div>
 
-          <div className="mt-4 text-center">
-            <a href="/kalkulator" className="text-[#004D61] hover:underline text-sm font-medium">
-              Prøv kalkulatoren
+          <div className="mt-6 text-center">
+            <a 
+              href="#lead-form" 
+              onClick={() => trackButtonClick('sok_billan_na', 'calculator')}
+              className="inline-block bg-[#FF6B35] hover:bg-[#E55A24] text-white font-bold text-lg px-8 py-3 rounded-full transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              Søk billån nå →
             </a>
           </div>
         </div>

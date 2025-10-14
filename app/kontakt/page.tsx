@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { trackFormSubmission, trackConversion } from '@/lib/analytics';
 
 interface ContactFormData {
   name: string;
@@ -36,14 +37,22 @@ export default function ContactPage() {
       const result = await response.json();
 
       if (response.ok) {
+        // Track successful form submission
+        trackFormSubmission('contact', true);
+        trackConversion('lead_generation');
+        
         alert(`Takk for meldingen! ${result.message}`);
         // Reset form
         setFormData({ name: '', email: '', phone: '', message: '' });
       } else {
+        // Track failed form submission
+        trackFormSubmission('contact', false);
         alert(`Feil: ${result.error}`);
       }
     } catch (error) {
       console.error('Submission error:', error);
+      // Track failed form submission
+      trackFormSubmission('contact', false);
       alert('Noe gikk galt. Prøv igjen.');
     } finally {
       setIsSubmitting(false);

@@ -10,6 +10,7 @@ const inter = Inter({
   preload: true,
   fallback: ['system-ui', 'arial'],
   variable: '--font-inter',
+  adjustFontFallback: false,
 });
 
 export const viewport: Viewport = {
@@ -38,7 +39,29 @@ export const metadata: Metadata = {
     "billån på dagen",
     "uforpliktende tilbud",
     "rask billån",
-    "billån uten egenkapital"
+    "billån uten egenkapital",
+    "billån samarbeidspartner",
+    "billån tilbud",
+    "billån søknad",
+    "billån rente",
+    "billån beregning",
+    "billån kalkulator",
+    "billån guide",
+    "billån hjelp",
+    "billån støtte",
+    "billån rådgivning",
+    "billån prosess",
+    "billån oppfølging",
+    "billån Norge",
+    "billån Oslo",
+    "billån Bergen",
+    "billån Trondheim",
+    "billån Stavanger",
+    "billån Kristiansand",
+    "billån Tromsø",
+    "billån Fredrikstad",
+    "billån Drammen",
+    "billån Skien"
   ],
   authors: [{ name: "Enkel Finansiering" }],
   creator: "Enkel Finansiering",
@@ -87,6 +110,20 @@ export const metadata: Metadata = {
   verification: {
     google: "your-google-verification-code",
   },
+  category: "Finance",
+  classification: "Financial Services",
+  other: {
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'default',
+    'apple-mobile-web-app-title': 'Enkel Finansiering',
+    'application-name': 'Enkel Finansiering',
+    'msapplication-TileColor': '#004D61',
+    'theme-color': '#004D61',
+    'msapplication-config': '/browserconfig.xml',
+    'apple-touch-icon': '/apple-touch-icon.png',
+    'msapplication-TileImage': '/mstile-144x144.png',
+  },
 };
 
 export default function RootLayout({
@@ -101,6 +138,8 @@ export default function RootLayout({
         <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         
         {/* Critical CSS inline */}
         <style dangerouslySetInnerHTML={{

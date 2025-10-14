@@ -9,6 +9,32 @@ import Footer from '@/components/Footer';
 export const metadata = {
   title: 'Billånskalkulator 2025: Beregn hva lånet koster | Enkel Finansiering',
   description: 'Prøv vår enkle billånskalkulator. Se estimert månedskostnad, renter og gebyrer for ditt billån. Få full oversikt over kostnadene før du søker.',
+  keywords: [
+    'billånskalkulator',
+    'billån beregning',
+    'billån kalkulator',
+    'billån kostnad',
+    'billån rente',
+    'billån månedskostnad',
+    'billån beregning 2025',
+    'billån kalkulator Norge',
+    'billån estimat',
+    'billån oversikt'
+  ],
+  openGraph: {
+    title: 'Billånskalkulator 2025: Beregn hva lånet koster',
+    description: 'Prøv vår enkle billånskalkulator. Se estimert månedskostnad, renter og gebyrer for ditt billån.',
+    type: 'website',
+    url: 'https://enkelfinansiering.no/kalkulator',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Billånskalkulator 2025: Beregn hva lånet koster',
+    description: 'Prøv vår enkle billånskalkulator. Se estimert månedskostnad, renter og gebyrer for ditt billån.',
+  },
+  alternates: {
+    canonical: '/kalkulator',
+  },
 };
 
 const faqItems = [
@@ -152,7 +178,7 @@ export default function KalkulatorPage() {
               href="#lead-form" 
               className="inline-block bg-[#FF6B35] hover:bg-[#E55A24] text-white font-bold text-lg px-12 py-4 rounded-full transition-all transform hover:scale-105 shadow-lg"
             >
-              Søk nå og få et nøyaktig lånetilbud
+              Søk billån nå →
             </a>
           </div>
         </div>

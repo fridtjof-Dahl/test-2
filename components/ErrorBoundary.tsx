@@ -30,7 +30,17 @@ export default class ErrorBoundary extends Component<Props, State> {
       (window as any).gtag('event', 'exception', {
         description: error.message,
         fatal: false,
+        error_boundary: true,
+        component_stack: errorInfo.componentStack,
       });
+    }
+    
+    // Log to external service if available
+    if (typeof window !== 'undefined' && 'console' in window) {
+      console.group('🚨 Error Boundary Caught Error');
+      console.error('Error:', error);
+      console.error('Error Info:', errorInfo || 'No error info available');
+      console.groupEnd();
     }
   }
 

@@ -1,91 +1,72 @@
-// Analytics and performance monitoring utilities
+// Google Analytics event tracking utilities
 
-export interface WebVitalsMetric {
-  name: 'CLS' | 'FID' | 'FCP' | 'LCP' | 'TTFB';
-  value: number;
-  delta: number;
-  id: string;
-  navigationType: string;
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+  }
 }
 
-export function reportWebVitals(metric: WebVitalsMetric) {
-  // Log to console in development
-  if (process.env.NODE_ENV === 'development') {
-    console.log(metric);
-  }
+export interface GAEvent {
+  action: string;
+  category: string;
+  label?: string;
+  value?: number;
+}
 
-  // Send to analytics service
-  if (typeof window !== 'undefined' && 'gtag' in window) {
-    (window as any).gtag('event', metric.name, {
-      event_category: 'Web Vitals',
-      event_label: metric.id,
-      value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
-      non_interaction: true,
-    });
-  }
-
-  // Send to custom analytics endpoint
-  if (typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
-    fetch('/api/analytics', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        type: 'web-vitals',
-        metric,
-        url: window.location.href,
-        timestamp: Date.now(),
-      }),
-    }).catch(() => {
-      // Silently fail if analytics endpoint is not available
+// Track custom events
+export function trackEvent(event: GAEvent) {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', event.action, {
+      event_category: event.category,
+      event_label: event.label,
+      value: event.value,
     });
   }
 }
 
-export function trackEvent(eventName: string, parameters?: Record<string, any>) {
-  if (typeof window !== 'undefined' && 'gtag' in window) {
-    (window as any).gtag('event', eventName, parameters);
-  }
-}
-
-export function trackPageView(url: string) {
-  if (typeof window !== 'undefined' && 'gtag' in window) {
-    (window as any).gtag('config', 'GA_MEASUREMENT_ID', {
-      page_path: url,
-    });
-  }
-}
-
-// Performance monitoring
-export function measurePerformance(name: string, fn: () => void) {
-  const start = performance.now();
-  fn();
-  const end = performance.now();
-  
-  if (process.env.NODE_ENV === 'development') {
-    console.log(`${name} took ${end - start} milliseconds`);
-  }
-  
-  return end - start;
-}
-
-// Resource loading monitoring
-export function monitorResourceLoading() {
-  if (typeof window === 'undefined') return;
-
-  const observer = new PerformanceObserver((list) => {
-    for (const entry of list.getEntries()) {
-      if (entry.entryType === 'resource') {
-        const resource = entry as PerformanceResourceTiming;
-        
-        // Log slow resources
-        if (resource.duration > 1000) {
-          console.warn(`Slow resource: ${resource.name} took ${resource.duration}ms`);
-        }
-      }
-    }
+// Track form submissions
+export function trackFormSubmission(formType: 'contact' | 'loan-application', success: boolean = true) {
+  trackEvent({
+    action: success ? 'form_submit_success' : 'form_submit_error',
+    category: 'engagement',
+    label: formType,
   });
+}
 
-  observer.observe({ entryTypes: ['resource'] });
+// Track button clicks
+export function trackButtonClick(buttonName: string, location: string) {
+  trackEvent({
+    action: 'button_click',
+    category: 'engagement',
+    label: `${buttonName}_${location}`,
+  });
+}
+
+// Track calculator interactions
+export function trackCalculatorUsage(action: 'open' | 'calculate' | 'cta_click') {
+  trackEvent({
+    action: 'calculator_interaction',
+    category: 'engagement',
+    label: action,
+  });
+}
+
+// Track page views (if needed for SPA navigation)
+export function trackPageView(pageName: string) {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('config', process.env.NEXT_PUBLIC_GA_ID, {
+      page_title: pageName,
+      page_location: window.location.href,
+    });
+  }
+}
+
+// Track conversion events
+export function trackConversion(conversionType: 'lead_generation' | 'loan_application', value?: number) {
+  trackEvent({
+    action: 'conversion',
+    category: 'conversion',
+    label: conversionType,
+    value: value,
+  });
 }

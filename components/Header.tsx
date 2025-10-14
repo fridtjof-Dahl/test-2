@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import { memo } from 'react';
+import { trackButtonClick } from '@/lib/analytics';
 
 const Header = memo(function Header() {
   return (
@@ -24,7 +27,8 @@ const Header = memo(function Header() {
             </Link>
           </nav>
           <a 
-            href="/#lead-form" 
+            href="#lead-form" 
+            onClick={() => trackButtonClick('sok_billan', 'header')}
             className="hidden md:inline-block bg-[#FF6B35] hover:bg-[#E55A24] text-white font-semibold px-6 py-2 rounded-full transition"
           >
             Søk billån

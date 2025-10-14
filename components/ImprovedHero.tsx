@@ -1,3 +1,7 @@
+'use client';
+
+import { trackButtonClick } from '@/lib/analytics';
+
 export default function ImprovedHero() {
   return (
     <section className="relative bg-gradient-to-br from-[#E8F4F8] via-[#D1F4E0] to-[#E8F8F0] py-20 md:py-28 overflow-hidden">
@@ -38,12 +42,14 @@ export default function ImprovedHero() {
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
               <a 
                 href="#lead-form" 
+                onClick={() => trackButtonClick('sok_billan_na', 'hero')}
                 className="inline-block bg-[#FF6B35] hover:bg-[#E55A24] text-white font-bold text-lg px-12 py-5 rounded-full transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl"
               >
                 Søk billån nå →
               </a>
               <a
                 href="/kalkulator"
+                onClick={() => trackButtonClick('proev_kalkulatoren', 'hero')}
                 className="inline-block border-2 border-[#004D61] text-[#004D61] hover:bg-[#004D61] hover:text-white font-bold text-lg px-8 py-4 rounded-full transition-all"
               >
                 Prøv kalkulatoren

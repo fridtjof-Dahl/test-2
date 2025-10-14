@@ -3,6 +3,13 @@ import Header from '@/components/Header';
 import ImprovedHero from '@/components/ImprovedHero';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import LazyWrapper from '@/components/LazyWrapper';
+import { 
+  generateOrganizationSchema, 
+  generateServiceSchema, 
+  generateFAQSchema, 
+  generateBreadcrumbSchema,
+  generateWebSiteSchema 
+} from '@/lib/structured-data';
 
 // Lazy load non-critical components
 const LoanCalculator = dynamic(() => import('@/components/LoanCalculator'), {
@@ -133,8 +140,103 @@ const websiteStructuredData = {
 };
 
 export default function Home() {
+  // Structured Data
+  const organizationSchema = generateOrganizationSchema({
+    name: "Enkel Finansiering",
+    url: "https://enkelfinansiering.no",
+    logo: "https://enkelfinansiering.no/logo.png",
+    description: "Vi hjelper deg med billån på dagen. Få et uforpliktende tilbud innen 24 timer.",
+    contactPoint: {
+      telephone: "+47 960 07 981",
+      contactType: "customer service",
+      availableLanguage: "Norwegian"
+    },
+    sameAs: [
+      "https://www.facebook.com/enkelfinansiering",
+      "https://www.linkedin.com/company/enkelfinansiering"
+    ]
+  });
+
+  const serviceSchema = generateServiceSchema({
+    name: "Billån på dagen",
+    description: "Få et uforpliktende tilbud på billån innen 24 timer. Rask behandling og personlig oppfølging.",
+    provider: {
+      name: "Enkel Finansiering",
+      url: "https://enkelfinansiering.no",
+      logo: "https://enkelfinansiering.no/logo.png",
+      description: "Vi hjelper deg med billån på dagen."
+    },
+    areaServed: "Norge",
+    serviceType: "Financial Services",
+    offers: {
+      price: "0",
+      priceCurrency: "NOK",
+      availability: "https://schema.org/InStock"
+    }
+  });
+
+  const faqSchema = generateFAQSchema([
+    {
+      question: "Hvordan søker jeg billån?",
+      answer: "Vår samarbeidspartner kontakter deg, og du får et uforpliktende tilbud innen 24 timer."
+    },
+    {
+      question: "Hvilken rente kan jeg forvente?",
+      answer: "Typisk rente ligger mellom 7,8% og 9,2%."
+    },
+    {
+      question: "Kan jeg få billån uten egenkapital?",
+      answer: "Ja, du kan søke om billån med kr 0 i egenkapital. Behandling avgjør om det trengs egenandel."
+    },
+    {
+      question: "Hvor raskt får jeg svar?",
+      answer: "Du får et uforpliktende tilbud innen 24 timer."
+    }
+  ]);
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Hjem", url: "https://enkelfinansiering.no" }
+  ]);
+
+  const websiteSchema = generateWebSiteSchema(
+    "https://enkelfinansiering.no",
+    "https://enkelfinansiering.no/search?q={search_term_string}"
+  );
+
   return (
     <ErrorBoundary>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(organizationSchema)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceSchema)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(websiteSchema)
+        }}
+      />
+      
       <main className="min-h-screen bg-white">
         <Header />
         <ImprovedHero />

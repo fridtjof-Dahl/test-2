@@ -4,6 +4,7 @@ import { useState, useCallback, useMemo } from 'react';
 import { useLoanCalculation } from './hooks/useLoanCalculation';
 import { useFormValidation } from './hooks/useFormValidation';
 import { FormData, WARRANTIES, WarrantyType } from './types/form';
+import { trackFormSubmission, trackConversion } from '@/lib/analytics';
 
 const INITIAL_FORM_DATA: FormData = {
   itemPrice: 300000,
@@ -67,15 +68,23 @@ export default function MultiStepForm() {
       const result = await response.json();
 
       if (response.ok) {
+        // Track successful form submission
+        trackFormSubmission('loan-application', true);
+        trackConversion('loan_application', formData.loanAmount);
+        
         alert(`Takk for søknaden! ${result.message}`);
         // Reset form
         setFormData(INITIAL_FORM_DATA);
         setStep(1);
       } else {
+        // Track failed form submission
+        trackFormSubmission('loan-application', false);
         alert(`Feil: ${result.error}`);
       }
     } catch (error) {
       console.error('Submission error:', error);
+      // Track failed form submission
+      trackFormSubmission('loan-application', false);
       alert('Noe gikk galt. Prøv igjen.');
     } finally {
       setIsSubmitting(false);
