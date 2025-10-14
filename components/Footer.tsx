@@ -27,8 +27,8 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Våre tjenester</h4>
             <ul className="space-y-2 text-sm">
               <li><a href="/uten-egenkapital" className="text-gray-400 hover:text-white transition">Billån uten egenkapital</a></li>
+              <li><a href="/pa-dagen" className="text-gray-400 hover:text-white transition">Billån på dagen</a></li>
               <li><a href="/billan" className="text-gray-400 hover:text-white transition">Billån Guide</a></li>
-              <li><a href="/bruktbil" className="text-gray-400 hover:text-white transition">Lån til bruktbil</a></li>
             </ul>
           </div>
 
