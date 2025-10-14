@@ -161,6 +161,34 @@ export default function RootLayout({
           `
         }} />
         
+        {/* Critical CSS Inline */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* Critical above-the-fold styles */
+            *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+            html { font-family: 'Inter', system-ui, -apple-system, sans-serif; line-height: 1.5; }
+            body { margin: 0; font-family: inherit; line-height: inherit; color: #1f2937; background-color: #ffffff; }
+            .hero-section { background: linear-gradient(135deg, #004D61 0%, #006B7A 100%); min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+            .hero-content { max-width: 1200px; margin: 0 auto; padding: 0 1rem; text-align: center; z-index: 10; position: relative; }
+            .hero-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; color: #ffffff; margin-bottom: 1.5rem; line-height: 1.1; }
+            .hero-subtitle { font-size: clamp(1.125rem, 2.5vw, 1.5rem); color: #e5e7eb; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+            .hero-buttons { display: flex; flex-direction: column; gap: 1rem; align-items: center; justify-content: center; }
+            @media (min-width: 640px) { .hero-buttons { flex-direction: row; gap: 1.5rem; } }
+            .cta-primary { display: inline-block; background-color: #FF6B35; color: #ffffff; font-weight: 700; font-size: 1.125rem; padding: 1rem 2rem; border-radius: 9999px; text-decoration: none; transition: all 0.2s ease; border: none; cursor: pointer; }
+            .cta-primary:hover { background-color: #E55A24; transform: translateY(-2px); box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3); }
+            .cta-secondary { display: inline-block; border: 2px solid #004D61; color: #004D61; font-weight: 700; font-size: 1.125rem; padding: 0.875rem 1.5rem; border-radius: 9999px; text-decoration: none; transition: all 0.2s ease; background-color: transparent; }
+            .cta-secondary:hover { background-color: #004D61; color: #ffffff; }
+            .trust-badges { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 2rem; }
+            .trust-badge { background-color: rgba(255, 255, 255, 0.1); color: #ffffff; padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
+            .header { background-color: #ffffff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); position: sticky; top: 0; z-index: 50; }
+            .header-content { max-width: 1200px; margin: 0 auto; padding: 1rem; display: flex; align-items: center; justify-content: space-between; }
+            .logo { font-size: 1.5rem; font-weight: 800; color: #004D61; text-decoration: none; }
+            .loading-skeleton { background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: loading 1.5s infinite; }
+            @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+            @media (max-width: 640px) { .hero-section { min-height: 80vh; padding: 2rem 0; } .hero-content { padding: 0 1rem; } }
+          `
+        }} />
+        
         {/* Performance Optimizations */}
         <script dangerouslySetInnerHTML={{
           __html: `

@@ -4,12 +4,12 @@
 
 ### Kontaktskjema
 - **Primær mottaker:** `post@enkelfinansiering.no`
-- **Admin:** `admin@enkelfinansiering.no`
+- **Admin:** `kontakt@enkelfinansiering.no`
 - **Backup:** `backup@enkelfinansiering.no`
 
 ### Lånesøknader
 - **Primær mottaker:** `lan@enkelfinansiering.no`
-- **Admin:** `admin@enkelfinansiering.no`
+- **Admin:** `kontakt@enkelfinansiering.no`
 - **Partner:** `partner@enkelfinansiering.no`
 
 ## 🔧 Hvordan endre mottakere
@@ -21,13 +21,13 @@ Rediger `lib/config.ts`:
 export const FORM_CONFIG = {
   contact: {
     primary: 'din-nye-email@enkelfinansiering.no',
-    admin: 'admin@enkelfinansiering.no',
+    admin: 'kontakt@enkelfinansiering.no',
     backup: 'backup@enkelfinansiering.no',
   },
   
   loanApplications: {
     primary: 'lan@enkelfinansiering.no',
-    admin: 'admin@enkelfinansiering.no',
+    admin: 'kontakt@enkelfinansiering.no',
     partner: 'partner@enkelfinansiering.no',
   },
   // ...
@@ -40,7 +40,7 @@ Opprett en `.env.local` fil:
 ```bash
 # E-post konfigurasjon
 CONTACT_EMAIL=post@enkelfinansiering.no
-ADMIN_EMAIL=admin@enkelfinansiering.no
+ADMIN_EMAIL=kontakt@enkelfinansiering.no
 LOAN_EMAIL=lan@enkelfinansiering.no
 ```
 

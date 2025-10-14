@@ -1,12 +1,5 @@
 // Google Ads conversion tracking
 
-declare global {
-  interface Window {
-    gtag: (...args: any[]) => void;
-    dataLayer: any[];
-  }
-}
-
 /**
  * Initialize Google Ads conversion tracking
  */
@@ -20,13 +13,13 @@ export function initializeGoogleAds(conversionId: string) {
   document.head.appendChild(script);
 
   // Initialize dataLayer
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function() {
-    window.dataLayer.push(arguments);
+  (window as any).dataLayer = (window as any).dataLayer || [];
+  (window as any).gtag = function() {
+    ((window as any).dataLayer || []).push(arguments);
   };
 
-  window.gtag('js', new Date());
-  window.gtag('config', conversionId);
+  (window as any).gtag('js', new Date());
+  (window as any).gtag('config', conversionId);
 }
 
 /**
@@ -38,9 +31,9 @@ export function trackConversion(
   value?: number,
   currency: string = 'NOK'
 ) {
-  if (typeof window === 'undefined' || !window.gtag) return;
+  if (typeof window === 'undefined' || !(window as any).gtag) return;
 
-  window.gtag('event', 'conversion', {
+  (window as any).gtag('event', 'conversion', {
     send_to: `${conversionId}/${conversionLabel}`,
     value: value,
     currency: currency,

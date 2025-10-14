@@ -85,8 +85,8 @@ export async function POST(request: NextRequest) {
     // Configuration - Update these with your actual details
     const CONFIG = {
       // Email recipients
-      loanEmail: 'lan@enkelfinansiering.no',
-      adminEmail: 'admin@enkelfinansiering.no',
+      loanEmail: 'kontakt@enkelfinansiering.no',
+      adminEmail: 'kontakt@enkelfinansiering.no',
       
       // Partner/CRM integration
       partnerWebhook: process.env.PARTNER_WEBHOOK_URL,

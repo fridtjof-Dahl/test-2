@@ -5,17 +5,21 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:analyze": "ANALYZE=true next build",
     "start": "next start",
-    "analyze": "ANALYZE=true npm run build",
-    "analyze:server": "ANALYZE=true npm run build && npx next build --analyze",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "type-check": "tsc --noEmit",
     "perf": "lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html",
-    "ga:setup": "echo 'Opprett .env.local fil med NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX'"
+    "ga:setup": "echo 'Opprett .env.local fil med NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX'",
+    "deploy": "vercel --prod",
+    "deploy:preview": "vercel",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@next/third-parties": "^15.5.5",
     "next": "15.5.5",
+    "next-sitemap": "^4.2.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "web-vitals": "^3.5.0"
