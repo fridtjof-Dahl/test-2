@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
+
 const inter = Inter({ 
   subsets: ["latin"],
   display: 'swap',
@@ -27,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="no">
       <body className={`${inter.className} antialiased`}>
-      {children}
+        {children}
         <SpeedInsights />
       </body>
     </html>
