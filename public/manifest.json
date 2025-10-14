@@ -1,0 +1,57 @@
+{
+  "name": "Enkel Finansiering - Billån på dagen",
+  "short_name": "Enkel Finansiering",
+  "description": "Få et uforpliktende tilbud på billån innen 24 timer. Rask behandling og personlig oppfølging.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#004D61",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "no",
+  "categories": ["finance", "business"],
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Billånskalkulator",
+      "short_name": "Kalkulator",
+      "description": "Beregn månedskostnad for billån",
+      "url": "/kalkulator",
+      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Kontakt oss",
+      "short_name": "Kontakt",
+      "description": "Få hjelp med billån",
+      "url": "/kontakt",
+      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
+    }
+  ]
+}

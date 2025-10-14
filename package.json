@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "next build",
     "start": "next start",
     "analyze": "ANALYZE=true npm run build",
     "analyze:server": "ANALYZE=true npm run build && npx next build --analyze",
