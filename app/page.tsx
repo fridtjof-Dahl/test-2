@@ -9,8 +9,8 @@ import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 
 export const metadata = {
-  title: 'Billån: Søk hos flere banker og få beste rente | Enkel Finansiering',
-  description: 'Trenger du billån? Hos Enkel Finansiering kan du søke hos flere banker med én gratis søknad. Få raskt svar, lav rente og personlig hjelp. Søk i dag!',
+  title: 'Billån på dagen: Uforpliktende tilbud innen 24 timer | Enkel Finansiering',
+  description: 'Billån gjort enkelt. Få et uforpliktende tilbud på billån innen 24 timer fra vår samarbeidspartner. Rask behandling og personlig oppfølging.',
 };
 
 const faqItems = [
@@ -28,11 +28,11 @@ const faqItems = [
   },
   {
     question: "Kan jeg få billån uten egenkapital?",
-    answer: "Ja, det er mulig å få 100% finansiering på billån. Mange banker tilbyr dette, men renten kan være noe høyere enn hvis du har egenkapital. Vi hjelper deg å finne banker som tilbyr fullfinansiering."
+    answer: "Ja, det er mulig å få 100% finansiering på billån. Vår samarbeidspartner vurderer hver søknad individuelt og kan tilby fullfinansiering dersom kredittvurderingen tillater det."
   },
   {
     question: "Hvor lang tid tar det å få svar på søknaden?",
-    answer: "De fleste banker gir svar innen 1-4 timer. Vanligvis får du et uforpliktende tilbud innen 24 timer. Når du har akseptert et tilbud, kan pengene overleveres til selger kort tid etter."
+    answer: "Du får som regel svar på din søknad samme dag eller innen 24 timer. Når du har akseptert et tilbud, kan pengene overleveres til selger kort tid etter."
   },
   {
     question: "Koster det noe å søke?",
@@ -40,7 +40,7 @@ const faqItems = [
   },
   {
     question: "Hvilke banker samarbeider dere med?",
-    answer: "Vi samarbeider med de fleste banker i Norge som tilbyr billån. Dette inkluderer både store og små banker, slik at du får et bredt utvalg av tilbud å velge mellom."
+    answer: "Vi samarbeider med en etablert bank som tilbyr billån. Vår samarbeidspartner gir deg et tilpasset tilbud basert på din situasjon og behov."
   },
   {
     question: "Påvirker søknaden kredittscore min?",
@@ -52,7 +52,7 @@ const faqItems = [
   },
   {
     question: "Hva skjer hvis jeg ikke får godkjent lån?",
-    answer: "Hvis ingen av bankene godkjenner søknaden din, får du beskjed om dette. Vi kan gi deg råd om hva du kan gjøre for å forbedre mulighetene dine, som å øke egenkapitalen eller forbedre kredittscore."
+    answer: "Hvis vår samarbeidspartner ikke godkjenner søknaden din, får du beskjed om dette. Vi kan gi deg råd om hva du kan gjøre for å forbedre mulighetene dine, som å øke egenkapitalen eller forbedre kredittscore."
   }
 ];
 

@@ -27,7 +27,9 @@ export default function TrustSignals() {
           <h2 className="text-4xl font-bold text-[#004D61] mb-4">
             Hva sier våre kunder?
           </h2>
-          
+          <p className="text-xl text-gray-600">
+            Hør hva våre kunder sier om oss
+          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">

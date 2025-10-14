@@ -18,7 +18,7 @@ const faqItems = [
   },
   {
     question: "Er kalkulatoren nøyaktig?",
-    answer: "Kalkulatoren gir et estimat basert på gjennomsnittlige renter. Den faktiske renten du får tilbud om, settes individuelt av bankene etter en kredittvurdering. For et nøyaktig tilbud, anbefaler vi å sende inn en søknad."
+    answer: "Kalkulatoren gir et estimat basert på gjennomsnittlige renter. Den faktiske renten du får tilbud om, settes individuelt av vår samarbeidspartner etter en kredittvurdering. For et nøyaktig tilbud, anbefaler vi å sende inn en søknad."
   },
   {
     question: "Hva påvirker månedskostnaden på billån?",
@@ -80,7 +80,7 @@ export default function KalkulatorPage() {
           <div className="prose prose-lg max-w-none text-gray-600 mb-12">
             <p className="text-lg leading-relaxed text-center">
               Kalkulatoren gir deg et estimat basert på gjennomsnittlige renter. Den endelige renten du får tilbud om, 
-              settes individuelt av bankene etter en kredittvurdering. For å få et nøyaktig tilbud, anbefaler vi å 
+              settes individuelt av vår samarbeidspartner etter en kredittvurdering. For å få et nøyaktig tilbud, anbefaler vi å 
               sende inn en uforpliktende søknad.
             </p>
           </div>

@@ -11,6 +11,10 @@ export const metadata: Metadata = {
   title: "Billån på dagen: Uforpliktende tilbud innen 24 timer | Enkel Finansiering",
   description: "Få et uforpliktende tilbud på billån innen 24 timer fra vår samarbeidspartner. Rask behandling og personlig oppfølging.",
   keywords: "billån, bilfinansiering, lån til bil, billånskalkulator, billån på dagen, uforpliktende tilbud",
+  metadataBase: new URL('https://enkelfinansiering.no'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: "Enkel Finansiering - Billån på dagen",
     description: "Få et uforpliktende tilbud innen 24 timer. Rask behandling og personlig oppfølging.",

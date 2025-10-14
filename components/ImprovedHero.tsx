@@ -50,21 +50,6 @@ export default function ImprovedHero() {
               </a>
             </div>
 
-            {/* Social Proof */}
-            <div className="mt-8 flex flex-wrap justify-center lg:justify-start items-center gap-6 text-sm text-gray-600">
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  <div className="w-8 h-8 rounded-full bg-[#004D61] flex items-center justify-center text-white text-xs font-bold border-2 border-white">K</div>
-                  <div className="w-8 h-8 rounded-full bg-[#FF6B35] flex items-center justify-center text-white text-xs font-bold border-2 border-white">O</div>
-                  <div className="w-8 h-8 rounded-full bg-[#10B981] flex items-center justify-center text-white text-xs font-bold border-2 border-white">L</div>
-                </div>
-                <span className="font-semibold text-gray-700">10 000+ fornøyde kunder</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <span className="text-yellow-400">★★★★★</span>
-                <span className="font-semibold text-gray-700">4.8/5</span>
-              </div>
-            </div>
           </div>
 
           {/* Right Column - Illustration Placeholder */}

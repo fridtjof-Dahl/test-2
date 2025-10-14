@@ -70,7 +70,7 @@ export default function AboutPage() {
                   <svg className="w-6 h-6 text-[#004D61] mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  Sikre konkurransedyktige vilkår gjennom flere samarbeidspartnere
+                  Sikre konkurransedyktige vilkår gjennom vår samarbeidspartner
                 </li>
                 <li className="flex items-start">
                   <svg className="w-6 h-6 text-[#004D61] mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -160,20 +160,20 @@ export default function AboutPage() {
           <h2 className="text-3xl sm:text-4xl font-bold text-[#004D61] mb-10 text-center">Tall som bygger tillit</h2>
           <div className="grid md:grid-cols-4 gap-6 text-center">
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border border-blue-200">
-              <div className="text-4xl font-bold text-[#004D61] mb-2">10 000+</div>
-              <div className="text-gray-700">fornøyde kunder</div>
-            </div>
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 border border-orange-200">
-              <div className="text-4xl font-bold text-[#FF6B35] mb-2">24 t</div>
+              <div className="text-4xl font-bold text-[#004D61] mb-2">24 t</div>
               <div className="text-gray-700">gjennomsnittlig svartid</div>
             </div>
+            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 border border-orange-200">
+              <div className="text-4xl font-bold text-[#FF6B35] mb-2">100%</div>
+              <div className="text-gray-700">gratis tjeneste</div>
+            </div>
             <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 border border-green-200">
-              <div className="text-4xl font-bold text-[#10B981] mb-2">100+</div>
-              <div className="text-gray-700">samarbeidspartnere</div>
+              <div className="text-4xl font-bold text-[#10B981] mb-2">1</div>
+              <div className="text-gray-700">samarbeidspartner</div>
             </div>
             <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 border border-purple-200">
-              <div className="text-4xl font-bold text-purple-600 mb-2">4.8/5</div>
-              <div className="text-gray-700">i kundetilfredshet</div>
+              <div className="text-4xl font-bold text-purple-600 mb-2">24/7</div>
+              <div className="text-gray-700">tilgjengelighet</div>
             </div>
           </div>
         </div>

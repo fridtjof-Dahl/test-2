@@ -6,7 +6,7 @@ import FAQ from '@/components/FAQ';
 
 export const metadata: Metadata = {
   title: 'Billån Guide 2025: Alt du trenger å vite | Enkel Finansiering',
-  description: 'Komplett guide til billån i Norge. Lær om renter, egenkapital, grønt billån og hvordan du får best tilbud. Søk hos flere banker med én søknad.',
+  description: 'Komplett guide til billån i Norge. Lær om renter, egenkapital, grønt billån og hvordan du får best tilbud. Få et uforpliktende tilbud innen 24 timer.',
   keywords: 'billån, billån uten egenkapital, grønt billån, billån rente, billån kalkulator, billån norge',
 };
 
@@ -85,7 +85,7 @@ export default function BillanGuidePage() {
               Den Ultimate Guiden til Billån i Norge (2025)
             </h1>
             <p className="text-xl text-blue-100 mb-8">
-              Alt du trenger å vite om billån - fra søknad til signering. Få best rente ved å la bankene konkurrere om deg.
+              Alt du trenger å vite om billån - fra søknad til signering. Få et uforpliktende tilbud innen 24 timer.
             </p>
             <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-2">
@@ -199,7 +199,7 @@ export default function BillanGuidePage() {
             <div className="my-16 p-8 bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl border-2 border-blue-200">
               <h3 className="text-2xl font-bold text-[#004D61] mb-4">Klar til å søke om billån?</h3>
               <p className="text-gray-700 mb-6">
-                Søk hos flere banker med én søknad og få det beste tilbudet. Gratis, raskt og uforpliktende.
+                Få et uforpliktende tilbud innen 24 timer. Gratis, raskt og uforpliktende.
               </p>
               <a 
                 href="#lead-form" 
@@ -219,8 +219,8 @@ export default function BillanGuidePage() {
               <div className="space-y-6">
                 {[
                   { step: 1, title: "Finn bilen du vil kjøpe", desc: "Ha registreringsnummer og pris klart." },
-                  { step: 2, title: "Fyll ut søknadsskjema", desc: "Hos oss fyller du ut ett skjema, og vi sender det til flere banker." },
-                  { step: 3, title: "Motta tilbud", desc: "Bankene konkurrerer om deg, og du får det beste tilbudet." },
+                  { step: 2, title: "Fyll ut søknadsskjema", desc: "Hos oss fyller du ut ett skjema, og vi sender det til vår samarbeidspartner." },
+                  { step: 3, title: "Motta tilbud", desc: "Du får et uforpliktende tilbud innen 24 timer." },
                   { step: 4, title: "Signer med BankID", desc: "Velg tilbudet du vil ha og signer digitalt." },
                   { step: 5, title: "Overlevering", desc: "Vi overfører pengene til selger, og du kan hente bilen." }
                 ].map((item) => (
@@ -369,7 +369,7 @@ export default function BillanGuidePage() {
                 Klar til å søke om billån?
               </h2>
               <p className="text-xl text-gray-600">
-                Søk hos flere banker med én søknad. Gratis, raskt og uforpliktende.
+                Få et uforpliktende tilbud innen 24 timer. Gratis, raskt og uforpliktende.
               </p>
             </div>
             <MultiStepForm />

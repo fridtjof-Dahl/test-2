@@ -14,7 +14,7 @@ export const metadata = {
 const faqItems = [
   {
     question: "Hvor raskt kan jeg få billån?",
-    answer: "De fleste banker gir svar innen 1-4 timer. Når du har akseptert et tilbud og signert avtalen, kan pengene være overlevert til selger samme dag eller neste virkedag."
+    answer: "Du får som regel svar på din søknad samme dag eller innen 24 timer. Når du har akseptert et tilbud og signert avtalen, kan pengene være overlevert til selger samme dag eller neste virkedag."
   },
   {
     question: "Hva trengs for å få svar samme dag?",
@@ -22,11 +22,11 @@ const faqItems = [
   },
   {
     question: "Kan jeg kjøpe bilen samme dag?",
-    answer: "Ja, hvis du søker tidlig og får raskt svar fra bankene, kan pengene være overlevert til selger samme dag, og du kan kjøre hjem med bilen."
+    answer: "Ja, hvis du søker tidlig og får raskt svar fra vår samarbeidspartner, kan pengene være overlevert til selger samme dag, og du kan kjøre hjem med bilen."
   },
   {
     question: "Hvorfor er dere så raske?",
-    answer: "Vi bruker digital søknadsprosess og bankene har automatiserte kredittvurderingssystemer. Dette gjør at hele prosessen går mye raskere enn tradisjonell lånesøknad."
+    answer: "Vi bruker digital søknadsprosess og vår samarbeidspartner har automatiserte kredittvurderingssystemer. Dette gjør at hele prosessen går mye raskere enn tradisjonell lånesøknad."
   },
   {
     question: "Koster det ekstra å få rask behandling?",
@@ -34,7 +34,7 @@ const faqItems = [
   },
   {
     question: "Hva hvis jeg søker sent på dagen?",
-    answer: "Bankene behandler søknader i åpningstiden. Hvis du søker sent, kan du få svar neste virkedag."
+    answer: "Vår samarbeidspartner behandler søknader i åpningstiden. Hvis du søker sent, kan du få svar neste virkedag."
   }
 ];
 
@@ -73,76 +73,6 @@ export default function PaDagenPage() {
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#004D61] mb-4">
-              Fra søknad til overlevering
-            </h2>
-            <p className="text-xl text-gray-600">
-              Se hvor raskt det går
-            </p>
-          </div>
-
-          <div className="space-y-8">
-            <div className="flex items-start">
-              <div className="flex-shrink-0 w-32 text-right pr-8">
-                <div className="text-2xl font-bold text-[#FF6B35]">0 min</div>
-              </div>
-              <div className="flex-shrink-0 w-4 h-4 bg-[#FF6B35] rounded-full mt-2"></div>
-              <div className="ml-8 flex-1">
-                <h3 className="text-xl font-bold text-[#004D61] mb-2">Du sender søknaden</h3>
-                <p className="text-gray-600">Fyll ut vårt enkle skjema med BankID</p>
-              </div>
-            </div>
-
-            <div className="flex items-start">
-              <div className="flex-shrink-0 w-32 text-right pr-8">
-                <div className="text-2xl font-bold text-[#FF6B35]">2 min</div>
-              </div>
-              <div className="flex-shrink-0 w-4 h-4 bg-[#FF6B35] rounded-full mt-2"></div>
-              <div className="ml-8 flex-1">
-                <h3 className="text-xl font-bold text-[#004D61] mb-2">Vi sender til bankene</h3>
-                <p className="text-gray-600">Søknaden din sendes automatisk til våre partnerbanker</p>
-              </div>
-            </div>
-
-            <div className="flex items-start">
-              <div className="flex-shrink-0 w-32 text-right pr-8">
-                <div className="text-2xl font-bold text-[#FF6B35]">1-4 timer</div>
-              </div>
-              <div className="flex-shrink-0 w-4 h-4 bg-[#FF6B35] rounded-full mt-2"></div>
-              <div className="ml-8 flex-1">
-                <h3 className="text-xl font-bold text-[#004D61] mb-2">Du mottar tilbud</h3>
-                <p className="text-gray-600">Bankene vurderer søknaden og sender deg tilbud innen 24 timer</p>
-              </div>
-            </div>
-
-            <div className="flex items-start">
-              <div className="flex-shrink-0 w-32 text-right pr-8">
-                <div className="text-2xl font-bold text-[#FF6B35]">5 min</div>
-              </div>
-              <div className="flex-shrink-0 w-4 h-4 bg-[#FF6B35] rounded-full mt-2"></div>
-              <div className="ml-8 flex-1">
-                <h3 className="text-xl font-bold text-[#004D61] mb-2">Du signerer med BankID</h3>
-                <p className="text-gray-600">Velg beste tilbud og signer avtalen digitalt</p>
-              </div>
-            </div>
-
-            <div className="flex items-start">
-              <div className="flex-shrink-0 w-32 text-right pr-8">
-                <div className="text-2xl font-bold text-[#10B981]">Innen 24 timer</div>
-              </div>
-              <div className="flex-shrink-0 w-4 h-4 bg-[#10B981] rounded-full mt-2"></div>
-              <div className="ml-8 flex-1">
-                <h3 className="text-xl font-bold text-[#004D61] mb-2">Pengene overleveres raskt</h3>
-                <p className="text-gray-600">Du kan kjøpe bilen innen kort tid etter godkjenning</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <HowItWorks />
       <DarkBenefits />

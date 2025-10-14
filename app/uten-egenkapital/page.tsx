@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 
 export const metadata = {
   title: 'Billån uten egenkapital: 100% finansiering | Enkel Finansiering',
-  description: 'Trenger du billån uten egenkapital? Vi hjelper deg med 100% finansiering. Søk hos flere banker og få raskt svar. Gratis og uforpliktende.',
+  description: 'Trenger du billån uten egenkapital? Vi hjelper deg med 100% finansiering. Få et uforpliktende tilbud innen 24 timer. Gratis og uforpliktende.',
 };
 
 const faqItems = [
@@ -22,19 +22,19 @@ const faqItems = [
   },
   {
     question: "Er renten høyere uten egenkapital?",
-    answer: "Ja, renten er ofte noe høyere når du låner 100% av kjøpesummen. Dette fordi banken tar større risiko. Men ved å sammenligne flere banker, kan du fortsatt få en konkurransedyktig rente."
+    answer: "Ja, renten er ofte noe høyere når du låner 100% av kjøpesummen. Dette fordi vår samarbeidspartner tar større risiko. Men du kan fortsatt få en konkurransedyktig rente."
   },
   {
     question: "Hvor mye kan jeg låne uten egenkapital?",
-    answer: "Det avhenger av din inntekt og betalingsevne. De fleste banker låner ut opptil 5-6 ganger brutto månedsinntekt, men dette varierer fra bank til bank."
+    answer: "Det avhenger av din inntekt og betalingsevne. Vår samarbeidspartner låner ut opptil 5-6 ganger brutto månedsinntekt, men dette vurderes individuelt."
   },
   {
     question: "Hvilke banker tilbyr billån uten egenkapital?",
-    answer: "De fleste banker i Norge tilbyr billån uten egenkapital. Vi sender søknaden din til flere banker samtidig, slik at du får oversikt over hvem som gir deg best tilbud."
+    answer: "Vår samarbeidspartner tilbyr billån uten egenkapital. Vi sender søknaden din til vår samarbeidspartner, som gir deg et tilpasset tilbud basert på din situasjon."
   },
   {
     question: "Må jeg ha kaskoforsikring ved 100% finansiering?",
-    answer: "Ja, de fleste banker krever kaskoforsikring når du låner 100% av bilens verdi. Dette er for å sikre bankens investering i tilfelle ulykke eller skade."
+    answer: "Ja, vår samarbeidspartner krever kaskoforsikring når du låner 100% av bilens verdi. Dette er for å sikre investeringen i tilfelle ulykke eller skade."
   }
 ];
 
@@ -54,7 +54,7 @@ export default function UtenEgenkapitalPage() {
           </h1>
           <p className="text-xl text-gray-700 mb-8 leading-relaxed">
             Drømmer du om ny bil, men mangler egenkapital? Vi hjelper deg med 100% finansiering. 
-            Søk hos flere banker med én søknad og få raskt svar.
+            Få et uforpliktende tilbud innen 24 timer.
           </p>
           <a 
             href="#lead-form" 

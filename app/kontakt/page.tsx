@@ -41,7 +41,7 @@ export default function ContactPage() {
                 </svg>
               </div>
               <div className="text-sm uppercase tracking-wide text-gray-500 mb-1">Telefon</div>
-              <a href="tel:+47XXXXXXXX" className="text-lg font-semibold text-[#004D61] hover:underline">+47 XXX XX XXX</a>
+              <a href="tel:+4796007981" className="text-lg font-semibold text-[#004D61] hover:underline">+47 960 07 981</a>
             </div>
 
             <div className="bg-white border border-gray-200 rounded-2xl p-6 text-center">

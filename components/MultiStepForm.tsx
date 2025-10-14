@@ -87,32 +87,54 @@ export default function MultiStepForm() {
             {/* Step 1: Item price and Loan Amount */}
             {step === 1 && (
               <div className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-[#004D61] mb-2">Gjenstandspris *</label>
-                    <input
-                      type="number"
-                      min={0}
-                      value={formData.itemPrice}
-                      onChange={(e) => setFormData({ ...formData, itemPrice: parseInt(e.target.value || '0') })}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#FF6B35] focus:outline-none transition-colors"
-                      placeholder="300 000"
-                      required
-                    />
+                <div>
+                  <label className="block text-lg font-semibold text-[#004D61] mb-4">
+                    Gjenstandspris
+                  </label>
+                  <div className="text-center mb-6">
+                    <div className="text-5xl font-bold text-[#FF6B35] mb-2">
+                      {formData.itemPrice.toLocaleString('nb-NO')} kr
+                    </div>
                   </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-[#004D61] mb-2">Lånebeløp *</label>
-                    <input
-                      type="number"
-                      min={0}
-                      value={formData.loanAmount}
-                      onChange={(e) => setFormData({ ...formData, loanAmount: parseInt(e.target.value || '0') })}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#FF6B35] focus:outline-none transition-colors"
-                      placeholder="250 000"
-                      required
-                    />
+                  <input
+                    type="range"
+                    min="50000"
+                    max="1000000"
+                    step="10000"
+                    value={formData.itemPrice}
+                    onChange={(e) => setFormData({ ...formData, itemPrice: parseInt(e.target.value) })}
+                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#FF6B35]"
+                  />
+                  <div className="flex justify-between text-sm text-gray-600 mt-2">
+                    <span>50 000 kr</span>
+                    <span>1 000 000 kr</span>
                   </div>
                 </div>
+
+                <div>
+                  <label className="block text-lg font-semibold text-[#004D61] mb-4">
+                    Lånebeløp
+                  </label>
+                  <div className="text-center mb-6">
+                    <div className="text-5xl font-bold text-[#FF6B35] mb-2">
+                      {formData.loanAmount.toLocaleString('nb-NO')} kr
+                    </div>
+                  </div>
+                  <input
+                    type="range"
+                    min="0"
+                    max={formData.itemPrice}
+                    step="10000"
+                    value={formData.loanAmount}
+                    onChange={(e) => setFormData({ ...formData, loanAmount: parseInt(e.target.value) })}
+                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#FF6B35]"
+                  />
+                  <div className="flex justify-between text-sm text-gray-600 mt-2">
+                    <span>0 kr</span>
+                    <span>{formData.itemPrice.toLocaleString('nb-NO')} kr</span>
+                  </div>
+                </div>
+
                 <div className="p-4 bg-blue-50 rounded-xl">
                   <p className="text-sm text-gray-700">
                     <strong>Egenkapital:</strong> {(Math.max(0, formData.itemPrice - formData.loanAmount)).toLocaleString('nb-NO')} kr
@@ -260,7 +282,7 @@ export default function MultiStepForm() {
                     className="mt-1 h-4 w-4 text-[#FF6B35] border-gray-300 rounded"
                   />
                   <label htmlFor="consent" className="text-sm text-gray-700">
-                    Jeg godkjenner at vår samarbeidspartner kan kontakte meg for lånesøknad.
+                    Jeg godkjenner å bli kontaktet i forbindelse med innsending av lånesøknad.
                   </label>
                 </div>
               </div>
