@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { generateSecurityHeaders } from '@/lib/security';
+import { initializePerformanceOptimizations } from '@/lib/performance-optimizations';
+import { initializeMonitoring } from '@/lib/monitoring';
 import "./globals.css";
 
 // Optimized font loading with preload
@@ -139,6 +142,45 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googleadservices.com" />
+        <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+        
+        {/* PWA Manifest */}
+        <link rel="manifest" href="/manifest.json" />
+        
+        {/* Service Worker Registration */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            if ('serviceWorker' in navigator) {
+              window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                  .then(registration => console.log('SW registered'))
+                  .catch(error => console.log('SW registration failed'));
+              });
+            }
+          `
+        }} />
+        
+        {/* Performance Optimizations */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              ${initializePerformanceOptimizations.toString()}
+              ${initializeMonitoring.toString()}
+              
+              // Initialize on DOM ready
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => {
+                  initializePerformanceOptimizations();
+                  initializeMonitoring();
+                });
+              } else {
+                initializePerformanceOptimizations();
+                initializeMonitoring();
+              }
+            })();
+          `
+        }} />
         
         {/* Critical CSS inline */}
         <style dangerouslySetInnerHTML={{
