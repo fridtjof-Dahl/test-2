@@ -91,4 +91,3 @@ Legg til Google Analytics og Google Ads conversion tracking.
 Utviklet av [Vision Media](https://visionmedia.no)
 
 © 2025 Enkel Finansiering
-"# Manus" 

@@ -8,7 +8,7 @@ export default function LoanCalculator() {
   const [years, setYears] = useState(5);
   
   // Simplified calculation with estimated interest rate
-  const interestRate = 0.065; // 6.5% annual interest
+  const interestRate = 0.074; // 7.4% annual interest (nominell rente)
   const monthlyRate = interestRate / 12;
   const months = years * 12;
   const principal = loanAmount - downPayment;

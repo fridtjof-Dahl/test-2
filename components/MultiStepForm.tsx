@@ -9,7 +9,9 @@ export default function MultiStepForm() {
     loanTerm: 5,
     name: '',
     email: '',
-    phone: ''
+    phone: '',
+    registrationNumber: '',
+    adUrl: ''
   });
 
   const totalSteps = 3;
@@ -167,6 +169,34 @@ export default function MultiStepForm() {
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#FF6B35] focus:outline-none transition-colors"
                     placeholder="123 45 678"
                   />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-[#004D61] mb-2">
+                    Registreringsnummer <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.registrationNumber}
+                    onChange={(e) => setFormData({ ...formData, registrationNumber: e.target.value.toUpperCase() })}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#FF6B35] focus:outline-none transition-colors"
+                    placeholder="AB12345"
+                    maxLength={7}
+                  />
+                  <p className="text-xs text-gray-500 mt-1">Registreringsnummer på bilen du ønsker lån til</p>
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-[#004D61] mb-2">
+                    Lenke til annonse <span className="text-gray-400">(valgfritt)</span>
+                  </label>
+                  <input
+                    type="url"
+                    value={formData.adUrl}
+                    onChange={(e) => setFormData({ ...formData, adUrl: e.target.value })}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#FF6B35] focus:outline-none transition-colors"
+                    placeholder="https://finn.no/..."
+                  />
+                  <p className="text-xs text-gray-500 mt-1">Hvis du har funnet bilen på Finn.no eller lignende</p>
                 </div>
               </div>
             )}
