@@ -1,59 +1,83 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback, useMemo } from 'react';
+import { useLoanCalculation } from './hooks/useLoanCalculation';
+import { useFormValidation } from './hooks/useFormValidation';
+import { FormData, WARRANTIES, WarrantyType } from './types/form';
+
+const INITIAL_FORM_DATA: FormData = {
+  itemPrice: 300000,
+  loanAmount: 250000,
+  loanTerm: 10,
+  name: '',
+  email: '',
+  phone: '',
+  registrationNumber: '',
+  kilometers: '',
+  warranty: 'none',
+  adUrl: '',
+  consent: false,
+};
 
 export default function MultiStepForm() {
   const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState({
-    itemPrice: 300000,
-    loanAmount: 250000,
-    loanTerm: 10,
-    name: '',
-    email: '',
-    phone: '',
-    registrationNumber: '',
-    kilometers: '',
-    warranty: 'none',
-    adUrl: '',
-    consent: false,
-  });
+  const [formData, setFormData] = useState<FormData>(INITIAL_FORM_DATA);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const totalSteps = 3;
   const progress = (step / totalSteps) * 100;
 
-  const handleNext = () => {
-    if (step < totalSteps) {
+  // Use optimized loan calculation
+  const calculation = useLoanCalculation({
+    loanAmount: formData.loanAmount,
+    downPayment: formData.itemPrice - formData.loanAmount,
+    loanTerm: formData.loanTerm,
+    interestRate: 0.092
+  });
+
+  // Form validation
+  const { errors, isValid } = useFormValidation(formData, step);
+
+  const handleNext = useCallback(() => {
+    if (step < totalSteps && isValid) {
       setStep(step + 1);
     }
-  };
+  }, [step, totalSteps, isValid]);
 
-  const handleBack = () => {
+  const handleBack = useCallback(() => {
     if (step > 1) {
       setStep(step - 1);
     }
-  };
+  }, [step]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    alert('Takk for søknaden! Vi kontakter deg snart.');
-  };
+    if (!isValid) return;
+    
+    setIsSubmitting(true);
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      alert('Takk for søknaden! Vi kontakter deg snart.');
+    } catch (error) {
+      alert('Noe gikk galt. Prøv igjen.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  }, [isValid]);
 
-  const interestRate = 0.092; // 9.2% nominell
-  const monthlyRate = interestRate / 12;
-  const months = Math.max(1, formData.loanTerm * 12);
-  const principal = Math.max(0, formData.loanAmount);
-  const monthlyPayment = principal > 0
-    ? (principal * monthlyRate * Math.pow(1 + monthlyRate, months)) /
-      (Math.pow(1 + monthlyRate, months) - 1)
-    : 0;
-
-  const warranties = {
-    none: { label: 'Ingen garanti', price: 0 },
-    y1: { label: '1 år', price: 11700 },
-    y2: { label: '2 år', price: 18720 },
-    y3: { label: '3 år', price: 24570 },
-  } as const;
+  const updateFormData = useCallback((updates: Partial<FormData>) => {
+    setFormData(prev => {
+      const newData = { ...prev, ...updates };
+      
+      // Auto-adjust loan amount if it exceeds item price
+      if (updates.itemPrice !== undefined && newData.loanAmount > newData.itemPrice) {
+        newData.loanAmount = newData.itemPrice;
+      }
+      
+      return newData;
+    });
+  }, []);
 
   return (
     <section id="lead-form" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
@@ -102,7 +126,7 @@ export default function MultiStepForm() {
                     max="1000000"
                     step="10000"
                     value={formData.itemPrice}
-                    onChange={(e) => setFormData({ ...formData, itemPrice: parseInt(e.target.value) })}
+                    onChange={(e) => updateFormData({ itemPrice: parseInt(e.target.value) })}
                     className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#FF6B35]"
                   />
                   <div className="flex justify-between text-sm text-gray-600 mt-2">
@@ -126,7 +150,7 @@ export default function MultiStepForm() {
                     max={formData.itemPrice}
                     step="10000"
                     value={formData.loanAmount}
-                    onChange={(e) => setFormData({ ...formData, loanAmount: parseInt(e.target.value) })}
+                    onChange={(e) => updateFormData({ loanAmount: parseInt(e.target.value) })}
                     className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#FF6B35]"
                   />
                   <div className="flex justify-between text-sm text-gray-600 mt-2">
@@ -154,7 +178,7 @@ export default function MultiStepForm() {
                     max={10}
                     step={1}
                     value={formData.loanTerm}
-                    onChange={(e) => setFormData({ ...formData, loanTerm: parseInt(e.target.value) })}
+                    onChange={(e) => updateFormData({ loanTerm: parseInt(e.target.value) })}
                     className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#FF6B35]"
                   />
                   <div className="flex justify-between text-sm text-gray-600 mt-2">
@@ -164,7 +188,7 @@ export default function MultiStepForm() {
                   </div>
                   <div className="mt-6 p-4 bg-blue-50 rounded-xl">
                     <p className="text-sm text-gray-700">
-                      <strong>Estimert månedskostnad:</strong> {Math.round(monthlyPayment).toLocaleString('nb-NO')} kr/mnd
+                      <strong>Estimert månedskostnad:</strong> {calculation.monthlyPayment.toLocaleString('nb-NO')} kr/mnd
                     </p>
                     <p className="text-xs text-gray-600 mt-1">Beregnet med 9,2% nominell rente</p>
                   </div>
@@ -183,10 +207,13 @@ export default function MultiStepForm() {
                     type="text"
                     required
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#FF6B35] focus:outline-none transition-colors"
+                    onChange={(e) => updateFormData({ name: e.target.value })}
+                    className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none transition-colors ${
+                      errors.name ? 'border-red-500' : 'border-gray-200 focus:border-[#FF6B35]'
+                    }`}
                     placeholder="Ola Nordmann"
                   />
+                  {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-[#004D61] mb-2">
@@ -196,10 +223,13 @@ export default function MultiStepForm() {
                     type="email"
                     required
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#FF6B35] focus:outline-none transition-colors"
+                    onChange={(e) => updateFormData({ email: e.target.value })}
+                    className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none transition-colors ${
+                      errors.email ? 'border-red-500' : 'border-gray-200 focus:border-[#FF6B35]'
+                    }`}
                     placeholder="ola@example.com"
                   />
+                  {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-[#004D61] mb-2">
@@ -209,10 +239,13 @@ export default function MultiStepForm() {
                     type="tel"
                     required
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#FF6B35] focus:outline-none transition-colors"
+                    onChange={(e) => updateFormData({ phone: e.target.value })}
+                    className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none transition-colors ${
+                      errors.phone ? 'border-red-500' : 'border-gray-200 focus:border-[#FF6B35]'
+                    }`}
                     placeholder="123 45 678"
                   />
+                  {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-[#004D61] mb-2">
@@ -222,12 +255,15 @@ export default function MultiStepForm() {
                     type="text"
                     required
                     value={formData.registrationNumber}
-                    onChange={(e) => setFormData({ ...formData, registrationNumber: e.target.value.toUpperCase() })}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#FF6B35] focus:outline-none transition-colors"
+                    onChange={(e) => updateFormData({ registrationNumber: e.target.value.toUpperCase() })}
+                    className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none transition-colors ${
+                      errors.registrationNumber ? 'border-red-500' : 'border-gray-200 focus:border-[#FF6B35]'
+                    }`}
                     placeholder="AB12345"
                     maxLength={7}
                   />
                   <p className="text-xs text-gray-500 mt-1">Registreringsnummer på bilen du ønsker lån til</p>
+                  {errors.registrationNumber && <p className="text-red-500 text-sm mt-1">{errors.registrationNumber}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-[#004D61] mb-2">Kilometerstand <span className="text-red-500">*</span></label>
@@ -236,10 +272,13 @@ export default function MultiStepForm() {
                     min={0}
                     required
                     value={formData.kilometers}
-                    onChange={(e) => setFormData({ ...formData, kilometers: e.target.value })}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#FF6B35] focus:outline-none transition-colors"
+                    onChange={(e) => updateFormData({ kilometers: e.target.value })}
+                    className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none transition-colors ${
+                      errors.kilometers ? 'border-red-500' : 'border-gray-200 focus:border-[#FF6B35]'
+                    }`}
                     placeholder="124 000"
                   />
+                  {errors.kilometers && <p className="text-red-500 text-sm mt-1">{errors.kilometers}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-[#004D61] mb-2">
@@ -248,7 +287,7 @@ export default function MultiStepForm() {
                   <input
                     type="url"
                     value={formData.adUrl}
-                    onChange={(e) => setFormData({ ...formData, adUrl: e.target.value })}
+                    onChange={(e) => updateFormData({ adUrl: e.target.value })}
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#FF6B35] focus:outline-none transition-colors"
                     placeholder="https://finn.no/..."
                   />
@@ -258,7 +297,7 @@ export default function MultiStepForm() {
                   <label className="block text-sm font-semibold text-[#004D61] mb-2">Bruktbilgaranti <span className="text-gray-400">(valgfritt)</span></label>
                   <select
                     value={formData.warranty}
-                    onChange={(e) => setFormData({ ...formData, warranty: e.target.value as any })}
+                    onChange={(e) => updateFormData({ warranty: e.target.value as WarrantyType })}
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#FF6B35] focus:outline-none transition-colors"
                   >
                     <option value="none">Ingen garanti (kr 0)</option>
@@ -267,8 +306,8 @@ export default function MultiStepForm() {
                     <option value="y3">3 år (kr 24 570)</option>
                   </select>
                   <div className="mt-2 text-sm text-gray-700">
-                    <p><strong>Totalpris for garanti:</strong> {warranties[formData.warranty as keyof typeof warranties].price.toLocaleString('nb-NO')} kr</p>
-                    <p><strong>Månedspris inkludert i lån:</strong> {Math.round((warranties[formData.warranty as keyof typeof warranties].price * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months)) || 0).toLocaleString('nb-NO')} kr/mnd</p>
+                    <p><strong>Totalpris for garanti:</strong> {WARRANTIES[formData.warranty].price.toLocaleString('nb-NO')} kr</p>
+                    <p><strong>Månedspris inkludert i lån:</strong> {Math.round((WARRANTIES[formData.warranty].price * calculation.effectiveRate / 12) / (1 - Math.pow(1 + calculation.effectiveRate / 12, -formData.loanTerm * 12)) || 0).toLocaleString('nb-NO')} kr/mnd</p>
                     <a href="https://fragus.com/media/bg2hjdc3/gosafe-premium-no-2502.pdf" target="_blank" rel="noopener noreferrer" className="text-[#004D61] underline text-xs">Vilkår for bruktbilgaranti</a>
                   </div>
                 </div>
@@ -278,12 +317,13 @@ export default function MultiStepForm() {
                     type="checkbox"
                     required
                     checked={formData.consent}
-                    onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
+                    onChange={(e) => updateFormData({ consent: e.target.checked })}
                     className="mt-1 h-4 w-4 text-[#FF6B35] border-gray-300 rounded"
                   />
                   <label htmlFor="consent" className="text-sm text-gray-700">
                     Jeg godkjenner å bli kontaktet i forbindelse med innsending av lånesøknad.
                   </label>
+                  {errors.consent && <p className="text-red-500 text-sm mt-1">{errors.consent}</p>}
                 </div>
               </div>
             )}
@@ -303,16 +343,26 @@ export default function MultiStepForm() {
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="flex-1 py-4 px-6 bg-[#FF6B35] hover:bg-[#E55A24] text-white font-semibold rounded-xl transition-all transform hover:scale-105 shadow-lg"
+                  disabled={!isValid}
+                  className={`flex-1 py-4 px-6 font-semibold rounded-xl transition-all transform hover:scale-105 shadow-lg ${
+                    isValid 
+                      ? 'bg-[#FF6B35] hover:bg-[#E55A24] text-white' 
+                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  }`}
                 >
                   Neste steg →
                 </button>
               ) : (
                 <button
                   type="submit"
-                  className="flex-1 py-4 px-6 bg-[#10B981] hover:bg-[#059669] text-white font-semibold rounded-xl transition-all transform hover:scale-105 shadow-lg"
+                  disabled={!isValid || isSubmitting}
+                  className={`flex-1 py-4 px-6 font-semibold rounded-xl transition-all transform hover:scale-105 shadow-lg ${
+                    isValid && !isSubmitting
+                      ? 'bg-[#10B981] hover:bg-[#059669] text-white' 
+                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  }`}
                 >
-                  Send søknad →
+                  {isSubmitting ? 'Sender...' : 'Send søknad →'}
                 </button>
               )}
             </div>

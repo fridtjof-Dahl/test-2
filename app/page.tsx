@@ -1,12 +1,37 @@
+import dynamic from 'next/dynamic';
 import Header from '@/components/Header';
 import ImprovedHero from '@/components/ImprovedHero';
-import LoanCalculator from '@/components/LoanCalculator';
-import HowItWorks from '@/components/HowItWorks';
-import DarkBenefits from '@/components/DarkBenefits';
-import MultiStepForm from '@/components/MultiStepForm';
-import TrustSignals from '@/components/TrustSignals';
-import FAQ from '@/components/FAQ';
-import Footer from '@/components/Footer';
+import ErrorBoundary from '@/components/ErrorBoundary';
+import LazyWrapper from '@/components/LazyWrapper';
+
+// Lazy load non-critical components
+const LoanCalculator = dynamic(() => import('@/components/LoanCalculator'), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-2xl" />,
+});
+
+const HowItWorks = dynamic(() => import('@/components/HowItWorks'), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-2xl" />,
+});
+
+const DarkBenefits = dynamic(() => import('@/components/DarkBenefits'), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-2xl" />,
+});
+
+const MultiStepForm = dynamic(() => import('@/components/MultiStepForm'), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-2xl" />,
+});
+
+const TrustSignals = dynamic(() => import('@/components/TrustSignals'), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-2xl" />,
+});
+
+const FAQ = dynamic(() => import('@/components/FAQ'), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-2xl" />,
+});
+
+const Footer = dynamic(() => import('@/components/Footer'), {
+  loading: () => <div className="h-32 bg-gray-50 animate-pulse" />,
+});
 
 export const metadata = {
   title: 'Billån på dagen: Uforpliktende tilbud innen 24 timer | Enkel Finansiering',
@@ -109,29 +134,55 @@ const websiteStructuredData = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
-      <Header />
-      <ImprovedHero />
-      <LoanCalculator />
-      <HowItWorks />
-      <DarkBenefits />
-      <MultiStepForm />
-      <TrustSignals />
-      <FAQ items={faqItems} title="Ofte stilte spørsmål om billån" />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteStructuredData) }}
-      />
-      <Footer />
-    </main>
+    <ErrorBoundary>
+      <main className="min-h-screen bg-white">
+        <Header />
+        <ImprovedHero />
+        
+        {/* Critical above-the-fold content loads immediately */}
+        <LazyWrapper fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-2xl" />}>
+          <LoanCalculator />
+        </LazyWrapper>
+        
+        <LazyWrapper fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-2xl" />}>
+          <HowItWorks />
+        </LazyWrapper>
+        
+        <LazyWrapper fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-2xl" />}>
+          <DarkBenefits />
+        </LazyWrapper>
+        
+        <LazyWrapper fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-2xl" />}>
+          <MultiStepForm />
+        </LazyWrapper>
+        
+        <LazyWrapper fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-2xl" />}>
+          <TrustSignals />
+        </LazyWrapper>
+        
+        <LazyWrapper fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-2xl" />}>
+          <FAQ items={faqItems} title="Ofte stilte spørsmål om billån" />
+        </LazyWrapper>
+        
+        {/* Structured data scripts */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteStructuredData) }}
+        />
+        
+        <LazyWrapper fallback={<div className="h-32 bg-gray-50 animate-pulse" />}>
+          <Footer />
+        </LazyWrapper>
+      </main>
+    </ErrorBoundary>
   );
 }
 

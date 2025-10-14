@@ -1,22 +1,31 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback, memo } from 'react';
+import { useLoanCalculation } from './hooks/useLoanCalculation';
 
-export default function LoanCalculator() {
+const LoanCalculator = memo(function LoanCalculator() {
   const [loanAmount, setLoanAmount] = useState(300000);
   const [downPayment, setDownPayment] = useState(50000);
   const [years, setYears] = useState(5);
   
-  // Simplified calculation with estimated interest rate
-  const interestRate = 0.092; // 9.2% annual interest (nominell rente)
-  const monthlyRate = interestRate / 12;
-  const months = years * 12;
-  const principal = loanAmount - downPayment;
-  
-  const monthlyPayment = principal > 0 
-    ? (principal * monthlyRate * Math.pow(1 + monthlyRate, months)) / 
-      (Math.pow(1 + monthlyRate, months) - 1)
-    : 0;
+  const calculation = useLoanCalculation({
+    loanAmount,
+    downPayment,
+    loanTerm: years,
+    interestRate: 0.092
+  });
+
+  const handleLoanAmountChange = useCallback((value: number) => {
+    setLoanAmount(value);
+    // Auto-adjust down payment if it exceeds loan amount
+    if (downPayment > value) {
+      setDownPayment(Math.max(0, value - 10000));
+    }
+  }, [downPayment]);
+
+  const handleDownPaymentChange = useCallback((value: number) => {
+    setDownPayment(Math.min(value, loanAmount));
+  }, [loanAmount]);
 
   return (
     <section id="calculator" className="py-16 bg-gray-50">
@@ -44,7 +53,7 @@ export default function LoanCalculator() {
                 max="1000000"
                 step="10000"
                 value={loanAmount}
-                onChange={(e) => setLoanAmount(Number(e.target.value))}
+                onChange={(e) => handleLoanAmountChange(Number(e.target.value))}
                 className="w-full h-2 bg-blue-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
               />
               <div className="flex justify-between text-xs text-gray-500 mt-1">
@@ -65,7 +74,7 @@ export default function LoanCalculator() {
                 max={loanAmount}
                 step="10000"
                 value={downPayment}
-                onChange={(e) => setDownPayment(Number(e.target.value))}
+                onChange={(e) => handleDownPaymentChange(Number(e.target.value))}
                 className="w-full h-2 bg-blue-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
               />
               <div className="flex justify-between text-xs text-gray-500 mt-1">
@@ -101,10 +110,10 @@ export default function LoanCalculator() {
             <div className="text-center">
               <p className="text-sm text-gray-600 mb-2">Estimert månedskostnad</p>
               <p className="text-4xl font-bold text-blue-600">
-                {Math.round(monthlyPayment).toLocaleString('nb-NO')} kr
+                {calculation.monthlyPayment.toLocaleString('nb-NO')} kr
               </p>
               <p className="text-xs text-gray-500 mt-3">
-                Lånebeløp: {(loanAmount - downPayment).toLocaleString('nb-NO')} kr | Rente: {(interestRate * 100).toFixed(1)}% | Total: {(monthlyPayment * months).toLocaleString('nb-NO')} kr
+                Lånebeløp: {(loanAmount - downPayment).toLocaleString('nb-NO')} kr | Rente: {(calculation.effectiveRate * 100).toFixed(1)}% | Total: {calculation.totalPayment.toLocaleString('nb-NO')} kr
               </p>
               <p className="text-xs text-gray-500 mt-1">Beregnet med 9,2% nominell rente</p>
             </div>
@@ -119,5 +128,7 @@ export default function LoanCalculator() {
       </div>
     </section>
   );
-}
+});
+
+export default LoanCalculator;
 
