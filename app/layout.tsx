@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import { GoogleAnalytics } from '@next/third-parties/google';
 import "./globals.css";
 
 // Optimized font loading with preload
@@ -182,6 +183,7 @@ export default function RootLayout({
             }
           `
         }} />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-MZZN40H83P'} />
       </body>
     </html>
   );

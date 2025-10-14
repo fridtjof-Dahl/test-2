@@ -9,25 +9,27 @@
     "analyze": "ANALYZE=true npm run build",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
-    "perf": "lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html"
+    "perf": "lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html",
+    "ga:setup": "echo 'Opprett .env.local fil med NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX'"
   },
   "dependencies": {
+    "@next/third-parties": "^15.5.5",
+    "next": "15.5.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.5",
     "web-vitals": "^3.5.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
-    "webpack-bundle-analyzer": "^4.10.1",
-    "lighthouse": "^11.7.0",
     "eslint": "^8",
-    "eslint-config-next": "15.5.5"
+    "eslint-config-next": "15.5.5",
+    "lighthouse": "^11.7.0",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "webpack-bundle-analyzer": "^4.10.1"
   },
   "engines": {
     "node": ">=20.0.0",

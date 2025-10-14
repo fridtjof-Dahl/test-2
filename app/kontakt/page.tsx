@@ -1,12 +1,54 @@
+'use client';
+
+import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
-export const metadata = {
-  title: 'Kontakt oss | Enkel Finansiering',
-  description: 'Har du spørsmål? Kontakt oss på e-post eller telefon. Vi svarer vanligvis innen 24 timer.',
-};
+interface ContactFormData {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+}
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState<ContactFormData>({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert(`Takk for meldingen! ${result.message}`);
+        // Reset form
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        alert(`Feil: ${result.error}`);
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Noe gikk galt. Prøv igjen.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <main className="min-h-screen bg-white">
       <Header />
@@ -60,26 +102,59 @@ export default function ContactPage() {
       {/* Contact form (frontend only) */}
       <section className="py-12 bg-gray-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <form className="bg-white border border-gray-200 rounded-2xl p-6 space-y-4">
+          <form onSubmit={handleSubmit} className="bg-white border border-gray-200 rounded-2xl p-6 space-y-4">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Navn</label>
-              <input id="name" name="name" required className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#004D61]" />
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Navn <span className="text-red-500">*</span></label>
+              <input 
+                id="name" 
+                name="name" 
+                required 
+                value={formData.name}
+                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#004D61]" 
+              />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">E-post</label>
-              <input id="email" name="email" type="email" required className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#004D61]" />
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">E-post <span className="text-red-500">*</span></label>
+              <input 
+                id="email" 
+                name="email" 
+                type="email" 
+                required 
+                value={formData.email}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#004D61]" 
+              />
             </div>
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Telefon (valgfritt)</label>
-              <input id="phone" name="phone" className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#004D61]" />
+              <input 
+                id="phone" 
+                name="phone" 
+                value={formData.phone}
+                onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#004D61]" 
+              />
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Melding</label>
-              <textarea id="message" name="message" required rows={5} className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#004D61]"></textarea>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Melding <span className="text-red-500">*</span></label>
+              <textarea 
+                id="message" 
+                name="message" 
+                required 
+                rows={5} 
+                value={formData.message}
+                onChange={(e) => setFormData({...formData, message: e.target.value})}
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#004D61]"
+              />
             </div>
             <div className="pt-2">
-              <button type="submit" className="inline-flex items-center justify-center bg-[#FF6B35] hover:bg-[#E55A24] text-white font-semibold px-6 py-3 rounded-full transition">
-                Send melding
+              <button 
+                type="submit" 
+                disabled={isSubmitting}
+                className="inline-flex items-center justify-center bg-[#FF6B35] hover:bg-[#E55A24] disabled:bg-gray-400 text-white font-semibold px-6 py-3 rounded-full transition"
+              >
+                {isSubmitting ? 'Sender...' : 'Send melding'}
               </button>
             </div>
           </form>

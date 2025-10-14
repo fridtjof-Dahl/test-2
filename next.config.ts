@@ -6,6 +6,11 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['@heroicons/react', 'lucide-react'],
   },
   
+  // Google Analytics
+  ...(process.env.NEXT_PUBLIC_GA_ID && {
+    analyticsId: process.env.NEXT_PUBLIC_GA_ID,
+  }),
+  
   // Turbopack configuration
   turbopack: {
     rules: {

@@ -56,15 +56,31 @@ export default function MultiStepForm() {
     
     setIsSubmitting(true);
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      alert('Takk for søknaden! Vi kontakter deg snart.');
+      const response = await fetch('/api/loan-application', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert(`Takk for søknaden! ${result.message}`);
+        // Reset form
+        setFormData(INITIAL_FORM_DATA);
+        setStep(1);
+      } else {
+        alert(`Feil: ${result.error}`);
+      }
     } catch (error) {
+      console.error('Submission error:', error);
       alert('Noe gikk galt. Prøv igjen.');
     } finally {
       setIsSubmitting(false);
     }
-  }, [isValid]);
+  }, [isValid, formData]);
 
   const updateFormData = useCallback((updates: Partial<FormData>) => {
     setFormData(prev => {
