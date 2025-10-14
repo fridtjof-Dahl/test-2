@@ -15,7 +15,7 @@ export default function HowItWorks() {
     {
       number: '2',
       title: 'Motta tilbud',
-      description: 'Vi sender søknaden din til våre partnerbanker. Du mottar de beste tilbudene og kan enkelt sammenligne renter og vilkår.',
+      description: 'Vi sender søknaden din til vår samarbeidspartner. Du mottar et tilbud innen kort tid.',
       icon: (
         <svg className="w-16 h-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="64" height="64" rx="12" fill="#FFF4E6"/>
@@ -28,7 +28,7 @@ export default function HowItWorks() {
     {
       number: '3',
       title: 'Velg lån og kjøp bil',
-      description: 'Velg det billånet som passer deg best og signer avtalen digitalt med BankID. Pengene er raskt på vei!',
+      description: 'Velg det billånet som passer deg best og signer avtalen digitalt med BankID. Vår partner hjelper deg med hele kjøpet.',
       icon: (
         <svg className="w-16 h-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="64" height="64" rx="12" fill="#E8F8F0"/>

@@ -169,7 +169,17 @@ export default function KalkulatorPage() {
 
       {/* FAQ */}
       <FAQ items={faqItems} title="Ofte stilte spørsmål om billånskalkulator" />
-
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Hjem", "item": "https://enkelfinansiering.no/" },
+            { "@type": "ListItem", "position": 2, "name": "Kalkulator", "item": "https://enkelfinansiering.no/kalkulator" }
+          ]
+        }) }}
+      />
       <Footer />
     </main>
   );

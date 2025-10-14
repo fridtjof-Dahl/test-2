@@ -8,7 +8,7 @@ export default function LoanCalculator() {
   const [years, setYears] = useState(5);
   
   // Simplified calculation with estimated interest rate
-  const interestRate = 0.074; // 7.4% annual interest (nominell rente)
+  const interestRate = 0.092; // 9.2% annual interest (nominell rente)
   const monthlyRate = interestRate / 12;
   const months = years * 12;
   const principal = loanAmount - downPayment;
@@ -106,15 +106,13 @@ export default function LoanCalculator() {
               <p className="text-xs text-gray-500 mt-3">
                 Lånebeløp: {(loanAmount - downPayment).toLocaleString('nb-NO')} kr | Rente: {(interestRate * 100).toFixed(1)}% | Total: {(monthlyPayment * months).toLocaleString('nb-NO')} kr
               </p>
+              <p className="text-xs text-gray-500 mt-1">Beregnet med 9,2% nominell rente</p>
             </div>
           </div>
 
-          <div className="mt-6 text-center">
-            <a 
-              href="#lead-form" 
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-full transition-all"
-            >
-              Søk nå og få nøyaktig tilbud
+          <div className="mt-4 text-center">
+            <a href="/kalkulator" className="text-[#004D61] hover:underline text-sm font-medium">
+              Prøv kalkulatoren
             </a>
           </div>
         </div>

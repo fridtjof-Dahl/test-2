@@ -1,8 +1,8 @@
 export default function DarkBenefits() {
   const benefits = [
     {
-      title: 'Få bud fra hele Norge',
-      description: 'Vi sender søknaden din til flere banker samtidig, slik at de konkurrerer om å gi deg det beste tilbudet.',
+      title: 'Tilbud innen 24 timer',
+      description: 'Få et uforpliktende tilbud innen 24 timer fra vår samarbeidspartner – enkelt og forutsigbart.',
       icon: (
         <svg className="w-12 h-12" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="32" cy="32" r="28" fill="#10B981" opacity="0.2"/>
@@ -14,7 +14,7 @@ export default function DarkBenefits() {
     },
     {
       title: 'Du har 100% kontroll',
-      description: 'Du bestemmer selv om du vil akseptere tilbudet. Ingen forpliktelser før du har signert avtalen med BankID.',
+      description: 'Du bestemmer selv om du vil akseptere tilbudet. Ingen forpliktelser før du har signert kjøpsavtale og lånedokumenter med BankID.',
       icon: (
         <svg className="w-12 h-12" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="32" cy="32" r="28" fill="#10B981" opacity="0.2"/>
@@ -23,21 +23,10 @@ export default function DarkBenefits() {
         </svg>
       )
     },
+    // Removed previous point 3 entirely
     {
-      title: 'Maksimal eksponering',
-      description: 'Vi sørger for at søknaden din når ut til både store og små banker, slik at du får det bredeste utvalget av tilbud.',
-      icon: (
-        <svg className="w-12 h-12" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="32" r="28" fill="#10B981" opacity="0.2"/>
-          <circle cx="32" cy="32" r="4" fill="#10B981"/>
-          <circle cx="32" cy="32" r="12" stroke="#10B981" strokeWidth="2" opacity="0.6"/>
-          <circle cx="32" cy="32" r="20" stroke="#10B981" strokeWidth="2" opacity="0.3"/>
-        </svg>
-      )
-    },
-    {
-      title: 'Du bestemmer minstepris',
-      description: 'Sett din egen minstepris og vi jobber for å finne et tilbud som matcher dine forventninger og behov.',
+      title: 'Du bestemmer lånegrad',
+      description: 'Velg selv om du vil kjøpe med egenkapital eller ikke. Søknader kan sendes inn med kr 0 i egenkapital, og behandling avgjør om det trengs egenandel.',
       icon: (
         <svg className="w-12 h-12" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="32" cy="32" r="28" fill="#10B981" opacity="0.2"/>
@@ -50,21 +39,21 @@ export default function DarkBenefits() {
   ];
 
   return (
-    <section className="py-24 bg-[#003847]">
+    <section className="py-24 bg-gradient-to-b from-[#003847] via-[#013242] to-[#002533]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Derfor velger tusenvis Enkel Finansiering
+            Derfor velger kunder oss
           </h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Vi har hjulpet over 10 000 nordmenn med å finne det beste billånet. Her er hvorfor de valgte oss.
+            Vi hjelper kunder å realisere sin drømmebil – raskt og enkelt.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 justify-items-center items-stretch">
           {benefits.map((benefit, index) => (
-            <div key={index} className="text-center">
-              <div className="flex justify-center mb-6">
+            <div key={index} className="text-center w-full max-w-sm h-full flex flex-col rounded-2xl border border-white/10 p-6 md:p-8 transition-all hover:shadow-xl hover:-translate-y-1 hover:border-white/20">
+              <div className="flex justify-center mb-5 md:mb-6">
                 {benefit.icon}
               </div>
               <div className="flex items-center justify-center mb-3">
@@ -75,7 +64,7 @@ export default function DarkBenefits() {
                   {benefit.title}
                 </h3>
               </div>
-              <p className="text-blue-100 leading-relaxed">
+              <p className="text-blue-100 leading-relaxed mt-1 md:mt-2">
                 {benefit.description}
               </p>
             </div>

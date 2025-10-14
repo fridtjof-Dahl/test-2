@@ -8,12 +8,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Billån: Søk hos flere banker og få beste rente | Enkel Finansiering",
-  description: "Trenger du billån? Hos Enkel Finansiering kan du søke hos flere banker med én gratis søknad. Få raskt svar, lav rente og personlig hjelp. Søk i dag!",
-  keywords: "billån, bilfinansiering, lån til bil, billånskalkulator, grønt billån, billån uten egenkapital",
+  title: "Billån på dagen: Uforpliktende tilbud innen 24 timer | Enkel Finansiering",
+  description: "Få et uforpliktende tilbud på billån innen 24 timer fra vår samarbeidspartner. Rask behandling og personlig oppfølging.",
+  keywords: "billån, bilfinansiering, lån til bil, billånskalkulator, billån på dagen, uforpliktende tilbud",
   openGraph: {
-    title: "Enkel Finansiering - Norges enkleste vei til billån",
-    description: "Søk hos flere banker med én søknad. Få beste rente og personlig hjelp.",
+    title: "Enkel Finansiering - Billån på dagen",
+    description: "Få et uforpliktende tilbud innen 24 timer. Rask behandling og personlig oppfølging.",
     type: "website",
   },
 };

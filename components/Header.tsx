@@ -15,14 +15,11 @@ export default function Header() {
             <Link href="/kalkulator" className="text-gray-700 hover:text-[#FF6B35] transition font-medium">
               Kalkulator
             </Link>
-            <Link href="/uten-egenkapital" className="text-gray-700 hover:text-[#FF6B35] transition font-medium">
-              Uten egenkapital
-            </Link>
             <Link href="/pa-dagen" className="text-gray-700 hover:text-[#FF6B35] transition font-medium">
               Billån på dagen
             </Link>
-            <Link href="/billan" className="text-gray-700 hover:text-[#FF6B35] transition font-medium">
-              Billån Guide
+            <Link href="/kontakt" className="text-gray-700 hover:text-[#FF6B35] transition font-medium">
+              Kontakt
             </Link>
           </nav>
           <a 

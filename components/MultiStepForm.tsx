@@ -5,13 +5,17 @@ import { useState } from 'react';
 export default function MultiStepForm() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
+    itemPrice: 300000,
     loanAmount: 250000,
-    loanTerm: 5,
+    loanTerm: 10,
     name: '',
     email: '',
     phone: '',
     registrationNumber: '',
-    adUrl: ''
+    kilometers: '',
+    warranty: 'none',
+    adUrl: '',
+    consent: false,
   });
 
   const totalSteps = 3;
@@ -34,6 +38,22 @@ export default function MultiStepForm() {
     // Handle form submission
     alert('Takk for søknaden! Vi kontakter deg snart.');
   };
+
+  const interestRate = 0.092; // 9.2% nominell
+  const monthlyRate = interestRate / 12;
+  const months = Math.max(1, formData.loanTerm * 12);
+  const principal = Math.max(0, formData.loanAmount);
+  const monthlyPayment = principal > 0
+    ? (principal * monthlyRate * Math.pow(1 + monthlyRate, months)) /
+      (Math.pow(1 + monthlyRate, months) - 1)
+    : 0;
+
+  const warranties = {
+    none: { label: 'Ingen garanti', price: 0 },
+    y1: { label: '1 år', price: 11700 },
+    y2: { label: '2 år', price: 18720 },
+    y3: { label: '3 år', price: 24570 },
+  } as const;
 
   return (
     <section id="lead-form" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
@@ -64,76 +84,78 @@ export default function MultiStepForm() {
           </div>
 
           <form onSubmit={handleSubmit}>
-            {/* Step 1: Loan Amount */}
+            {/* Step 1: Item price and Loan Amount */}
             {step === 1 && (
               <div className="space-y-6">
-                <div>
-                  <label className="block text-lg font-semibold text-[#004D61] mb-4">
-                    Hvor mye vil du låne?
-                  </label>
-                  <div className="text-center mb-6">
-                    <div className="text-5xl font-bold text-[#FF6B35] mb-2">
-                      {formData.loanAmount.toLocaleString('nb-NO')} kr
-                    </div>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-semibold text-[#004D61] mb-2">Gjenstandspris *</label>
+                    <input
+                      type="number"
+                      min={0}
+                      value={formData.itemPrice}
+                      onChange={(e) => setFormData({ ...formData, itemPrice: parseInt(e.target.value || '0') })}
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#FF6B35] focus:outline-none transition-colors"
+                      placeholder="300 000"
+                      required
+                    />
                   </div>
-                  <input
-                    type="range"
-                    min="50000"
-                    max="1000000"
-                    step="10000"
-                    value={formData.loanAmount}
-                    onChange={(e) => setFormData({ ...formData, loanAmount: parseInt(e.target.value) })}
-                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#FF6B35]"
-                  />
-                  <div className="flex justify-between text-sm text-gray-600 mt-2">
-                    <span>50 000 kr</span>
-                    <span>1 000 000 kr</span>
+                  <div>
+                    <label className="block text-sm font-semibold text-[#004D61] mb-2">Lånebeløp *</label>
+                    <input
+                      type="number"
+                      min={0}
+                      value={formData.loanAmount}
+                      onChange={(e) => setFormData({ ...formData, loanAmount: parseInt(e.target.value || '0') })}
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#FF6B35] focus:outline-none transition-colors"
+                      placeholder="250 000"
+                      required
+                    />
                   </div>
+                </div>
+                <div className="p-4 bg-blue-50 rounded-xl">
+                  <p className="text-sm text-gray-700">
+                    <strong>Egenkapital:</strong> {(Math.max(0, formData.itemPrice - formData.loanAmount)).toLocaleString('nb-NO')} kr
+                  </p>
                 </div>
               </div>
             )}
 
-            {/* Step 2: Loan Term */}
+            {/* Step 2: Loan Term slider */}
             {step === 2 && (
               <div className="space-y-6">
                 <div>
-                  <label className="block text-lg font-semibold text-[#004D61] mb-4">
-                    Hvor lang nedbetalingstid ønsker du?
-                  </label>
-                  <div className="grid grid-cols-3 gap-4">
-                    {[1, 2, 3, 4, 5, 6, 7].map((years) => (
-                      <button
-                        key={years}
-                        type="button"
-                        onClick={() => setFormData({ ...formData, loanTerm: years })}
-                        className={`py-4 px-6 rounded-xl font-semibold transition-all ${
-                          formData.loanTerm === years
-                            ? 'bg-[#FF6B35] text-white shadow-lg scale-105'
-                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                        }`}
-                      >
-                        {years} år
-                      </button>
-                    ))}
+                  <label className="block text-lg font-semibold text-[#004D61] mb-4">Nedbetalingstid</label>
+                  <input
+                    type="range"
+                    min={0}
+                    max={10}
+                    step={1}
+                    value={formData.loanTerm}
+                    onChange={(e) => setFormData({ ...formData, loanTerm: parseInt(e.target.value) })}
+                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#FF6B35]"
+                  />
+                  <div className="flex justify-between text-sm text-gray-600 mt-2">
+                    <span>0 år</span>
+                    <span>{formData.loanTerm} år</span>
+                    <span>10 år</span>
                   </div>
                   <div className="mt-6 p-4 bg-blue-50 rounded-xl">
                     <p className="text-sm text-gray-700">
-                      <strong>Estimert månedskostnad:</strong> {Math.round((formData.loanAmount * 1.074) / (formData.loanTerm * 12)).toLocaleString('nb-NO')} kr/mnd
+                      <strong>Estimert månedskostnad:</strong> {Math.round(monthlyPayment).toLocaleString('nb-NO')} kr/mnd
                     </p>
-                    <p className="text-xs text-gray-600 mt-1">
-                      *Beregnet med 7.4% rente. Faktisk rente settes av banken.
-                    </p>
+                    <p className="text-xs text-gray-600 mt-1">Beregnet med 9,2% nominell rente</p>
                   </div>
                 </div>
               </div>
             )}
 
-            {/* Step 3: Contact Info */}
+            {/* Step 3: Contact Info and vehicle details */}
             {step === 3 && (
               <div className="space-y-6">
                 <div>
                   <label className="block text-sm font-semibold text-[#004D61] mb-2">
-                    Fullt navn
+                    Fullt navn <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -146,7 +168,7 @@ export default function MultiStepForm() {
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-[#004D61] mb-2">
-                    E-postadresse
+                    E-postadresse <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="email"
@@ -159,7 +181,7 @@ export default function MultiStepForm() {
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-[#004D61] mb-2">
-                    Telefonnummer
+                    Telefonnummer <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="tel"
@@ -186,6 +208,18 @@ export default function MultiStepForm() {
                   <p className="text-xs text-gray-500 mt-1">Registreringsnummer på bilen du ønsker lån til</p>
                 </div>
                 <div>
+                  <label className="block text-sm font-semibold text-[#004D61] mb-2">Kilometerstand <span className="text-red-500">*</span></label>
+                  <input
+                    type="number"
+                    min={0}
+                    required
+                    value={formData.kilometers}
+                    onChange={(e) => setFormData({ ...formData, kilometers: e.target.value })}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#FF6B35] focus:outline-none transition-colors"
+                    placeholder="124 000"
+                  />
+                </div>
+                <div>
                   <label className="block text-sm font-semibold text-[#004D61] mb-2">
                     Lenke til annonse <span className="text-gray-400">(valgfritt)</span>
                   </label>
@@ -197,6 +231,37 @@ export default function MultiStepForm() {
                     placeholder="https://finn.no/..."
                   />
                   <p className="text-xs text-gray-500 mt-1">Hvis du har funnet bilen på Finn.no eller lignende</p>
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-[#004D61] mb-2">Bruktbilgaranti <span className="text-gray-400">(valgfritt)</span></label>
+                  <select
+                    value={formData.warranty}
+                    onChange={(e) => setFormData({ ...formData, warranty: e.target.value as any })}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#FF6B35] focus:outline-none transition-colors"
+                  >
+                    <option value="none">Ingen garanti (kr 0)</option>
+                    <option value="y1">1 år (kr 11 700)</option>
+                    <option value="y2">2 år (kr 18 720)</option>
+                    <option value="y3">3 år (kr 24 570)</option>
+                  </select>
+                  <div className="mt-2 text-sm text-gray-700">
+                    <p><strong>Totalpris for garanti:</strong> {warranties[formData.warranty as keyof typeof warranties].price.toLocaleString('nb-NO')} kr</p>
+                    <p><strong>Månedspris inkludert i lån:</strong> {Math.round((warranties[formData.warranty as keyof typeof warranties].price * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months)) || 0).toLocaleString('nb-NO')} kr/mnd</p>
+                    <a href="https://fragus.com/media/bg2hjdc3/gosafe-premium-no-2502.pdf" target="_blank" rel="noopener noreferrer" className="text-[#004D61] underline text-xs">Vilkår for bruktbilgaranti</a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <input
+                    id="consent"
+                    type="checkbox"
+                    required
+                    checked={formData.consent}
+                    onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
+                    className="mt-1 h-4 w-4 text-[#FF6B35] border-gray-300 rounded"
+                  />
+                  <label htmlFor="consent" className="text-sm text-gray-700">
+                    Jeg godkjenner at vår samarbeidspartner kan kontakte meg for lånesøknad.
+                  </label>
                 </div>
               </div>
             )}
@@ -232,9 +297,7 @@ export default function MultiStepForm() {
 
             {/* Micro-copy */}
             <div className="mt-6 text-center">
-              <p className="text-sm text-gray-600">
-                💡 Tar kun 2 minutter • Ingen kredittvurdering før du godkjenner
-              </p>
+              <p className="text-sm text-gray-600">💡 Tar kun 2 minutter</p>
             </div>
           </form>
         </div>

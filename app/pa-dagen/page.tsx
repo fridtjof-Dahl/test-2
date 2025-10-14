@@ -7,8 +7,8 @@ import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 
 export const metadata = {
-  title: 'Billån på dagen: Få raskt svar og penger samme dag | Enkel Finansiering',
-  description: 'Trenger du billån raskt? Få svar på søknaden din samme dag og pengene overleveres raskt. Søk nå og kjøp bilen i dag!',
+  title: 'Billån på dagen: Få raskt svar innen 24 timer | Enkel Finansiering',
+  description: 'Trenger du billån raskt? Få et uforpliktende tilbud innen 24 timer og rask overlevering. Søk nå!',
 };
 
 const faqItems = [
@@ -53,15 +53,23 @@ export default function PaDagenPage() {
             Billån på dagen
           </h1>
           <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-            Har du funnet drømmebilen og trenger finansiering raskt? Med vårt effektive system får du svar på søknaden 
-            din samme dag, og bilen kan være din innen 24 timer.
+            Har du funnet drømmebilen og trenger finansiering raskt? Med vårt effektive system får du et uforpliktende 
+            tilbud innen 24 timer, og bilen kan være din kort tid etter.
           </p>
-          <a 
-            href="#lead-form" 
-            className="inline-block bg-[#FF6B35] hover:bg-[#E55A24] text-white font-bold text-lg px-12 py-5 rounded-full transition-all transform hover:scale-105 shadow-xl"
-          >
-            Søk billån nå →
-          </a>
+          <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
+            <a 
+              href="#lead-form" 
+              className="inline-block bg-[#FF6B35] hover:bg-[#E55A24] text-white font-bold text-lg px-12 py-5 rounded-full transition-all transform hover:scale-105 shadow-xl"
+            >
+              Søk billån nå →
+            </a>
+            <a 
+              href="/kalkulator" 
+              className="inline-block border-2 border-[#004D61] text-[#004D61] hover:bg-[#004D61] hover:text-white font-bold text-lg px-8 py-4 rounded-full transition-all"
+            >
+              Prøv kalkulatoren
+            </a>
+          </div>
         </div>
       </section>
 
@@ -107,7 +115,7 @@ export default function PaDagenPage() {
               <div className="flex-shrink-0 w-4 h-4 bg-[#FF6B35] rounded-full mt-2"></div>
               <div className="ml-8 flex-1">
                 <h3 className="text-xl font-bold text-[#004D61] mb-2">Du mottar tilbud</h3>
-                <p className="text-gray-600">Bankene vurderer søknaden og sender deg tilbud samme dag</p>
+                <p className="text-gray-600">Bankene vurderer søknaden og sender deg tilbud innen 24 timer</p>
               </div>
             </div>
 
@@ -124,12 +132,12 @@ export default function PaDagenPage() {
 
             <div className="flex items-start">
               <div className="flex-shrink-0 w-32 text-right pr-8">
-                <div className="text-2xl font-bold text-[#10B981]">24 timer</div>
+                <div className="text-2xl font-bold text-[#10B981]">Innen 24 timer</div>
               </div>
               <div className="flex-shrink-0 w-4 h-4 bg-[#10B981] rounded-full mt-2"></div>
               <div className="ml-8 flex-1">
                 <h3 className="text-xl font-bold text-[#004D61] mb-2">Pengene overleveres raskt</h3>
-                <p className="text-gray-600">Du kan kjøpe bilen samme dag eller neste virkedag</p>
+                <p className="text-gray-600">Du kan kjøpe bilen innen kort tid etter godkjenning</p>
               </div>
             </div>
           </div>
@@ -141,6 +149,17 @@ export default function PaDagenPage() {
       <MultiStepForm />
       <TrustSignals />
       <FAQ items={faqItems} title="Ofte stilte spørsmål om billån på dagen" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Hjem", "item": "https://enkelfinansiering.no/" },
+            { "@type": "ListItem", "position": 2, "name": "Billån på dagen", "item": "https://enkelfinansiering.no/pa-dagen" }
+          ]
+        }) }}
+      />
       <Footer />
     </main>
   );

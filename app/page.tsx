@@ -20,11 +20,11 @@ const faqItems = [
   },
   {
     question: "Hvordan søker jeg billån?",
-    answer: "Du fyller ut vårt enkle skjema med informasjon om ønsket lånebeløp og nedbetalingstid. Vi sender søknaden til flere banker samtidig, og du får tilbud tilbake samme dag."
+    answer: "Vår samarbeidspartner kontakter deg, og du får et uforpliktende tilbud innen 24 timer."
   },
   {
     question: "Hvilken rente kan jeg forvente på billån?",
-    answer: "Renten varierer fra bank til bank og avhenger av din kredittverdighet. Typisk ligger renten på billån mellom 3-8%. Ved å la flere banker konkurrere om deg, sikrer du deg den laveste renten."
+    answer: "Typisk rente ligger mellom 7,8% og 9,2%."
   },
   {
     question: "Kan jeg få billån uten egenkapital?",
@@ -32,7 +32,7 @@ const faqItems = [
   },
   {
     question: "Hvor lang tid tar det å få svar på søknaden?",
-    answer: "De fleste banker gir svar innen 1-4 timer. I mange tilfeller får du tilbud samme dag som du søker. Når du har akseptert et tilbud, kan pengene være overlevert til selger innen 24 timer."
+    answer: "De fleste banker gir svar innen 1-4 timer. Vanligvis får du et uforpliktende tilbud innen 24 timer. Når du har akseptert et tilbud, kan pengene overleveres til selger kort tid etter."
   },
   {
     question: "Koster det noe å søke?",
@@ -56,6 +56,57 @@ const faqItems = [
   }
 ];
 
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Hvordan søker jeg billån?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vår samarbeidspartner kontakter deg, og du får et uforpliktende tilbud innen 24 timer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hvilken rente kan jeg forvente på billån?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Typisk rente ligger mellom 7,8% og 9,2%."
+      }
+    }
+  ]
+};
+
+const breadcrumbStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Hjem",
+      "item": "https://enkelfinansiering.no/"
+    }
+  ]
+};
+
+const websiteStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Enkel Finansiering",
+  "url": "https://enkelfinansiering.no/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://enkelfinansiering.no/sok?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+};
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
@@ -67,6 +118,18 @@ export default function Home() {
       <MultiStepForm />
       <TrustSignals />
       <FAQ items={faqItems} title="Ofte stilte spørsmål om billån" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteStructuredData) }}
+      />
       <Footer />
     </main>
   );

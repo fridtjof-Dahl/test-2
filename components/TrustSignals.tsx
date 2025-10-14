@@ -27,9 +27,7 @@ export default function TrustSignals() {
           <h2 className="text-4xl font-bold text-[#004D61] mb-4">
             Hva sier våre kunder?
           </h2>
-          <p className="text-xl text-gray-600">
-            Over 10 000 fornøyde kunder har funnet sitt billån hos oss
-          </p>
+          
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
