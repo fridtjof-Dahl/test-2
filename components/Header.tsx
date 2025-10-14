@@ -21,6 +21,9 @@ export default function Header() {
             <Link href="/pa-dagen" className="text-gray-700 hover:text-[#FF6B35] transition font-medium">
               Billån på dagen
             </Link>
+            <Link href="/billan" className="text-gray-700 hover:text-[#FF6B35] transition font-medium">
+              Billån Guide
+            </Link>
           </nav>
           <a 
             href="/#lead-form" 
