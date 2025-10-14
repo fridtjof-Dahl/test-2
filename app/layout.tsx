@@ -27,7 +27,8 @@ export default function RootLayout({
   return (
     <html lang="no">
       <body className={`${inter.className} antialiased`}>
-        {children}
+      {children}
+        <SpeedInsights />
       </body>
     </html>
   );
