@@ -118,10 +118,10 @@ export default function MultiStepForm() {
                   </div>
                   <div className="mt-6 p-4 bg-blue-50 rounded-xl">
                     <p className="text-sm text-gray-700">
-                      <strong>Estimert månedskostnad:</strong> {Math.round((formData.loanAmount * 1.05) / (formData.loanTerm * 12)).toLocaleString('nb-NO')} kr/mnd
+                      <strong>Estimert månedskostnad:</strong> {Math.round((formData.loanAmount * 1.074) / (formData.loanTerm * 12)).toLocaleString('nb-NO')} kr/mnd
                     </p>
                     <p className="text-xs text-gray-600 mt-1">
-                      *Beregnet med 5% rente. Faktisk rente settes av banken.
+                      *Beregnet med 7.4% rente. Faktisk rente settes av banken.
                     </p>
                   </div>
                 </div>
