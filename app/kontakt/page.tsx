@@ -37,9 +37,9 @@ export default function ContactPage() {
       const result = await response.json();
 
       if (response.ok) {
-        // Track successful form submission
-        trackFormSubmission('contact', true);
-        trackConversion('lead_generation');
+        // Track successful form submission with fixed value
+        trackFormSubmission('contact', true, 100); // Fixed value for contact leads
+        trackConversion('lead_generation', 100);
         
         alert(`Takk for meldingen! ${result.message}`);
         // Reset form
@@ -63,46 +63,70 @@ export default function ContactPage() {
       <Header />
 
       {/* Hero */}
-      <section className="py-20 bg-gradient-to-br from-[#E8F4F8] to-[#D1F4E0]">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl sm:text-6xl font-bold text-[#004D61] mb-4">Kontakt oss</h1>
-          <p className="text-lg text-gray-700">Vi svarer vanligvis innen 24 timer</p>
+      <section className="relative hero-gradient py-20 md:py-28 overflow-hidden">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#004D61] mb-6 leading-tight">Kontakt oss</h1>
+          <p className="text-xl sm:text-2xl text-gray-700 leading-relaxed">
+            Vi svarer vanligvis <span className="font-bold text-[#FF6B35]">innen 24 timer</span>
+          </p>
+        </div>
+        
+        {/* Decorative wave at bottom */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+            <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="white"/>
+          </svg>
         </div>
       </section>
 
       {/* Contact info */}
-      <section className="py-12 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white border border-gray-200 rounded-2xl p-6 text-center">
-              <div className="flex justify-center mb-4">
-                <svg className="w-10 h-10 text-[#004D61]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12a4 4 0 10-8 0 4 4 0 008 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14v7m0-7a7 7 0 100-14 7 7 0 000 14z" />
-                </svg>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="group relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/20">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#004D61] to-[#006B7D] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 14v7m0-7a7 7 0 100-14 7 7 0 000 14z" />
+                  </svg>
+                </div>
               </div>
-              <div className="text-sm uppercase tracking-wide text-gray-500 mb-1">E-post</div>
-              <a href="mailto:kontakt@enkelfinansiering.no" className="text-lg font-semibold text-[#004D61] hover:underline">kontakt@enkelfinansiering.no</a>
+              <div className="text-sm uppercase tracking-wide text-gray-500 mb-2 group-hover:text-[#FF6B35] transition-colors duration-300">E-post</div>
+              <a href="mailto:kontakt@enkelfinansiering.no" className="text-lg font-semibold text-[#004D61] hover:text-[#FF6B35] transition-colors duration-300 block">kontakt@enkelfinansiering.no</a>
+              
+              {/* Subtle accent line */}
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-[#004D61] to-[#FF6B35] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-2xl p-6 text-center">
-              <div className="flex justify-center mb-4">
-                <svg className="w-10 h-10 text-[#004D61]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3l2 4-2 2c1 3 4 6 7 7l2-2 4 2v3a2 2 0 01-2 2h-1C9.82 21 3 14.18 3 6V5z" />
-                </svg>
+            <div className="group relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/20">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#004D61] to-[#006B7D] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3l2 4-2 2c1 3 4 6 7 7l2-2 4 2v3a2 2 0 01-2 2h-1C9.82 21 3 14.18 3 6V5z" />
+                  </svg>
+                </div>
               </div>
-              <div className="text-sm uppercase tracking-wide text-gray-500 mb-1">Telefon</div>
-              <a href="tel:+4796007981" className="text-lg font-semibold text-[#004D61] hover:underline">+47 960 07 981</a>
+              <div className="text-sm uppercase tracking-wide text-gray-500 mb-2 group-hover:text-[#FF6B35] transition-colors duration-300">Telefon</div>
+              <a href="tel:+4796007981" className="text-lg font-semibold text-[#004D61] hover:text-[#FF6B35] transition-colors duration-300 block">+47 960 07 981</a>
+              
+              {/* Subtle accent line */}
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-[#004D61] to-[#FF6B35] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-2xl p-6 text-center">
-              <div className="flex justify-center mb-4">
-                <svg className="w-10 h-10 text-[#004D61]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+            <div className="group relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/20">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#004D61] to-[#006B7D] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
               </div>
-              <div className="text-sm uppercase tracking-wide text-gray-500 mb-1">Åpningstider</div>
-              <div className="text-lg font-semibold text-[#004D61]">Man–Fre 09:00–17:00</div>
+              <div className="text-sm uppercase tracking-wide text-gray-500 mb-2 group-hover:text-[#FF6B35] transition-colors duration-300">Åpningstider</div>
+              <div className="text-lg font-semibold text-[#004D61] group-hover:text-[#FF6B35] transition-colors duration-300">Man–Fre 09:00–17:00</div>
+              
+              {/* Subtle accent line */}
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-[#004D61] to-[#FF6B35] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
           </div>
         </div>

@@ -1,8 +1,25 @@
-import { useMemo } from 'react';
+import { useMemo, useCallback } from 'react';
 import { FormData } from '../types/form';
 
+// Memoized validation functions for better performance
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const registrationNumberRegex = /^[A-Z]{2}\d{5}$/;
+
+const validateEmail = (email: string): boolean => {
+  return emailRegex.test(email);
+};
+
+const validateRegistrationNumber = (regNumber: string): boolean => {
+  return registrationNumberRegex.test(regNumber);
+};
+
+const validateKilometers = (kilometers: string): boolean => {
+  const num = Number(kilometers);
+  return !isNaN(num) && num >= 0;
+};
+
 export function useFormValidation(formData: FormData, step: number) {
-  return useMemo(() => {
+  const validationResult = useMemo(() => {
     const errors: Partial<Record<keyof FormData, string>> = {};
     
     // Step 1 validation
@@ -38,7 +55,7 @@ export function useFormValidation(formData: FormData, step: number) {
       // Only validate email if user has started typing
       if (formData.email.trim() === '' && formData.email.length > 0) {
         errors.email = 'E-post er påkrevd';
-      } else if (formData.email.length > 0 && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      } else if (formData.email.length > 0 && !validateEmail(formData.email)) {
         errors.email = 'Ugyldig e-postadresse';
       }
       
@@ -50,14 +67,14 @@ export function useFormValidation(formData: FormData, step: number) {
       // Only validate registration number if user has started typing
       if (formData.registrationNumber.trim() === '' && formData.registrationNumber.length > 0) {
         errors.registrationNumber = 'Registreringsnummer er påkrevd';
-      } else if (formData.registrationNumber.length > 0 && !/^[A-Z]{2}\d{5}$/.test(formData.registrationNumber)) {
+      } else if (formData.registrationNumber.length > 0 && !validateRegistrationNumber(formData.registrationNumber)) {
         errors.registrationNumber = 'Ugyldig format (f.eks. AB12345)';
       }
       
       // Only validate kilometers if user has started typing
       if (formData.kilometers.trim() === '' && formData.kilometers.length > 0) {
         errors.kilometers = 'Kilometerstand er påkrevd';
-      } else if (formData.kilometers.length > 0 && (isNaN(Number(formData.kilometers)) || Number(formData.kilometers) < 0)) {
+      } else if (formData.kilometers.length > 0 && !validateKilometers(formData.kilometers)) {
         errors.kilometers = 'Ugyldig kilometerstand';
       }
       
@@ -67,31 +84,33 @@ export function useFormValidation(formData: FormData, step: number) {
       }
     }
     
-    // For step navigation, we need different validation logic
-    const isStepValid = (step: number): boolean => {
-      if (step === 1) {
-        return formData.itemPrice >= 50000 && formData.loanAmount >= 0 && formData.loanAmount <= formData.itemPrice;
-      }
-      if (step === 2) {
-        return formData.loanTerm >= 1 && formData.loanTerm <= 10;
-      }
-      if (step === 3) {
-        return formData.name.trim() !== '' && 
-               formData.email.trim() !== '' && 
-               /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) &&
-               formData.phone.trim() !== '' && 
-               formData.registrationNumber.trim() !== '' && 
-               /^[A-Z]{2}\d{5}$/.test(formData.registrationNumber) &&
-               formData.kilometers.trim() !== '' && 
-               !isNaN(Number(formData.kilometers)) && 
-               Number(formData.kilometers) >= 0 &&
-               formData.consent;
-      }
-      return true;
-    };
-    
-    const isValid = isStepValid(step);
-    
-    return { errors, isValid };
+    return errors;
   }, [formData, step]);
+
+  const isStepValid = useCallback((step: number): boolean => {
+    if (step === 1) {
+      return formData.itemPrice >= 50000 && 
+             formData.loanAmount >= 0 && 
+             formData.loanAmount <= formData.itemPrice;
+    }
+    if (step === 2) {
+      return formData.loanTerm >= 1 && formData.loanTerm <= 10;
+    }
+    if (step === 3) {
+      return formData.name.trim() !== '' && 
+             formData.email.trim() !== '' && 
+             validateEmail(formData.email) &&
+             formData.phone.trim() !== '' && 
+             formData.registrationNumber.trim() !== '' && 
+             validateRegistrationNumber(formData.registrationNumber) &&
+             formData.kilometers.trim() !== '' && 
+             validateKilometers(formData.kilometers) &&
+             formData.consent;
+    }
+    return true;
+  }, [formData]);
+    
+  const isValid = isStepValid(step);
+    
+  return { errors: validationResult, isValid };
 }

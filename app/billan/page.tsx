@@ -79,43 +79,138 @@ export default function BillanGuidePage() {
       <Header />
       <main className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-[#004D61] to-[#006B7D] text-white py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+        <section className="relative hero-gradient py-20 md:py-28 overflow-hidden">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#004D61] mb-6 leading-tight">
               Den Ultimate Guiden til Billån i Norge
             </h1>
-            <p className="text-xl text-blue-100 mb-8">
-              Alt du trenger å vite om billån - fra søknad til signering. Få et uforpliktende tilbud innen 24 timer.
+            <p className="text-xl sm:text-2xl text-gray-700 mb-8 leading-relaxed">
+              Alt du trenger å vite om billån - fra søknad til signering. 
+              <span className="font-bold text-[#FF6B35]"> Få et uforpliktende tilbud innen 24 timer.</span>
             </p>
+          </div>
+          
+          {/* Decorative wave at bottom */}
+          <div className="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+              <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="white"/>
+            </svg>
           </div>
         </section>
 
         {/* Table of Contents */}
-        <section className="py-12 bg-gray-50">
+        <section className="py-16 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Innholdsfortegnelse</h2>
-            <div className="grid md:grid-cols-2 gap-4">
+            <h2 className="text-3xl font-bold text-[#004D61] mb-8 text-center">Innholdsfortegnelse</h2>
+            <div className="grid md:grid-cols-2 gap-6">
               {[
-                { title: "Hva er et billån?", href: "#hva-er-et-billan" },
-                { title: "Typer billån", href: "#typer-billan" },
-                { title: "Hvordan søke om billån", href: "#hvordan-soke" },
-                { title: "Hva koster et billån?", href: "#hva-koster" },
-                { title: "Med eller uten egenkapital", href: "#egenkapital" },
-                { title: "Ny eller brukt bil", href: "#ny-eller-brukt" },
-                { title: "Grønt billån (elbil)", href: "#gront-billan" },
-                { title: "Kaskofritt billån", href: "#kaskofritt" },
-                { title: "Alternativer til billån", href: "#alternativer" },
-                { title: "Ofte stilte spørsmål", href: "#faq" }
+                { 
+                  title: "Hva er et billån?", 
+                  href: "#hva-er-et-billan",
+                  icon: (
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  )
+                },
+                { 
+                  title: "Typer billån", 
+                  href: "#typer-billan",
+                  icon: (
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                    </svg>
+                  )
+                },
+                { 
+                  title: "Hvordan søke om billån", 
+                  href: "#hvordan-soke",
+                  icon: (
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                    </svg>
+                  )
+                },
+                { 
+                  title: "Hva koster et billån?", 
+                  href: "#hva-koster",
+                  icon: (
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                    </svg>
+                  )
+                },
+                { 
+                  title: "Med eller uten egenkapital", 
+                  href: "#egenkapital",
+                  icon: (
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                  )
+                },
+                { 
+                  title: "Ny eller brukt bil", 
+                  href: "#ny-eller-brukt",
+                  icon: (
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                    </svg>
+                  )
+                },
+                { 
+                  title: "Grønt billån (elbil)", 
+                  href: "#gront-billan",
+                  icon: (
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  )
+                },
+                { 
+                  title: "Kaskofritt billån", 
+                  href: "#kaskofritt",
+                  icon: (
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  )
+                },
+                { 
+                  title: "Alternativer til billån", 
+                  href: "#alternativer",
+                  icon: (
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                    </svg>
+                  )
+                },
+                { 
+                  title: "Ofte stilte spørsmål", 
+                  href: "#faq",
+                  icon: (
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  )
+                }
               ].map((item, index) => (
                 <a
                   key={index}
                   href={item.href}
-                  className="flex items-center gap-3 p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-[#FF6B35] transition-colors"
+                  className="group relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/20"
                 >
-                  <span className="flex-shrink-0 w-8 h-8 bg-[#004D61] text-white rounded-full flex items-center justify-center font-semibold text-sm">
-                    {index + 1}
-                  </span>
-                  <span className="text-gray-700 font-medium">{item.title}</span>
+                  <div className="flex items-center gap-4">
+                    <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#004D61] to-[#003847] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-xl">
+                      <div className="text-white" style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.3))' }}>
+                        {item.icon}
+                      </div>
+                    </div>
+                    <span className="text-gray-700 font-medium group-hover:text-[#FF6B35] transition-colors duration-300">{item.title}</span>
+                  </div>
+                  
+                  {/* Subtle accent line */}
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-[#004D61] to-[#FF6B35] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </a>
               ))}
             </div>
@@ -182,14 +277,14 @@ export default function BillanGuidePage() {
             </section>
 
             {/* CTA Section */}
-            <div className="my-16 p-8 bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl border-2 border-blue-200">
+            <div className="my-16 p-8 bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-500">
               <h3 className="text-2xl font-bold text-[#004D61] mb-4">Klar til å søke om billån?</h3>
               <p className="text-gray-700 mb-6">
                 Få et uforpliktende tilbud innen 24 timer. Gratis, raskt og uforpliktende.
               </p>
               <a 
                 href="#lead-form" 
-                className="inline-block bg-[#FF6B35] hover:bg-[#E55A25] text-white font-semibold px-8 py-4 rounded-full transition-all"
+                className="inline-block bg-[#FF6B35] hover:bg-[#E55A25] text-white font-semibold px-8 py-4 rounded-full transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 Søk billån nå →
               </a>
@@ -347,17 +442,19 @@ export default function BillanGuidePage() {
         </section>
 
         {/* Final CTA */}
-        <section id="lead-form" className="py-20">
+        <section id="lead-form" className="py-20 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl font-bold text-[#004D61] mb-4">
                 Klar til å søke om billån?
               </h2>
               <p className="text-xl text-gray-600">
                 Få et uforpliktende tilbud innen 24 timer. Gratis, raskt og uforpliktende.
               </p>
             </div>
-            <MultiStepForm />
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+              <MultiStepForm />
+            </div>
           </div>
         </section>
       </main>

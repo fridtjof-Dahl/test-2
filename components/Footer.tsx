@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gray-900 text-white py-12" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
@@ -14,7 +14,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="font-semibold mb-4">Snarveier</h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-sm" role="list">
               <li><a href="/kalkulator" className="text-gray-400 hover:text-white transition">Billånskalkulator</a></li>
               <li><a href="#lead-form" className="text-gray-400 hover:text-white transition">Søk billån</a></li>
               <li><a href="/om-oss" className="text-gray-400 hover:text-white transition">Om oss</a></li>
@@ -25,7 +25,7 @@ export default function Footer() {
           {/* Products */}
           <div>
             <h4 className="font-semibold mb-4">Våre tjenester</h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-sm" role="list">
               <li><a href="/uten-egenkapital" className="text-gray-400 hover:text-white transition">Billån uten egenkapital</a></li>
               <li><a href="/pa-dagen" className="text-gray-400 hover:text-white transition">Billån på dagen</a></li>
               <li><a href="/billan" className="text-gray-400 hover:text-white transition">Billån Guide</a></li>
@@ -35,7 +35,7 @@ export default function Footer() {
           {/* Legal */}
           <div>
             <h4 className="font-semibold mb-4">Juridisk</h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-sm" role="list">
               <li><a href="/personvern" className="text-gray-400 hover:text-white transition">Personvernerklæring</a></li>
               <li><a href="/vilkar" className="text-gray-400 hover:text-white transition">Vilkår og betingelser</a></li>
               <li><a href="/cookies" className="text-gray-400 hover:text-white transition">Informasjonskapsler</a></li>

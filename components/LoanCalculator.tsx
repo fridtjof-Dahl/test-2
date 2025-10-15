@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, memo, useEffect } from 'react';
+import { useState, useCallback, memo, useEffect, useMemo } from 'react';
 import { useLoanCalculation } from './hooks/useLoanCalculation';
 import { trackButtonClick, trackCalculatorUsage } from '@/lib/analytics';
 
@@ -44,13 +44,13 @@ const LoanCalculator = memo(function LoanCalculator() {
   }, []);
 
   return (
-    <section id="calculator" className="py-16 bg-gray-50">
+    <section id="calculator" className="py-16 bg-gray-50" aria-labelledby="calculator-heading" aria-describedby="calculator-description">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 id="calculator-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Billånskalkulator
           </h2>
-          <p className="text-lg text-gray-600">
+          <p id="calculator-description" className="text-lg text-gray-600">
             Beregn estimert månedskostnad for ditt billån
           </p>
         </div>
@@ -139,7 +139,7 @@ const LoanCalculator = memo(function LoanCalculator() {
             <a 
               href="#lead-form" 
               onClick={() => trackButtonClick('sok_billan_na', 'calculator')}
-              className="inline-block bg-[#FF6B35] hover:bg-[#E55A24] text-white font-bold text-lg px-8 py-3 rounded-full transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="inline-block bg-[#FF6B35] hover:bg-[#E55A24] text-white font-bold text-lg px-8 py-4 rounded-full transition-all transform hover:scale-105 shadow-lg hover:shadow-xl min-h-[56px] leading-tight"
             >
               Søk billån nå →
             </a>

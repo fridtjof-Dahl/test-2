@@ -115,7 +115,7 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-2xl font-bold text-[#004D61]">13. Kontakt oss</h2>
             <p>
               Har du spørsmål om hvordan vi behandler dine personopplysninger? Kontakt oss på
-              <a href="mailto:post@enkelfinansiering.no" className="text-[#004D61] underline"> post@enkelfinansiering.no</a>
+              <a href="mailto:kontakt@enkelfinansiering.no" className="text-[#004D61] underline"> kontakt@enkelfinansiering.no</a>
               {' '}eller via <a href="/kontakt" className="text-[#004D61] underline">/kontakt</a>.
             </p>
           </div>

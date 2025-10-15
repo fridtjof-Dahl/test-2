@@ -24,12 +24,25 @@ export function trackEvent(event: GAEvent) {
 }
 
 // Track form submissions
-export function trackFormSubmission(formType: 'contact' | 'loan-application', success: boolean = true) {
+export function trackFormSubmission(formType: 'contact' | 'loan-application', success: boolean = true, value?: number) {
+  // Track in Google Analytics
   trackEvent({
     action: success ? 'form_submit_success' : 'form_submit_error',
     category: 'engagement',
     label: formType,
+    value: value,
   });
+
+  // Track in GTM dataLayer
+  if (typeof window !== 'undefined' && (window as any).dataLayer) {
+    (window as any).dataLayer.push({
+      event: success ? 'form_submit_success' : 'form_submit_error',
+      form_type: formType,
+      success: success,
+      form_value: value,
+      currency: 'NOK',
+    });
+  }
 }
 
 // Track button clicks
@@ -62,10 +75,21 @@ export function trackPageView(pageName: string) {
 
 // Track conversion events
 export function trackConversion(conversionType: 'lead_generation' | 'loan_application', value?: number) {
+  // Track in Google Analytics
   trackEvent({
     action: 'conversion',
     category: 'conversion',
     label: conversionType,
     value: value,
   });
+
+  // Track in GTM dataLayer for Google Ads
+  if (typeof window !== 'undefined' && (window as any).dataLayer) {
+    (window as any).dataLayer.push({
+      event: 'conversion',
+      conversion_type: conversionType,
+      conversion_value: value,
+      currency: 'NOK',
+    });
+  }
 }

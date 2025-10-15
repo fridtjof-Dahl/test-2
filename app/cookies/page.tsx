@@ -47,7 +47,7 @@ export default function CookiesPage() {
             <h2 className="text-2xl font-bold text-[#004D61]">Kontakt</h2>
             <p>
               Har du spørsmål? Kontakt oss på
-              <a href="mailto:post@enkelfinansiering.no" className="text-[#004D61] underline"> post@enkelfinansiering.no</a>
+              <a href="mailto:kontakt@enkelfinansiering.no" className="text-[#004D61] underline"> kontakt@enkelfinansiering.no</a>
               {' '}eller via <a href="/kontakt" className="text-[#004D61] underline">/kontakt</a>.
             </p>
           </div>

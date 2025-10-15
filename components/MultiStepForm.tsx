@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, memo, useMemo } from 'react';
 import { useLoanCalculation } from './hooks/useLoanCalculation';
 import { useFormValidation } from './hooks/useFormValidation';
 import { FormData, WARRANTIES, WarrantyType } from './types/form';
@@ -20,7 +20,7 @@ const INITIAL_FORM_DATA: FormData = {
   consent: false,
 };
 
-export default function MultiStepForm() {
+const MultiStepForm = memo(function MultiStepForm() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<FormData>(INITIAL_FORM_DATA);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -66,9 +66,9 @@ export default function MultiStepForm() {
       const result = await response.json();
 
       if (response.ok) {
-        // Track successful form submission
-        trackFormSubmission('loan-application', true);
-        trackConversion('loan_application', formData.loanAmount);
+        // Track successful form submission with fixed value
+        trackFormSubmission('loan-application', true, 4000); // Fixed value for loan applications
+        trackConversion('loan_application', 4000);
         
         alert(`Takk for søknaden! ${result.message}`);
         // Reset form
@@ -103,20 +103,20 @@ export default function MultiStepForm() {
   }, []);
 
   return (
-    <section id="lead-form" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="lead-form" className="py-20 bg-gray-50" aria-labelledby="form-heading" aria-describedby="form-description">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-[#004D61] mb-2">
+            <h2 id="form-heading" className="text-3xl font-bold text-[#004D61] mb-2">
               Søk om billån nå
             </h2>
-            <p className="text-gray-600">
+            <p id="form-description" className="text-gray-600">
               Steg {step} av {totalSteps}
             </p>
           </div>
 
           {/* Progress Bar */}
-          <div className="mb-8">
+          <div className="mb-8" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100} aria-label={`Fremgang: ${step} av ${totalSteps} steg`}>
             <div className="w-full bg-gray-200 rounded-full h-3">
               <div 
                 className="bg-[#FF6B35] h-3 rounded-full transition-all duration-500 ease-out"
@@ -357,7 +357,7 @@ export default function MultiStepForm() {
                 <button
                   type="button"
                   onClick={handleBack}
-                  className="flex-1 py-4 px-6 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold rounded-xl transition-colors"
+                  className="flex-1 py-4 px-6 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold rounded-xl transition-colors min-h-[56px] leading-tight"
                 >
                   ← Tilbake
                 </button>
@@ -367,7 +367,7 @@ export default function MultiStepForm() {
                   type="button"
                   onClick={handleNext}
                   disabled={!isValid}
-                  className={`flex-1 py-4 px-6 font-semibold rounded-xl transition-all transform hover:scale-105 shadow-lg ${
+                  className={`flex-1 py-4 px-6 font-semibold rounded-xl transition-all transform hover:scale-105 shadow-lg min-h-[56px] leading-tight ${
                     isValid 
                       ? 'bg-[#FF6B35] hover:bg-[#E55A24] text-white' 
                       : 'bg-gray-300 text-gray-500 cursor-not-allowed'
@@ -379,7 +379,7 @@ export default function MultiStepForm() {
                 <button
                   type="submit"
                   disabled={!isValid || isSubmitting}
-                  className={`flex-1 py-4 px-6 font-semibold rounded-xl transition-all transform hover:scale-105 shadow-lg ${
+                  className={`flex-1 py-4 px-6 font-semibold rounded-xl transition-all transform hover:scale-105 shadow-lg min-h-[56px] leading-tight ${
                     isValid && !isSubmitting
                       ? 'bg-[#10B981] hover:bg-[#059669] text-white' 
                       : 'bg-gray-300 text-gray-500 cursor-not-allowed'
@@ -399,5 +399,7 @@ export default function MultiStepForm() {
       </div>
     </section>
   );
-}
+});
+
+export default MultiStepForm;
 

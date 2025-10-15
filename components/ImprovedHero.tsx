@@ -1,37 +1,38 @@
 'use client';
 
+import { memo } from 'react';
 import { trackButtonClick } from '@/lib/analytics';
 
-export default function ImprovedHero() {
+const ImprovedHero = memo(function ImprovedHero() {
   return (
-    <section className="relative bg-gradient-to-br from-[#E8F4F8] via-[#D1F4E0] to-[#E8F8F0] py-20 md:py-28 overflow-hidden">
+        <section className="relative hero-gradient py-20 md:py-28 overflow-hidden" role="banner" aria-labelledby="hero-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start lg:items-center">
           {/* Left Column - Text Content */}
           <div className="text-center lg:text-left">
             <div className="inline-block bg-[#FF6B35] text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
               Rask behandling • Svar innen 24 timer
             </div>
             
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#004D61] mb-6 leading-tight">
+            <h1 id="hero-heading" className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#004D61] mb-6 leading-tight">
               Få billån på dagen
             </h1>
             
-            <p className="text-xl sm:text-2xl text-gray-700 mb-8 leading-relaxed">
+            <p id="hero-description" className="text-xl sm:text-2xl text-gray-700 mb-8 leading-relaxed">
               Få et uforpliktende tilbud innen 24 timer.<br />
               100% gratis.
             </p>
 
             {/* Trust Badges */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-6 mb-8">
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-[#10B981]" fill="currentColor" viewBox="0 0 20 20">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-6 mb-8" role="list" aria-label="Tjenestefordeler">
+              <div className="flex items-center gap-2" role="listitem">
+                <svg className="w-5 h-5 text-[#10B981]" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span className="text-gray-700 font-medium">100% gratis</span>
               </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-[#10B981]" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-center gap-2" role="listitem">
+                <svg className="w-5 h-5 text-[#10B981]" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span className="text-gray-700 font-medium">Rask behandling</span>
@@ -39,30 +40,32 @@ export default function ImprovedHero() {
               
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-              <a 
-                href="#lead-form" 
-                onClick={() => trackButtonClick('sok_billan_na', 'hero')}
-                className="inline-block bg-[#FF6B35] hover:bg-[#E55A24] text-white font-bold text-lg px-12 py-3 rounded-full transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl"
-              >
-                Søk billån nå →
-              </a>
-              <a
-                href="/kalkulator"
-                onClick={() => trackButtonClick('proev_kalkulatoren', 'hero')}
-                className="inline-block border-2 border-[#004D61] text-[#004D61] hover:bg-[#004D61] hover:text-white font-bold text-lg px-8 py-2 rounded-full transition-all"
-              >
-                Prøv kalkulatoren
-              </a>
+            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start mb-8" role="group" aria-label="Handlinger">
+            <a 
+              href="#lead-form" 
+              onClick={() => trackButtonClick('sok_billan_na', 'hero')}
+              className="btn-primary text-lg"
+              aria-describedby="hero-description"
+            >
+              Søk billån nå →
+            </a>
+            <a
+              href="/kalkulator"
+              onClick={() => trackButtonClick('proev_kalkulatoren', 'hero')}
+              className="btn-secondary text-lg"
+              aria-label="Prøv lånekalkulatoren"
+            >
+              Prøv kalkulatoren
+            </a>
             </div>
 
           </div>
 
           {/* Right Column - Optimized Illustration */}
           <div className="hidden lg:block">
-            <div className="relative">
+            <div className="relative max-w-md mx-auto">
               {/* Optimized SVG with better performance */}
-              <svg viewBox="0 0 500 400" className="w-full h-auto" aria-hidden="true">
+              <svg viewBox="0 0 500 400" className="w-full h-auto max-h-96" aria-hidden="true">
                 <defs>
                   <linearGradient id="carGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#004D61"/>
@@ -129,5 +132,7 @@ export default function ImprovedHero() {
       </div>
     </section>
   );
-}
+});
+
+export default ImprovedHero;
 

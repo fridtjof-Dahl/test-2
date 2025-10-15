@@ -3,14 +3,14 @@
 ## 📧 E-post mottakere
 
 ### Kontaktskjema
-- **Primær mottaker:** `post@enkelfinansiering.no`
+- **Primær mottaker:** `kontakt@enkelfinansiering.no`
 - **Admin:** `kontakt@enkelfinansiering.no`
 - **Backup:** `backup@enkelfinansiering.no`
 
 ### Lånesøknader
-- **Primær mottaker:** `lan@enkelfinansiering.no`
+- **Primær mottaker:** `kontakt@enkelfinansiering.no`
 - **Admin:** `kontakt@enkelfinansiering.no`
-- **Partner:** `partner@enkelfinansiering.no`
+- **Partner:** `fridtjof@visionmedia.no`
 
 ## 🔧 Hvordan endre mottakere
 
@@ -26,9 +26,9 @@ export const FORM_CONFIG = {
   },
   
   loanApplications: {
-    primary: 'lan@enkelfinansiering.no',
+    primary: 'kontakt@enkelfinansiering.no',
     admin: 'kontakt@enkelfinansiering.no',
-    partner: 'partner@enkelfinansiering.no',
+    partner: 'fridtjof@visionmedia.no',
   },
   // ...
 };
@@ -39,9 +39,9 @@ Opprett en `.env.local` fil:
 
 ```bash
 # E-post konfigurasjon
-CONTACT_EMAIL=post@enkelfinansiering.no
+CONTACT_EMAIL=kontakt@enkelfinansiering.no
 ADMIN_EMAIL=kontakt@enkelfinansiering.no
-LOAN_EMAIL=lan@enkelfinansiering.no
+LOAN_EMAIL=kontakt@enkelfinansiering.no
 ```
 
 ## 📨 E-post tjenester

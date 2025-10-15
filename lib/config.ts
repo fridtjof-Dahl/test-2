@@ -3,13 +3,13 @@
 export const FORM_CONFIG = {
   // Email recipients
   contact: {
-    primary: 'vainio@panther.no',
+    primary: 'kontakt@enkelfinansiering.no',
     admin: 'kontakt@enkelfinansiering.no',
     backup: 'fridtjof@visionmedia.no',
   },
   
   loanApplications: {
-    primary: 'vainio@panther.no',
+    primary: 'kontakt@enkelfinansiering.no',
     admin: 'kontakt@enkelfinansiering.no',
     backup: 'fridtjof@visionmedia.no',
   },
