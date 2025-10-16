@@ -40,19 +40,19 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 relative overflow-hidden">
-      {/* Background decoration */}
+    <section className="py-24 bg-gray-50 relative overflow-hidden">
+      {/* Clean background */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-[#FF6B35]/10 to-[#E55A24]/10 rounded-full blur-xl"></div>
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-br from-[#004D61]/10 to-[#006B7D]/10 rounded-full blur-xl"></div>
+        <div className="absolute top-20 left-20 w-32 h-32 bg-[#FF6B35] rounded-full opacity-5"></div>
+        <div className="absolute bottom-20 right-20 w-40 h-40 bg-[#004D61] rounded-full opacity-5"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 mb-8 shadow-lg border border-white/50">
-            <span className="text-sm font-semibold text-[#004D61]">✨ Enkelt og raskt</span>
+          <div className="inline-flex items-center gap-2 bg-[#FF6B35] text-white rounded-full px-6 py-3 mb-8 shadow-lg">
+            <span className="text-sm font-semibold">✨ Enkelt og raskt</span>
           </div>
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-[#004D61] via-[#006B7D] to-[#004D61] bg-clip-text text-transparent mb-6">
+          <h2 className="text-5xl font-bold text-[#004D61] mb-6">
             Slik fungerer det
           </h2>
           <p className="text-2xl text-gray-600 max-w-2xl mx-auto">
@@ -63,30 +63,22 @@ export default function HowItWorks() {
         <div className="grid md:grid-cols-3 gap-12">
           {steps.map((step, index) => (
             <div key={index} className="relative group">
-              {/* Enhanced number badge with animation */}
-              <div className="absolute -top-6 -right-6 z-20 w-16 h-16 bg-gradient-to-br from-[#FF6B35] to-[#E55A24] rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 border-4 border-white">
+              {/* Clean number badge */}
+              <div className="absolute -top-6 -right-6 z-20 w-16 h-16 bg-[#FF6B35] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-300 border-4 border-white">
                 <span className="text-white font-bold text-xl">{step.number}</span>
               </div>
 
-              {/* Enhanced card with better visual appeal */}
-              <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:-translate-y-4 border border-white/50 h-full relative overflow-hidden">
-                {/* Subtle gradient overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B35]/5 to-[#004D61]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                <div className="relative z-10">
-                  <div className="flex justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                    {step.icon}
-                  </div>
-                  <h3 className="text-2xl font-bold text-[#004D61] mb-6 text-center group-hover:text-[#FF6B35] transition-colors duration-300">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-600 text-center leading-relaxed text-lg">
-                    {step.description}
-                  </p>
+              {/* Clean card design */}
+              <div className="bg-white rounded-2xl p-10 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2 border border-gray-100 h-full relative">
+                <div className="flex justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                  {step.icon}
                 </div>
-                
-                {/* Decorative corner element */}
-                <div className="absolute top-4 right-4 w-8 h-8 bg-gradient-to-br from-[#FF6B35]/20 to-[#E55A24]/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <h3 className="text-2xl font-bold text-[#004D61] mb-6 text-center group-hover:text-[#FF6B35] transition-colors duration-300">
+                  {step.title}
+                </h3>
+                <p className="text-gray-600 text-center leading-relaxed text-lg">
+                  {step.description}
+                </p>
               </div>
               {index < steps.length - 1 && (
                 <div className="hidden md:block absolute top-1/2 -right-6 transform -translate-y-1/2 text-[#FF6B35] text-3xl font-bold">

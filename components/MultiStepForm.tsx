@@ -103,36 +103,32 @@ const MultiStepForm = memo(function MultiStepForm() {
   }, []);
 
   return (
-    <section id="lead-form" className="py-24 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 relative overflow-hidden" aria-labelledby="form-heading" aria-describedby="form-description">
-      {/* Background decoration */}
+    <section id="lead-form" className="py-24 bg-gray-50 relative overflow-hidden" aria-labelledby="form-heading" aria-describedby="form-description">
+      {/* Clean background */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-br from-[#FF6B35]/10 to-[#E55A24]/10 rounded-full blur-xl"></div>
-        <div className="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-br from-[#004D61]/10 to-[#006B7D]/10 rounded-full blur-xl"></div>
+        <div className="absolute top-20 right-20 w-32 h-32 bg-[#FF6B35] rounded-full opacity-5"></div>
+        <div className="absolute bottom-20 left-20 w-40 h-40 bg-[#004D61] rounded-full opacity-5"></div>
       </div>
       
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 border border-white/50 relative overflow-hidden">
-          {/* Subtle gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B35]/5 to-[#004D61]/5 opacity-50"></div>
-          
-          <div className="relative z-10">
-            <div className="text-center mb-10">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#FF6B35] to-[#E55A24] text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 shadow-lg">
-                <span>🚗 Få tilbud på 2 minutter</span>
-              </div>
-              <h2 id="form-heading" className="text-4xl font-bold bg-gradient-to-r from-[#004D61] via-[#006B7D] to-[#004D61] bg-clip-text text-transparent mb-3">
-                Søk om billån nå
-              </h2>
-              <p id="form-description" className="text-xl text-gray-600">
-                Steg {step} av {totalSteps} • <span className="font-semibold text-[#FF6B35]">100% gratis og uforpliktende</span>
-              </p>
+        <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 border border-gray-100">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 bg-[#FF6B35] text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 shadow-lg">
+              <span>🚗 Få tilbud på 2 minutter</span>
             </div>
+            <h2 id="form-heading" className="text-4xl font-bold text-[#004D61] mb-3">
+              Søk om billån nå
+            </h2>
+            <p id="form-description" className="text-xl text-gray-600">
+              Steg {step} av {totalSteps} • <span className="font-semibold text-[#FF6B35]">100% gratis og uforpliktende</span>
+            </p>
+          </div>
 
-            {/* Enhanced Progress Bar */}
+            {/* Clean Progress Bar */}
             <div className="mb-10" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100} aria-label={`Fremgang: ${step} av ${totalSteps} steg`}>
-              <div className="w-full bg-gray-200 rounded-full h-4 shadow-inner">
+              <div className="w-full bg-gray-200 rounded-full h-3">
                 <div 
-                  className="bg-gradient-to-r from-[#FF6B35] to-[#E55A24] h-4 rounded-full transition-all duration-500 ease-out shadow-lg"
+                  className="bg-[#FF6B35] h-3 rounded-full transition-all duration-500 ease-out"
                   style={{ width: `${progress}%` }}
                 />
               </div>
