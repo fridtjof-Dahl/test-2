@@ -44,31 +44,47 @@ export default function PaDagenPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#FFF4E6] to-[#FFE4CC] py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-block bg-[#FF6B35] text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            Rask behandling
-          </div>
-          <h1 className="text-5xl sm:text-6xl font-bold text-[#004D61] mb-6 leading-tight">
-            Billån på dagen
-          </h1>
-          <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-            Har du funnet drømmebilen og trenger finansiering raskt? Med vårt effektive system får du et uforpliktende 
-            tilbud innen 24 timer, og bilen kan være din kort tid etter.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
-            <a 
-              href="#lead-form" 
-              className="inline-block bg-[#FF6B35] hover:bg-[#E55A24] text-white font-bold text-lg px-12 py-5 rounded-full transition-all transform hover:scale-105 shadow-xl"
-            >
-              Søk billån nå →
-            </a>
-            <a 
-              href="/kalkulator" 
-              className="inline-block border-2 border-[#004D61] text-[#004D61] hover:bg-[#004D61] hover:text-white font-bold text-lg px-8 py-4 rounded-full transition-all"
-            >
-              Prøv kalkulatoren
-            </a>
+      <section className="relative bg-white py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 bg-orange-50 rounded-full px-6 py-3 mb-8 border border-orange-100">
+              <div className="w-2 h-2 bg-[#FF6B35] rounded-full animate-pulse"></div>
+              <span className="text-sm font-medium text-[#004D61]">Rask behandling • Svar innen 24 timer</span>
+              <div className="w-2 h-2 bg-[#FF6B35] rounded-full animate-pulse delay-300"></div>
+            </div>
+            
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#004D61] mb-6 leading-tight">
+              Billån på dagen
+            </h1>
+            <h2 className="text-xl sm:text-2xl font-medium text-gray-600 mb-8">
+              Få finansiering raskt
+            </h2>
+            <p className="text-lg text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto">
+              Har du funnet drømmebilen og trenger finansiering raskt? Med vårt effektive system får du et uforpliktende 
+              tilbud innen 24 timer, og bilen kan være din kort tid etter.
+              <span className="font-semibold text-[#FF6B35]"> 100% gratis og uforpliktende.</span>
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a 
+                href="#lead-form" 
+                className="group inline-flex items-center gap-2 bg-[#FF6B35] hover:bg-[#E55A24] text-white font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30 min-h-[56px]"
+              >
+                <span>Søk billån nå</span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+              <a
+                href="/kalkulator"
+                className="group inline-flex items-center gap-2 bg-white text-[#004D61] hover:bg-gray-50 font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 border-2 border-[#004D61] hover:border-[#006B7D] shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#004D61]/30 min-h-[56px]"
+              >
+                <svg className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+                <span>Prøv kalkulatoren</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>

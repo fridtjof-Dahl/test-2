@@ -120,47 +120,47 @@ export default function UtenEgenkapitalPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#E8F8F0] to-[#D1F4E0] py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-block bg-[#10B981] text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            100% finansiering • Ingen egenkapital
-          </div>
-          <h1 className="text-5xl sm:text-6xl font-bold text-[#004D61] mb-6 leading-tight">
-            Billån uten egenkapital
-          </h1>
-          <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-            Drømmer du om ny bil, men mangler egenkapital? Vi hjelper deg med <strong>100% finansiering</strong> og 
-            <strong> fullfinansiering bil</strong>. Få et uforpliktende tilbud innen 24 timer.
-          </p>
+      <section className="relative bg-white py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 bg-green-50 rounded-full px-6 py-3 mb-8 border border-green-100">
+              <div className="w-2 h-2 bg-[#10B981] rounded-full animate-pulse"></div>
+              <span className="text-sm font-medium text-[#004D61]">100% finansiering • Ingen egenkapital</span>
+              <div className="w-2 h-2 bg-[#10B981] rounded-full animate-pulse delay-300"></div>
+            </div>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#004D61] mb-6 leading-tight">
+              Billån uten egenkapital
+            </h1>
+            <h2 className="text-xl sm:text-2xl font-medium text-gray-600 mb-8">
+              100% finansiering av bil
+            </h2>
+            <p className="text-lg text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto">
+              Drømmer du om ny bil, men mangler egenkapital? Vi hjelper deg med <strong>100% finansiering</strong> og 
+              <strong> fullfinansiering bil</strong>. 
+              <span className="font-semibold text-[#FF6B35]"> Få et uforpliktende tilbud innen 24 timer.</span>
+            </p>
           
-          {/* Key benefits */}
-          <div className="flex flex-wrap justify-center gap-6 mb-8">
-            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
-              <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              <span className="text-gray-700 font-medium">100% finansiering</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
-              <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              <span className="text-gray-700 font-medium">Ingen egenkapital</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
-              <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              <span className="text-gray-700 font-medium">Rask behandling</span>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a 
+                href="#lead-form" 
+                className="group inline-flex items-center gap-2 bg-[#FF6B35] hover:bg-[#E55A24] text-white font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30 min-h-[56px]"
+              >
+                <span>Søk billån uten egenkapital</span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+              <a
+                href="/kalkulator"
+                className="group inline-flex items-center gap-2 bg-white text-[#004D61] hover:bg-gray-50 font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 border-2 border-[#004D61] hover:border-[#006B7D] shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#004D61]/30 min-h-[56px]"
+              >
+                <svg className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+                <span>Prøv kalkulatoren</span>
+              </a>
             </div>
           </div>
-
-          <a 
-            href="#lead-form" 
-            className="inline-block bg-[#FF6B35] hover:bg-[#E55A24] text-white font-bold text-lg px-12 py-5 rounded-full transition-all transform hover:scale-105 shadow-xl"
-          >
-            Søk billån uten egenkapital →
-          </a>
         </div>
       </section>
 

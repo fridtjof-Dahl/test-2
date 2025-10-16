@@ -93,29 +93,36 @@ export default function OmOssPage() {
     <>
       <Header />
       <Breadcrumb items={breadcrumbItems} />
-      <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          {/* Hero Section */}
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 mb-8 shadow-lg border border-white/50">
-              <svg className="w-5 h-5 text-[#FF6B35]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span className="text-sm font-medium text-gray-700">Vår historie</span>
+      <main className="min-h-screen bg-white">
+        {/* Hero Section */}
+        <section className="relative bg-white py-16 md:py-24">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <div className="inline-flex items-center gap-2 bg-blue-50 rounded-full px-6 py-3 mb-8 border border-blue-100">
+                <div className="w-2 h-2 bg-[#FF6B35] rounded-full animate-pulse"></div>
+                <span className="text-sm font-medium text-[#004D61]">Vår historie siden 2020</span>
+                <div className="w-2 h-2 bg-[#FF6B35] rounded-full animate-pulse delay-300"></div>
+              </div>
+              
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#004D61] mb-6 leading-tight">
+                Om Enkel Finansiering
+              </h1>
+              <h2 className="text-xl sm:text-2xl font-medium text-gray-600 mb-8">
+                Norges enkleste vei til billån
+              </h2>
+              <p className="text-lg text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto">
+                Vi hjelper norske bilkjøpere med å finne det beste billånet siden 2020. 
+                <span className="font-semibold text-[#FF6B35]"> Over 10,000 fornøyde kunder kan ikke ta feil.</span>
+              </p>
             </div>
-            
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-[#004D61] via-[#006B7D] to-[#004D61] bg-clip-text text-transparent mb-6">
-              Om Enkel Finansiering
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-4xl mx-auto">
-              Vi hjelper norske bilkjøpere med å finne det beste billånet siden 2020. 
-              <span className="font-semibold text-[#FF6B35]"> Over 10,000 fornøyde kunder kan ikke ta feil.</span>
-            </p>
           </div>
+        </section>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
           {/* Vår Historie */}
           <section className="mb-20">
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-12 shadow-2xl border border-white/50">
+            <div className="bg-white rounded-2xl p-12 shadow-xl border border-gray-100">
               <h2 className="text-4xl font-bold text-[#004D61] mb-8 text-center">Vår Historie</h2>
               <p className="text-lg text-gray-700 leading-relaxed mb-8 text-center max-w-4xl mx-auto">
                 Enkel Finansiering ble grunnlagt i 2020 med en enkel visjon: å gjøre billån enkelt og transparent for alle norske bilkjøpere. 
