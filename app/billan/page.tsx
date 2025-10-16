@@ -118,27 +118,33 @@ export default function BillanGuidePage() {
           </div>
         </section>
 
-        {/* Interactive Calculator Section - Clean Design */}
-        <section id="calculator" className="py-16 bg-gray-50">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 bg-white rounded-full px-6 py-3 mb-6 shadow-sm border border-gray-200">
+        {/* Interactive Calculator Section - Seamless Design */}
+        <section id="calculator" className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
+          {/* Background decoration */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-br from-[#FF6B35]/10 to-[#E55A24]/10 rounded-full blur-xl"></div>
+            <div className="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-br from-[#004D61]/10 to-[#006B7D]/10 rounded-full blur-xl"></div>
+          </div>
+          
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 mb-8 shadow-lg border border-white/50">
                 <svg className="w-5 h-5 text-[#FF6B35]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
-                <span className="text-sm font-medium text-gray-700">Interaktiv kalkulator</span>
+                <span className="text-sm font-semibold text-[#004D61]">🧮 Interaktiv kalkulator</span>
               </div>
               
-              <h2 className="text-3xl font-bold text-[#004D61] mb-4">
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-[#004D61] via-[#006B7D] to-[#004D61] bg-clip-text text-transparent mb-6">
                 Prøv vår billånskalkulator
               </h2>
-              <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
                 Beregn din månedlige kostnad før du leser videre. 
-                <span className="font-semibold text-[#FF6B35]">100% gratis og uforpliktende.</span>
+                <span className="font-bold text-[#FF6B35]">100% gratis og uforpliktende.</span>
               </p>
             </div>
             
-            <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+            <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 border border-white/50">
               <LoanCalculator />
             </div>
           </div>
@@ -190,76 +196,91 @@ export default function BillanGuidePage() {
           </div>
         </section>
 
-        {/* Essential Information Only */}
-        <article className="py-12 bg-gray-50">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Essential Information Only - Seamless Flow */}
+        <article className="py-20 bg-white relative overflow-hidden">
+          {/* Background decoration */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-[#FF6B35]/5 to-[#E55A24]/5 rounded-full blur-xl"></div>
+            <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-br from-[#004D61]/5 to-[#006B7D]/5 rounded-full blur-xl"></div>
+          </div>
+          
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-            {/* Hvordan søke - Simplified */}
-            <section id="hvordan-soke" className="mb-12">
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
-                <h2 className="text-2xl font-bold text-[#004D61] mb-6 text-center">Hvordan søke om billån</h2>
-                
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4">5 enkle steg:</h3>
-                    <div className="space-y-4">
-                      {[
-                        { step: 1, title: "Finn bilen", desc: "Registreringsnummer og pris klart" },
-                        { step: 2, title: "Fyll ut skjema", desc: "Vi sender til samarbeidspartner" },
-                        { step: 3, title: "Motta tilbud", desc: "Innen 24 timer" },
-                        { step: 4, title: "Signer med BankID", desc: "Digitalt og trygt" },
-                        { step: 5, title: "Hent bilen", desc: "Vi overfører pengene" }
-                      ].map((item) => (
-                        <div key={item.step} className="flex gap-3">
-                          <div className="flex-shrink-0 w-8 h-8 bg-[#004D61] text-white rounded-full flex items-center justify-center font-bold text-sm">
-                            {item.step}
-                          </div>
-                          <div>
-                            <h4 className="font-medium text-gray-900">{item.title}</h4>
-                            <p className="text-sm text-gray-600">{item.desc}</p>
-                          </div>
-                        </div>
-                      ))}
+            {/* Hvordan søke - Enhanced */}
+            <section id="hvordan-soke" className="mb-20">
+              <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-10 shadow-xl border border-gray-100 relative overflow-hidden">
+                {/* Subtle gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B35]/5 to-[#004D61]/5 opacity-50"></div>
+                <div className="relative z-10">
+                  <div className="text-center mb-8">
+                    <div className="inline-flex items-center gap-2 bg-[#FF6B35] text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 shadow-lg">
+                      <span>📝 5 enkle steg</span>
                     </div>
+                    <h2 className="text-3xl font-bold text-[#004D61] mb-4">Hvordan søke om billån</h2>
+                  </div>
+                
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-6">Steg-for-steg:</h3>
+                      <div className="space-y-6">
+                        {[
+                          { step: 1, title: "Finn bilen", desc: "Registreringsnummer og pris klart", icon: "🚗" },
+                          { step: 2, title: "Fyll ut skjema", desc: "Vi sender til samarbeidspartner", icon: "📝" },
+                          { step: 3, title: "Motta tilbud", desc: "Innen 24 timer", icon: "📧" },
+                          { step: 4, title: "Signer med BankID", desc: "Digitalt og trygt", icon: "🔐" },
+                          { step: 5, title: "Hent bilen", desc: "Vi overfører pengene", icon: "🎉" }
+                        ].map((item) => (
+                          <div key={item.step} className="flex gap-4 group">
+                            <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#FF6B35] to-[#E55A24] text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
+                              {item.step}
+                            </div>
+                            <div className="flex-1">
+                              <h4 className="font-semibold text-gray-900 text-lg mb-1">{item.title}</h4>
+                              <p className="text-gray-600">{item.desc}</p>
+                              <div className="text-2xl mt-2">{item.icon}</div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                   </div>
                   
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Du trenger:</h3>
-                    <ul className="space-y-2 text-gray-700">
-                      <li className="flex items-center gap-2">
-                        <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                        </svg>
-                        Fødselsnummer
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                        </svg>
-                        BankID
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                        </svg>
-                        Inntektsinformasjon
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                        </svg>
-                        Registreringsnummer
-                      </li>
-                    </ul>
-                  </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-6">Du trenger:</h3>
+                      <div className="space-y-4">
+                        {[
+                          { item: "Fødselsnummer", icon: "🆔" },
+                          { item: "BankID", icon: "🔐" },
+                          { item: "Inntektsinformasjon", icon: "💰" },
+                          { item: "Registreringsnummer", icon: "🚗" }
+                        ].map((req, index) => (
+                          <div key={index} className="flex items-center gap-4 p-4 bg-white/50 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300">
+                            <div className="w-10 h-10 bg-gradient-to-br from-[#10B981] to-[#059669] rounded-full flex items-center justify-center text-white text-lg shadow-lg">
+                              ✓
+                            </div>
+                            <div className="flex-1">
+                              <span className="font-medium text-gray-900">{req.item}</span>
+                              <div className="text-2xl mt-1">{req.icon}</div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                 </div>
               </div>
             </section>
 
-            {/* Hva koster det - Simplified */}
-            <section id="hva-koster" className="mb-12">
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
-                <h2 className="text-2xl font-bold text-[#004D61] mb-6 text-center">Hva koster et billån?</h2>
+            {/* Hva koster det - Enhanced */}
+            <section id="hva-koster" className="mb-20">
+              <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-10 shadow-xl border border-gray-100 relative overflow-hidden">
+                {/* Subtle gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#004D61]/5 to-[#FF6B35]/5 opacity-50"></div>
+                <div className="relative z-10">
+                  <div className="text-center mb-8">
+                    <div className="inline-flex items-center gap-2 bg-[#004D61] text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 shadow-lg">
+                      <span>💰 Kostnader og renter</span>
+                    </div>
+                    <h2 className="text-3xl font-bold text-[#004D61] mb-4">Hva koster et billån?</h2>
+                  </div>
                 
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
@@ -307,48 +328,35 @@ export default function BillanGuidePage() {
               </div>
             </section>
 
-            {/* CTA Section */}
-            <section className="my-12">
-              <div className="bg-[#004D61] rounded-2xl p-8 text-center text-white">
-                <h3 className="text-2xl font-bold mb-4">Klar til å søke om billån?</h3>
-                <p className="text-lg mb-8 opacity-90">
-                  Få et uforpliktende tilbud innen 24 timer. Gratis, raskt og profesjonelt.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <a 
-                    href="#lead-form" 
-                    className="inline-block bg-[#FF6B35] hover:bg-[#E55A25] text-white font-semibold px-8 py-4 rounded-full transition-all shadow-lg focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30"
-                  >
-                    Søk billån nå
-                  </a>
-                  <a 
-                    href="#calculator" 
-                    className="inline-block bg-white/20 hover:bg-white/30 text-white font-semibold px-8 py-4 rounded-full transition-all border border-white/30 focus:outline-none focus:ring-4 focus:ring-white/30"
-                  >
-                    Prøv kalkulatoren først
-                  </a>
-                </div>
-              </div>
-            </section>
 
           </div>
         </article>
 
 
-        {/* Final CTA */}
-        <section id="lead-form" className="py-20 bg-gray-50">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#004D61] mb-4">Klar til å søke om billån?</h2>
-              <p className="text-lg md:text-xl text-gray-600">Få et uforpliktende tilbud innen 24 timer. Gratis, raskt og profesjonelt.</p>
-              <div className="mt-4 inline-flex items-center gap-2 bg-blue-50 rounded-full px-5 py-2 border border-blue-100">
-                <svg className="w-5 h-5 text-[#004D61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span className="text-sm font-medium text-[#004D61]">100% gratis og uforpliktende</span>
+        {/* Final CTA - Seamless Integration */}
+        <section id="lead-form" className="py-24 bg-gradient-to-br from-[#004D61] via-[#006B7D] to-[#003847] relative overflow-hidden">
+          {/* Background decoration */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-20 w-40 h-40 bg-gradient-to-br from-[#FF6B35]/20 to-[#E55A24]/20 rounded-full blur-2xl"></div>
+            <div className="absolute bottom-20 right-20 w-60 h-60 bg-gradient-to-br from-[#10B981]/20 to-[#059669]/20 rounded-full blur-2xl"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-white/5 to-transparent rounded-full blur-3xl"></div>
+          </div>
+          
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-white/30">
+                <span className="text-sm font-semibold text-white">🚀 Klar til å starte?</span>
               </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                Klar til å søke om billån?
+              </h2>
+              <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                Få et uforpliktende tilbud innen 24 timer. 
+                <span className="font-bold text-white">Gratis, raskt og profesjonelt.</span>
+              </p>
             </div>
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-gray-200">
+            
+            <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-2xl border border-white/30">
               <MultiStepForm />
             </div>
           </div>
