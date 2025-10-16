@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-5 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Enkel Finansiering</h3>
+            <h3 className="text-xl font-bold mb-4 text-white">Enkel Finansiering</h3>
             <p className="text-gray-400 text-sm">
               Norges enkleste vei til billån. Vi hjelper deg med å finne det beste lånetilbudet.
             </p>
@@ -13,7 +13,7 @@ export default function Footer() {
 
                  {/* Quick Links */}
                  <div>
-                   <h4 className="font-semibold mb-4">Snarveier</h4>
+                   <h4 className="font-semibold mb-4 text-white">Snarveier</h4>
                    <ul className="space-y-3 text-sm" role="list">
                      <li><a href="/kalkulator" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Billånskalkulator</a></li>
                      <li><a href="#lead-form" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Søk billån</a></li>
@@ -26,7 +26,7 @@ export default function Footer() {
 
           {/* Products */}
           <div>
-            <h4 className="font-semibold mb-4">Våre tjenester</h4>
+            <h4 className="font-semibold mb-4 text-white">Våre tjenester</h4>
             <ul className="space-y-3 text-sm" role="list">
               <li><a href="/uten-egenkapital" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Billån uten egenkapital</a></li>
               <li><a href="/pa-dagen" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Billån på dagen</a></li>
@@ -36,7 +36,7 @@ export default function Footer() {
 
                  {/* Verktøy */}
                  <div>
-                   <h4 className="font-semibold mb-4">Verktøy</h4>
+                   <h4 className="font-semibold mb-4 text-white">Verktøy</h4>
                    <ul className="space-y-3 text-sm" role="list">
                      <li><a href="/verktoy" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Alle verktøy</a></li>
                      <li><a href="/kalkulator" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Billånskalkulator</a></li>
@@ -49,7 +49,7 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="font-semibold mb-4">Juridisk</h4>
+            <h4 className="font-semibold mb-4 text-white">Juridisk</h4>
             <ul className="space-y-3 text-sm" role="list">
               <li><a href="/personvern" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Personvernerklæring</a></li>
               <li><a href="/vilkar" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Vilkår og betingelser</a></li>

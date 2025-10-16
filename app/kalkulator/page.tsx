@@ -207,6 +207,7 @@ export default function KalkulatorPage() {
             <h2 className="text-2xl font-bold text-[#004D61] mb-4">
               Hva vil du vite?
             </h2>
+            <p className="text-gray-600 text-sm">Klikk på et emne for å lese mer</p>
           </div>
           <div className="grid md:grid-cols-3 gap-4">
             {[
@@ -241,7 +242,9 @@ export default function KalkulatorPage() {
               <a
                 key={index}
                 href={item.href}
-                className="group bg-white rounded-xl p-6 border border-gray-200 hover:border-[#004D61] hover:shadow-lg transition-all duration-300 text-center focus:outline-none focus:ring-4 focus:ring-[#004D61]/30"
+                className="group bg-white rounded-xl p-6 border-2 border-gray-200 hover:border-[#004D61] hover:shadow-lg transition-all duration-300 text-center focus:outline-none focus:ring-4 focus:ring-[#004D61]/30 cursor-pointer"
+                role="button"
+                aria-label={`Les mer om ${item.title}`}
               >
                 <div className="flex justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                   {item.icon}
@@ -249,6 +252,9 @@ export default function KalkulatorPage() {
                 <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#004D61] transition-colors duration-300">
                   {item.title}
                 </h3>
+                <p className="text-sm text-gray-500 mt-2 group-hover:text-[#004D61] transition-colors duration-300">
+                  Les mer →
+                </p>
               </a>
             ))}
           </div>
