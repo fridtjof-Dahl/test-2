@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   
-  // Image optimization - ultra aggressive
+  // Image optimization - ULTRA AGGRESSIVE for 100/100 PageSpeed
   images: {
     formats: ['image/avif', 'image/webp'],
     dangerouslyAllowSVG: true,
@@ -11,32 +11,21 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     unoptimized: false,
     loader: 'default',
-    quality: 85,
   },
   
-  // Performance optimizations
+  // Performance optimizations - ULTRA for 100/100 PageSpeed
   poweredByHeader: false,
   compress: true,
-  swcMinify: true,
-  
-  // External packages for server components
-  serverExternalPackages: ['resend'],
+  generateEtags: true,
+  httpAgentOptions: {
+    keepAlive: true,
+  },
   
   // Experimental features for better performance
   experimental: {
-    optimizePackageImports: ['@next/third-parties', 'react', 'react-dom', 'resend'],
+    optimizePackageImports: ['@next/third-parties', 'react', 'react-dom'],
     scrollRestoration: true,
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'],
-    optimizeCss: true,
-    serverComponentsExternalPackages: ['resend'],
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
   },
   
   // Compiler optimizations
@@ -170,6 +159,18 @@ const nextConfig: NextConfig = {
           {
             key: 'Content-Security-Policy',
             value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.google.com; frame-src 'self' https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;"
+          },
+          {
+            key: 'Cross-Origin-Embedder-Policy',
+            value: 'unsafe-none'
+          },
+          {
+            key: 'Cross-Origin-Opener-Policy',
+            value: 'same-origin'
+          },
+          {
+            key: 'Cross-Origin-Resource-Policy',
+            value: 'cross-origin'
           }
         ]
       },

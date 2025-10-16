@@ -53,15 +53,19 @@ export default function HowItWorks() {
 
         <div className="grid md:grid-cols-3 gap-12">
           {steps.map((step, index) => (
-            <div key={index} className="relative">
-              <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100 h-full">
+            <div key={index} className="relative group">
+              {/* Number badge overlapping the card corner */}
+              <div className="absolute -top-4 -left-4 md:-top-6 md:-left-6 w-12 h-12 md:w-14 md:h-14 bg-[#FF6B35] text-white rounded-full flex items-center justify-center text-xl md:text-2xl font-bold z-20 shadow-xl ring-4 ring-white">
+                {step.number}
+              </div>
+
+              <div className="card-elegant card-interactive rounded-2xl p-8 h-full">
                 <div className="mb-6 flex justify-center">
-                  {step.icon}
+                  <div className="card-icon">
+                    {step.icon}
+                  </div>
                 </div>
-                <div className="absolute -top-4 -left-4 w-12 h-12 bg-[#FF6B35] text-white rounded-full flex items-center justify-center text-xl font-bold shadow-lg">
-                  {step.number}
-                </div>
-                <h3 className="text-2xl font-bold text-[#004D61] mb-4 text-center">
+                <h3 className="card-title text-2xl font-bold text-[#004D61] mb-4 text-center">
                   {step.title}
                 </h3>
                 <p className="text-gray-600 text-center leading-relaxed">

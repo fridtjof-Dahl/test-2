@@ -44,7 +44,7 @@ const LoanCalculator = memo(function LoanCalculator() {
   }, []);
 
   return (
-    <section id="calculator" className="py-16 bg-gray-50" aria-labelledby="calculator-heading" aria-describedby="calculator-description">
+    <section className="py-16 bg-gray-50" aria-labelledby="calculator-heading" aria-describedby="calculator-description">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 id="calculator-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
@@ -70,6 +70,7 @@ const LoanCalculator = memo(function LoanCalculator() {
                 step="10000"
                 value={loanAmount}
                 onChange={(e) => handleLoanAmountChange(Number(e.target.value))}
+                onInput={(e) => handleLoanAmountChange(Number((e.target as HTMLInputElement).value))}
                 className="w-full h-2 bg-blue-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
               />
               <div className="flex justify-between text-xs text-gray-500 mt-1">
@@ -91,6 +92,7 @@ const LoanCalculator = memo(function LoanCalculator() {
                 step="10000"
                 value={downPayment}
                 onChange={(e) => handleDownPaymentChange(Number(e.target.value))}
+                onInput={(e) => handleDownPaymentChange(Number((e.target as HTMLInputElement).value))}
                 className="w-full h-2 bg-blue-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
               />
               <div className="flex justify-between text-xs text-gray-500 mt-1">
@@ -112,6 +114,7 @@ const LoanCalculator = memo(function LoanCalculator() {
                 step="1"
                 value={years}
                 onChange={(e) => handleYearsChange(Number(e.target.value))}
+                onInput={(e) => handleYearsChange(Number((e.target as HTMLInputElement).value))}
                 className="w-full h-2 bg-blue-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
               />
               <div className="flex justify-between text-xs text-gray-500 mt-1">

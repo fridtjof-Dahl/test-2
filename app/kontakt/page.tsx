@@ -71,19 +71,15 @@ export default function ContactPage() {
           </p>
         </div>
         
-        {/* Decorative wave at bottom */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-            <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="white"/>
-          </svg>
-        </div>
+        {/* Minimal fade */}
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 md:h-28 bg-gradient-to-t from-white to-transparent"></div>
       </section>
 
       {/* Contact info */}
       <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="group relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/20">
+            <div className="group relative card-glass card-interactive rounded-3xl p-8">
               <div className="flex justify-center mb-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-[#004D61] to-[#006B7D] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
@@ -99,7 +95,7 @@ export default function ContactPage() {
               <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-[#004D61] to-[#FF6B35] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
 
-            <div className="group relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/20">
+            <div className="group relative card-glass card-interactive rounded-3xl p-8">
               <div className="flex justify-center mb-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-[#004D61] to-[#006B7D] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
@@ -114,7 +110,7 @@ export default function ContactPage() {
               <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-[#004D61] to-[#FF6B35] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
 
-            <div className="group relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/20">
+            <div className="group relative card-glass card-interactive rounded-3xl p-8">
               <div className="flex justify-center mb-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-[#004D61] to-[#006B7D] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">

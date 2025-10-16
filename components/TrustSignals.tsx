@@ -34,17 +34,17 @@ export default function TrustSignals() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
+            <div key={index} className="card-elegant card-interactive rounded-xl p-6">
               <div className="flex mb-3">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <span key={i} className="text-yellow-400 text-xl">★</span>
+                  <span key={i} className="text-yellow-400 text-xl transition-transform duration-300 hover:scale-110">★</span>
                 ))}
               </div>
               <p className="text-gray-700 mb-4 italic">
                 "{testimonial.text}"
               </p>
               <div className="flex items-center">
-                <div className="w-10 h-10 bg-[#004D61] rounded-full flex items-center justify-center text-white font-bold mr-3">
+                <div className="w-10 h-10 bg-[#004D61] rounded-full flex items-center justify-center text-white font-bold mr-3 transition-transform duration-300 group-hover:scale-110">
                   {testimonial.name.charAt(0)}
                 </div>
                 <div>

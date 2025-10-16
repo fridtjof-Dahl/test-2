@@ -1,8 +1,8 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12" role="contentinfo">
+    <footer key="footer" className="bg-gray-900 text-white py-12" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid md:grid-cols-5 gap-8 mb-8">
           {/* Company Info */}
           <div>
             <h3 className="text-xl font-bold mb-4">Enkel Finansiering</h3>
@@ -11,16 +11,18 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold mb-4">Snarveier</h4>
-            <ul className="space-y-2 text-sm" role="list">
-              <li><a href="/kalkulator" className="text-gray-400 hover:text-white transition">Billånskalkulator</a></li>
-              <li><a href="#lead-form" className="text-gray-400 hover:text-white transition">Søk billån</a></li>
-              <li><a href="/om-oss" className="text-gray-400 hover:text-white transition">Om oss</a></li>
-              <li><a href="/kontakt" className="text-gray-400 hover:text-white transition">Kontakt</a></li>
-            </ul>
-          </div>
+                 {/* Quick Links */}
+                 <div>
+                   <h4 className="font-semibold mb-4">Snarveier</h4>
+                   <ul className="space-y-2 text-sm" role="list">
+                     <li><a href="/kalkulator" className="text-gray-400 hover:text-white transition">Billånskalkulator</a></li>
+                     <li><a href="#lead-form" className="text-gray-400 hover:text-white transition">Søk billån</a></li>
+                     <li><a href="/om-oss" className="text-gray-400 hover:text-white transition">Om oss</a></li>
+                     <li><a href="/kontakt" className="text-gray-400 hover:text-white transition">Kontakt</a></li>
+                     <li><a href="/faq" className="text-gray-400 hover:text-white transition">FAQ</a></li>
+                     <li><a href="/blog" className="text-gray-400 hover:text-white transition">Blog</a></li>
+                   </ul>
+                 </div>
 
           {/* Products */}
           <div>
@@ -28,9 +30,22 @@ export default function Footer() {
             <ul className="space-y-2 text-sm" role="list">
               <li><a href="/uten-egenkapital" className="text-gray-400 hover:text-white transition">Billån uten egenkapital</a></li>
               <li><a href="/pa-dagen" className="text-gray-400 hover:text-white transition">Billån på dagen</a></li>
-              <li><a href="/billan" className="text-gray-400 hover:text-white transition">Billån Guide</a></li>
+              <li><a href="/billan" className="text-gray-400 hover:text-white transition">Alt du trenger å vite</a></li>
             </ul>
           </div>
+
+                 {/* Verktøy */}
+                 <div>
+                   <h4 className="font-semibold mb-4">Verktøy</h4>
+                   <ul className="space-y-2 text-sm" role="list">
+                     <li><a href="/verktoy" className="text-gray-400 hover:text-white transition">Alle verktøy</a></li>
+                     <li><a href="/kalkulator" className="text-gray-400 hover:text-white transition">Billånskalkulator</a></li>
+                     <li><a href="/sammenlign" className="text-gray-400 hover:text-white transition">Sammenlign billån</a></li>
+                     <li><a href="/verktoy/bilverdi-estimator" className="text-gray-400 hover:text-white transition">Bilverdi Estimator</a></li>
+                     <li><a href="/verktoy/billan-vs-leasing" className="text-gray-400 hover:text-white transition">Billån vs Leasing</a></li>
+                    
+                   </ul>
+                 </div>
 
           {/* Legal */}
           <div>

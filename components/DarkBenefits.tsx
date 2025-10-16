@@ -30,15 +30,11 @@ export default function DarkBenefits() {
   ];
 
   return (
-    <section className="relative hero-gradient py-20 overflow-hidden">
-      {/* Decorative wave at top */}
-      <div className="absolute top-0 left-0 right-0 transform -translate-y-4">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-          <path d="M0 120L60 110C120 100 240 80 360 73.3C480 67 600 73 720 76.7C840 80 960 80 1080 73.3C1200 67 1320 53 1380 46.7L1440 40V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V120Z" fill="white"/>
-        </svg>
-      </div>
+    <section className="relative hero-gradient py-32 md:py-36 overflow-hidden">
+      {/* Minimal, responsive fades (no waves) */}
+      <div className="pointer-events-none absolute top-0 left-0 right-0 h-24 md:h-28 bg-gradient-to-b from-white to-transparent z-0"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-[#004D61] mb-4">
             Derfor velger kunder oss
@@ -74,12 +70,8 @@ export default function DarkBenefits() {
         </div>
       </div>
 
-      {/* Decorative wave at bottom - same as hero */}
-      <div className="absolute bottom-0 left-0 right-0 transform translate-y-1">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-          <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="white"/>
-        </svg>
-      </div>
+      {/* Soft fade to white to ensure perfect transition */}
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 md:h-28 bg-gradient-to-t from-white to-transparent z-0"></div>
     </section>
   );
 }

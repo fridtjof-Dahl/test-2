@@ -1,16 +1,27 @@
-// Service Worker for ultra-optimized caching and performance
-const CACHE_VERSION = 'v3';
+// ULTRA-OPTIMIZED Service Worker for 100/100 PageSpeed
+const CACHE_VERSION = 'v7';
 const STATIC_CACHE = `static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE = `dynamic-${CACHE_VERSION}`;
 const IMAGE_CACHE = `images-${CACHE_VERSION}`;
 const API_CACHE = `api-${CACHE_VERSION}`;
+const FONT_CACHE = `fonts-${CACHE_VERSION}`;
 
-// Critical assets to cache immediately - only essential resources
+// Critical assets to cache immediately - ultra-minimal for fastest loading
 const CRITICAL_ASSETS = [
   '/',
+  '/favicon.svg',
   '/_next/static/css/app/layout.css',
   '/_next/static/css/app/page.css',
   '/_next/static/css/app/critical.css',
+  '/kalkulator',
+  '/billan',
+  '/pa-dagen',
+  '/verktoy',
+];
+
+// Font assets for instant loading
+const FONT_ASSETS = [
+  'https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2'
 ];
 
 // Assets to cache on demand
@@ -33,17 +44,17 @@ const CACHE_STRATEGIES = {
   pages: ['/']
 };
 
-// Install event - cache only critical assets for faster installation
+// ULTRA-OPTIMIZED Install event - cache critical assets + fonts for instant loading
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(STATIC_CACHE)
-      .then((cache) => {
-        // Only cache critical assets immediately
-        return cache.addAll(CRITICAL_ASSETS);
-      })
-      .then(() => {
-        return self.skipWaiting();
-      })
+    Promise.all([
+      // Cache critical static assets
+      caches.open(STATIC_CACHE).then(cache => cache.addAll(CRITICAL_ASSETS)),
+      // Cache critical fonts for instant loading
+      caches.open(FONT_CACHE).then(cache => cache.addAll(FONT_ASSETS))
+    ]).then(() => {
+      return self.skipWaiting();
+    })
   );
 });
 
@@ -106,13 +117,20 @@ function getCacheStrategy(url) {
   return 'dynamic';
 }
 
-// Fetch event - serve from cache or network
+// ULTRA-OPTIMIZED Fetch event - serve from cache or network for 100/100 PageSpeed
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Skip non-GET requests
-  if (request.method !== 'GET') {
+  // Skip non-GET requests and non-HTTP requests
+  if (request.method !== 'GET' || !url.protocol.startsWith('http')) {
+    return;
+  }
+
+  // Skip analytics and tracking requests to improve performance
+  if (url.hostname.includes('google-analytics.com') || 
+      url.hostname.includes('googletagmanager.com') ||
+      url.hostname.includes('doubleclick.net')) {
     return;
   }
 

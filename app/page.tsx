@@ -106,30 +106,65 @@ const faqItems = [
 ];
 
 export default function Home() {
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Enkel Finansiering",
-    "description": "Norges enkleste vei til billån. Vi hjelper deg med å finne det beste lånetilbudet.",
-    "url": "https://enkelfinansiering.no",
-    "logo": "https://enkelfinansiering.no/logo.png",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+47-960-07-981",
-      "contactType": "customer service",
-      "availableLanguage": "Norwegian"
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Enkel Finansiering",
+      "description": "Norges enkleste vei til billån. Vi hjelper deg med å finne det beste lånetilbudet.",
+      "url": "https://enkelfinansiering.no",
+      "logo": "https://enkelfinansiering.no/favicon.svg",
+      "foundingDate": "2020",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+47-960-07-981",
+        "contactType": "customer service",
+        "availableLanguage": "Norwegian",
+        "areaServed": "NO"
+      },
+      "sameAs": [
+        "https://enkelfinansiering.no"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "name": "Billån på dagen",
+        "description": "Få et uforpliktende tilbud på billån innen 24 timer",
+        "price": "0",
+        "priceCurrency": "NOK",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2025-01-15",
+        "validThrough": "2025-12-31"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "NO"
+      }
     },
-    "sameAs": [
-      "https://enkelfinansiering.no"
-    ],
-    "offers": {
-      "@type": "Offer",
-      "name": "Billån på dagen",
-      "description": "Få et uforpliktende tilbud på billån innen 24 timer",
-      "price": "0",
-      "priceCurrency": "NOK"
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Enkel Finansiering",
+      "url": "https://enkelfinansiering.no",
+      "description": "Billån på dagen - Uforpliktende tilbud innen 24 timer",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://enkelfinansiering.no/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqItems.map(item => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.answer
+        }
+      }))
     }
-  };
+  ];
 
   return (
     <main className="min-h-screen bg-white">

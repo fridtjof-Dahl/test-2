@@ -5,13 +5,21 @@ import { trackButtonClick } from '@/lib/analytics';
 
 const ImprovedHero = memo(function ImprovedHero() {
   return (
-        <section className="relative hero-gradient py-20 md:py-28 overflow-hidden" role="banner" aria-labelledby="hero-heading">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative hero-gradient py-20 md:py-28 overflow-hidden" role="banner" aria-labelledby="hero-heading">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#FF6B35] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#004D61] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-start lg:items-center">
           {/* Left Column - Text Content */}
           <div className="text-center lg:text-left">
-            <div className="inline-block bg-[#FF6B35] text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              Rask behandling • Svar innen 24 timer
+            <div className="inline-flex items-center gap-2 bg-[#FF6B35] text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+              <span>Rask behandling • Svar innen 24 timer</span>
+              <div className="w-2 h-2 bg-white rounded-full animate-pulse delay-300"></div>
             </div>
             
             <h1 id="hero-heading" className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#004D61] mb-6 leading-tight">
@@ -20,7 +28,7 @@ const ImprovedHero = memo(function ImprovedHero() {
             
             <p id="hero-description" className="text-xl sm:text-2xl text-gray-700 mb-8 leading-relaxed">
               Få et uforpliktende tilbud innen 24 timer.<br />
-              100% gratis.
+              <span className="font-semibold text-[#FF6B35]">100% gratis.</span>
             </p>
 
             {/* Trust Badges */}
@@ -44,18 +52,24 @@ const ImprovedHero = memo(function ImprovedHero() {
             <a 
               href="#lead-form" 
               onClick={() => trackButtonClick('sok_billan_na', 'hero')}
-              className="btn-primary text-lg"
+              className="group inline-flex items-center gap-2 bg-[#FF6B35] hover:bg-[#E55A24] text-white font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30 min-h-[56px]"
               aria-describedby="hero-description"
             >
-              Søk billån nå →
+              <span>Søk billån nå</span>
+              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
             </a>
             <a
               href="/kalkulator"
               onClick={() => trackButtonClick('proev_kalkulatoren', 'hero')}
-              className="btn-secondary text-lg"
+              className="group inline-flex items-center gap-2 bg-white text-[#004D61] hover:bg-gray-50 font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 border-2 border-[#004D61] hover:border-[#006B7D] shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#004D61]/30 min-h-[56px]"
               aria-label="Prøv lånekalkulatoren"
             >
-              Prøv kalkulatoren
+              <svg className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+              <span>Prøv kalkulatoren</span>
             </a>
             </div>
 
@@ -124,12 +138,8 @@ const ImprovedHero = memo(function ImprovedHero() {
         </div>
       </div>
 
-      {/* Decorative wave at bottom */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-          <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="white"/>
-        </svg>
-      </div>
+      {/* Minimal fade instead of wave for consistency */}
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 md:h-28 bg-gradient-to-t from-white to-transparent"></div>
     </section>
   );
 });

@@ -41,12 +41,12 @@ SENDGRID_API_KEY=your_sendgrid_api_key
 EMAIL_FROM=kontakt@enkelfinansiering.no
 
 # Contact Recipients
-CONTACT_EMAIL_PRIMARY=vainio@panther.no
+CONTACT_EMAIL_PRIMARY=kontakt@enkelfinansiering.no
 CONTACT_EMAIL_ADMIN=kontakt@enkelfinansiering.no
 CONTACT_EMAIL_BACKUP=fridtjof@visionmedia.no
 
 # Loan Application Recipients
-LOAN_EMAIL_PRIMARY=vainio@panther.no
+LOAN_EMAIL_PRIMARY=kontakt@enkelfinansiering.no
 LOAN_EMAIL_ADMIN=kontakt@enkelfinansiering.no
 LOAN_EMAIL_BACKUP=fridtjof@visionmedia.no
 
