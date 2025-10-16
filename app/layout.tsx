@@ -5,7 +5,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import "./globals.css";
 import "./critical.css";
 import ServiceWorkerScript from '@/components/ServiceWorkerScript';
-import ErrorBoundary from '@/components/ErrorBoundary';
+// import ErrorBoundary from '@/components/ErrorBoundary';
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -209,9 +209,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body>
-        <ErrorBoundary>
-          {children}
-        </ErrorBoundary>
+        {children}
         <GoogleAnalytics 
           gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-MZZN40H83P'}
           strategy="lazyOnload"
