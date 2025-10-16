@@ -4,6 +4,7 @@ import { useState, useCallback, memo, useMemo } from 'react';
 import { useLoanCalculation } from './hooks/useLoanCalculation';
 import { useFormValidation } from './hooks/useFormValidation';
 import { FormData, WARRANTIES, WarrantyType } from './types/form';
+import { trackFormSubmission, trackConversion } from '@/lib/analytics';
 
 const INITIAL_FORM_DATA: FormData = {
   itemPrice: 300000,
@@ -65,15 +66,23 @@ const MultiStepForm = memo(function MultiStepForm() {
       const result = await response.json();
 
       if (response.ok) {
+        // Track successful form submission with fixed value
+        trackFormSubmission('loan-application', true, 4000); // Fixed value for loan applications
+        trackConversion('loan_application', 4000);
+        
         alert(`Takk for søknaden! ${result.message}`);
         // Reset form
         setFormData(INITIAL_FORM_DATA);
         setStep(1);
       } else {
+        // Track failed form submission
+        trackFormSubmission('loan-application', false);
         alert(`Feil: ${result.error}`);
       }
     } catch (error) {
       console.error('Submission error:', error);
+      // Track failed form submission
+      trackFormSubmission('loan-application', false);
       alert('Noe gikk galt. Prøv igjen.');
     } finally {
       setIsSubmitting(false);

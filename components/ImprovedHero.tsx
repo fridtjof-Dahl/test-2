@@ -1,6 +1,7 @@
 'use client';
 
 import { memo } from 'react';
+import { trackButtonClick } from '@/lib/analytics';
 
 const ImprovedHero = memo(function ImprovedHero() {
   return (
@@ -60,6 +61,7 @@ const ImprovedHero = memo(function ImprovedHero() {
             <div className="flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start mb-8" role="group" aria-label="Handlinger">
             <a 
               href="#lead-form" 
+              onClick={() => trackButtonClick('sok_billan_na', 'hero')}
               className="group inline-flex items-center gap-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold px-10 py-5 rounded-xl transition-all duration-300 shadow-2xl hover:shadow-3xl focus:outline-none focus:ring-4 focus:ring-blue-500/30 transform hover:scale-105"
               aria-describedby="hero-description"
             >
@@ -70,6 +72,7 @@ const ImprovedHero = memo(function ImprovedHero() {
             </a>
             <a
               href="/kalkulator"
+              onClick={() => trackButtonClick('proev_kalkulatoren', 'hero')}
               className="group inline-flex items-center gap-4 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-semibold px-10 py-5 rounded-xl transition-all duration-300 border border-white/30 hover:border-white/50 shadow-xl hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/30"
               aria-label="Prøv lånekalkulatoren"
             >
