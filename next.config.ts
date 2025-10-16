@@ -11,6 +11,9 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     unoptimized: false,
     loader: 'default',
+    quality: 85,
+    priority: true,
+    placeholder: 'blur',
   },
   
   // Performance optimizations - ULTRA for 100/100 PageSpeed
@@ -31,7 +34,14 @@ const nextConfig: NextConfig = {
   // Compiler optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
+    styledComponents: true,
   },
+  
+  // Output optimization
+  output: 'standalone',
+  
+  // SWC minification for better performance
+  swcMinify: true,
   
   // Webpack optimizations - ultra aggressive
   webpack: (config, { dev, isServer }) => {
@@ -91,7 +101,7 @@ const nextConfig: NextConfig = {
         },
       };
       
-      // Tree shaking optimization
+      // Tree shaking optimization - ULTRA AGGRESSIVE
       config.optimization.usedExports = true;
       config.optimization.sideEffects = false;
       config.optimization.providedExports = true;
@@ -101,6 +111,18 @@ const nextConfig: NextConfig = {
       
       // Better minification
       config.optimization.minimize = true;
+      
+      // Dead code elimination
+      config.optimization.usedExports = true;
+      config.optimization.sideEffects = false;
+      
+      // Better module resolution for tree shaking
+      config.optimization.providedExports = true;
+      config.optimization.usedExports = true;
+      
+      // Remove unused modules more aggressively
+      config.optimization.usedExports = true;
+      config.optimization.sideEffects = false;
     }
     
     // Optimize module resolution

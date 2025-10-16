@@ -17,6 +17,9 @@ const inter = Inter({
   adjustFontFallback: true, // Prevent layout shift
   // Ultra-optimized font loading for 100/100 PageSpeed
   style: 'normal',
+  // Preload critical font for LCP
+  preconnect: true,
+  crossOrigin: 'anonymous',
 });
 
 export const metadata: Metadata = {
@@ -144,8 +147,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
         
-        {/* Preload critical fonts - only the most essential weights */}
-        <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        {/* Preload critical fonts - only the most essential weights for LCP */}
+        <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         
         {/* ULTRA-OPTIMIZED Critical CSS for 100/100 PageSpeed */}
         <style dangerouslySetInnerHTML={{
@@ -200,7 +204,7 @@ export default function RootLayout({
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
         {/* Google Tag Manager - Ultra-optimized for 100/100 PageSpeed */}
-        <Script id="gtm" strategy="afterInteractive">
+        <Script id="gtm" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.defer=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-T22X3C9X');`}
         </Script>
       </head>
@@ -209,7 +213,8 @@ export default function RootLayout({
           {children}
         </ErrorBoundary>
         <GoogleAnalytics 
-          gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-MZZN40H83P'} 
+          gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-MZZN40H83P'}
+          strategy="lazyOnload"
         />
         <ServiceWorkerScript />
         

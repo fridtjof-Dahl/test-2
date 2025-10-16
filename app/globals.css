@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Critical CSS - inlined for performance */
+
 /* Custom CSS optimizations */
 @layer base {
   :root {

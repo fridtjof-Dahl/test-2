@@ -14,35 +14,35 @@ export default function Footer() {
                  {/* Quick Links */}
                  <div>
                    <h4 className="font-semibold mb-4">Snarveier</h4>
-                   <ul className="space-y-2 text-sm" role="list">
-                     <li><a href="/kalkulator" className="text-gray-400 hover:text-white transition">Billånskalkulator</a></li>
-                     <li><a href="#lead-form" className="text-gray-400 hover:text-white transition">Søk billån</a></li>
-                     <li><a href="/om-oss" className="text-gray-400 hover:text-white transition">Om oss</a></li>
-                     <li><a href="/kontakt" className="text-gray-400 hover:text-white transition">Kontakt</a></li>
-                     <li><a href="/faq" className="text-gray-400 hover:text-white transition">FAQ</a></li>
-                     <li><a href="/blog" className="text-gray-400 hover:text-white transition">Blog</a></li>
+                   <ul className="space-y-3 text-sm" role="list">
+                     <li><a href="/kalkulator" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Billånskalkulator</a></li>
+                     <li><a href="#lead-form" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Søk billån</a></li>
+                     <li><a href="/om-oss" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Om oss</a></li>
+                     <li><a href="/kontakt" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Kontakt</a></li>
+                     <li><a href="/faq" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">FAQ</a></li>
+                     <li><a href="/blog" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Blog</a></li>
                    </ul>
                  </div>
 
           {/* Products */}
           <div>
             <h4 className="font-semibold mb-4">Våre tjenester</h4>
-            <ul className="space-y-2 text-sm" role="list">
-              <li><a href="/uten-egenkapital" className="text-gray-400 hover:text-white transition">Billån uten egenkapital</a></li>
-              <li><a href="/pa-dagen" className="text-gray-400 hover:text-white transition">Billån på dagen</a></li>
-              <li><a href="/billan" className="text-gray-400 hover:text-white transition">Alt du trenger å vite</a></li>
+            <ul className="space-y-3 text-sm" role="list">
+              <li><a href="/uten-egenkapital" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Billån uten egenkapital</a></li>
+              <li><a href="/pa-dagen" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Billån på dagen</a></li>
+              <li><a href="/billan" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Alt du trenger å vite</a></li>
             </ul>
           </div>
 
                  {/* Verktøy */}
                  <div>
                    <h4 className="font-semibold mb-4">Verktøy</h4>
-                   <ul className="space-y-2 text-sm" role="list">
-                     <li><a href="/verktoy" className="text-gray-400 hover:text-white transition">Alle verktøy</a></li>
-                     <li><a href="/kalkulator" className="text-gray-400 hover:text-white transition">Billånskalkulator</a></li>
-                     <li><a href="/sammenlign" className="text-gray-400 hover:text-white transition">Sammenlign billån</a></li>
-                     <li><a href="/verktoy/bilverdi-estimator" className="text-gray-400 hover:text-white transition">Bilverdi Estimator</a></li>
-                     <li><a href="/verktoy/billan-vs-leasing" className="text-gray-400 hover:text-white transition">Billån vs Leasing</a></li>
+                   <ul className="space-y-3 text-sm" role="list">
+                     <li><a href="/verktoy" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Alle verktøy</a></li>
+                     <li><a href="/kalkulator" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Billånskalkulator</a></li>
+                     <li><a href="/sammenlign" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Sammenlign billån</a></li>
+                     <li><a href="/verktoy/bilverdi-estimator" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Bilverdi Estimator</a></li>
+                     <li><a href="/verktoy/billan-vs-leasing" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Billån vs Leasing</a></li>
                     
                    </ul>
                  </div>
@@ -50,10 +50,10 @@ export default function Footer() {
           {/* Legal */}
           <div>
             <h4 className="font-semibold mb-4">Juridisk</h4>
-            <ul className="space-y-2 text-sm" role="list">
-              <li><a href="/personvern" className="text-gray-400 hover:text-white transition">Personvernerklæring</a></li>
-              <li><a href="/vilkar" className="text-gray-400 hover:text-white transition">Vilkår og betingelser</a></li>
-              <li><a href="/cookies" className="text-gray-400 hover:text-white transition">Informasjonskapsler</a></li>
+            <ul className="space-y-3 text-sm" role="list">
+              <li><a href="/personvern" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Personvernerklæring</a></li>
+              <li><a href="/vilkar" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Vilkår og betingelser</a></li>
+              <li><a href="/cookies" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Informasjonskapsler</a></li>
             </ul>
           </div>
         </div>
