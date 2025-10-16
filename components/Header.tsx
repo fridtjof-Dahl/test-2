@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { memo, useState, useCallback } from 'react';
-import { trackButtonClick } from '@/lib/analytics';
 
 const Header = memo(function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -54,7 +53,6 @@ const Header = memo(function Header() {
           {/* Desktop CTA Button */}
           <a 
             href="#lead-form" 
-            onClick={() => trackButtonClick('sok_billan', 'header')}
             className="hidden md:inline-block bg-[#FF6B35] hover:bg-[#E55A24] text-white font-semibold px-6 py-3 rounded-full transition-all transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30 min-h-[48px]"
             aria-label="Søk om billån"
           >
@@ -173,10 +171,7 @@ const Header = memo(function Header() {
               {/* CTA Button */}
               <a 
                 href="#lead-form" 
-                onClick={() => {
-                  trackButtonClick('sok_billan', 'mobile-menu');
-                  closeMobileMenu();
-                }}
+                onClick={closeMobileMenu}
                 className="bg-[#FF6B35] hover:bg-[#E55A24] text-white font-semibold px-6 py-4 rounded-full transition text-center mt-4 flex items-center justify-center gap-2"
                 aria-label="Søk om billån"
               >
