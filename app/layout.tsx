@@ -17,9 +17,6 @@ const inter = Inter({
   adjustFontFallback: true, // Prevent layout shift
   // Ultra-optimized font loading for 100/100 PageSpeed
   style: 'normal',
-  // Preload critical font for LCP
-  preconnect: true,
-  crossOrigin: 'anonymous',
 });
 
 export const metadata: Metadata = {
@@ -212,7 +209,6 @@ export default function RootLayout({
         {children}
         <GoogleAnalytics 
           gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-MZZN40H83P'}
-          strategy="lazyOnload"
         />
         <ServiceWorkerScript />
         

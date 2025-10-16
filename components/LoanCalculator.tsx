@@ -2,7 +2,7 @@
 
 import { useState, useCallback, memo, useEffect } from 'react';
 import { useLoanCalculation } from './hooks/useLoanCalculation';
-import { trackCalculatorUsage } from '@/lib/analytics';
+import { trackCalculatorUsage, trackButtonClick } from '@/lib/analytics';
 
 const LoanCalculator = memo(function LoanCalculator() {
   const [loanAmount, setLoanAmount] = useState(300000);
