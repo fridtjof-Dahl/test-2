@@ -40,45 +40,48 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="py-24 bg-gray-50 relative overflow-hidden">
-      {/* Clean background */}
+    <section className="py-24 bg-gradient-to-br from-slate-50 to-slate-100 relative overflow-hidden">
+      {/* Sophisticated background */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-[#FF6B35] rounded-full opacity-5"></div>
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-[#004D61] rounded-full opacity-5"></div>
+        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-indigo-600/10 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-br from-slate-600/10 to-slate-700/10 rounded-full blur-2xl"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-[#FF6B35] text-white rounded-full px-6 py-3 mb-8 shadow-lg">
-            <span className="text-sm font-semibold">✨ Enkelt og raskt</span>
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-800 to-slate-900 text-white rounded-full px-8 py-4 mb-8 shadow-2xl border border-slate-700">
+            <span className="text-sm font-medium">✨ Premium prosess</span>
           </div>
-          <h2 className="text-5xl font-bold text-[#004D61] mb-6">
-            Slik fungerer det
+          <h2 className="text-5xl font-bold text-slate-900 mb-6">
+            Elite behandling
           </h2>
-          <p className="text-2xl text-gray-600 max-w-2xl mx-auto">
-            3 enkle steg til din nye bil 🚗
+          <p className="text-2xl text-slate-600 max-w-2xl mx-auto">
+            3 sofistikerte steg til din drømmebil
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-12">
           {steps.map((step, index) => (
             <div key={index} className="relative group">
-              {/* Clean number badge */}
-              <div className="absolute -top-6 -right-6 z-20 w-16 h-16 bg-[#FF6B35] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-300 border-4 border-white">
+              {/* Premium number badge */}
+              <div className="absolute -top-6 -right-6 z-20 w-16 h-16 bg-gradient-to-br from-slate-800 to-slate-900 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-all duration-300 border-4 border-white">
                 <span className="text-white font-bold text-xl">{step.number}</span>
               </div>
 
-              {/* Clean card design */}
-              <div className="bg-white rounded-2xl p-10 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2 border border-gray-100 h-full relative">
-                <div className="flex justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                  {step.icon}
+              {/* Premium card design */}
+              <div className="bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-3 border border-slate-200 h-full relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative z-10">
+                  <div className="flex justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                    {step.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center group-hover:text-slate-700 transition-colors duration-300">
+                    {step.title}
+                  </h3>
+                  <p className="text-slate-600 text-center leading-relaxed text-lg">
+                    {step.description}
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold text-[#004D61] mb-6 text-center group-hover:text-[#FF6B35] transition-colors duration-300">
-                  {step.title}
-                </h3>
-                <p className="text-gray-600 text-center leading-relaxed text-lg">
-                  {step.description}
-                </p>
               </div>
               {index < steps.length - 1 && (
                 <div className="hidden md:block absolute top-1/2 -right-6 transform -translate-y-1/2 text-[#FF6B35] text-3xl font-bold">

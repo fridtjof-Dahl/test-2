@@ -5,52 +5,56 @@ import { trackButtonClick } from '@/lib/analytics';
 
 const ImprovedHero = memo(function ImprovedHero() {
   return (
-    <section className="relative bg-white py-20 md:py-28 overflow-hidden" role="banner" aria-labelledby="hero-heading">
-      {/* Clean, minimal background */}
+    <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-24 md:py-32 overflow-hidden" role="banner" aria-labelledby="hero-heading">
+      {/* Sophisticated background pattern */}
       <div className="absolute inset-0">
-        {/* Subtle accent elements */}
-        <div className="absolute top-20 right-20 w-32 h-32 bg-[#FF6B35] rounded-full opacity-5"></div>
-        <div className="absolute bottom-20 left-20 w-24 h-24 bg-[#004D61] rounded-full opacity-5"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.03"%3E%3Ccircle cx="30" cy="30" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
+        <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-blue-600/10 to-indigo-600/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-br from-slate-600/10 to-slate-700/10 rounded-full blur-3xl"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-start lg:items-center">
           {/* Left Column - Text Content */}
           <div className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-3 bg-[#FF6B35] text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg hover:shadow-xl transition-all duration-300">
-              <span>⚡ Rask behandling</span>
+            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-full text-sm font-medium mb-8 shadow-2xl border border-blue-500/20">
+              <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+              <span>Premium finansiering</span>
               <div className="w-px h-4 bg-white/30"></div>
-              <span>📧 Svar innen 24 timer</span>
+              <span>Eksklusiv behandling</span>
             </div>
             
-            <h1 id="hero-heading" className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#004D61] mb-6 leading-tight">
-              Få billån på dagen
+            <h1 id="hero-heading" className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              Elite Billån
+              <span className="block text-4xl sm:text-5xl lg:text-6xl font-light text-blue-200 mt-2">
+                for kresne kunder
+              </span>
             </h1>
             
-            <p id="hero-description" className="text-xl sm:text-2xl text-gray-700 mb-8 leading-relaxed">
-              Få et uforpliktende tilbud innen 24 timer.<br />
-              <span className="font-bold text-[#FF6B35] text-2xl">100% gratis og uforpliktende</span>
+            <p id="hero-description" className="text-xl sm:text-2xl text-slate-300 mb-8 leading-relaxed max-w-2xl">
+              Opplev finansiering på et helt nytt nivå. Våre eksklusive tilbud er kun for kunder som verdsetter kvalitet og service.
+              <span className="block text-blue-300 font-semibold text-2xl mt-3">100% konfidensielt og uforpliktende</span>
             </p>
 
-            {/* Clean Trust Badges */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8" role="list" aria-label="Tjenestefordeler">
-              <div className="flex items-center gap-3 bg-gray-50 px-4 py-3 rounded-lg border border-gray-200" role="listitem">
-                <div className="w-6 h-6 bg-[#10B981] rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">✓</span>
+            {/* Premium Trust Indicators */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-6 mb-8" role="list" aria-label="Premium tjenester">
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-4 rounded-xl border border-white/20" role="listitem">
+                <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center">
+                  <span className="text-white text-sm font-bold">✓</span>
                 </div>
-                <span className="text-gray-700 font-medium">100% gratis</span>
+                <span className="text-white font-medium">Eksklusiv behandling</span>
               </div>
-              <div className="flex items-center gap-3 bg-gray-50 px-4 py-3 rounded-lg border border-gray-200" role="listitem">
-                <div className="w-6 h-6 bg-[#FF6B35] rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">⚡</span>
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-4 rounded-xl border border-white/20" role="listitem">
+                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                  <span className="text-white text-sm font-bold">⚡</span>
                 </div>
-                <span className="text-gray-700 font-medium">Rask behandling</span>
+                <span className="text-white font-medium">Premium service</span>
               </div>
-              <div className="flex items-center gap-3 bg-gray-50 px-4 py-3 rounded-lg border border-gray-200" role="listitem">
-                <div className="w-6 h-6 bg-[#004D61] rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">🔒</span>
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-4 rounded-xl border border-white/20" role="listitem">
+                <div className="w-8 h-8 bg-gradient-to-br from-slate-600 to-slate-700 rounded-full flex items-center justify-center">
+                  <span className="text-white text-sm font-bold">🔒</span>
                 </div>
-                <span className="text-gray-700 font-medium">Sikker og trygg</span>
+                <span className="text-white font-medium">Maksimal sikkerhet</span>
               </div>
             </div>
 
@@ -58,24 +62,24 @@ const ImprovedHero = memo(function ImprovedHero() {
             <a 
               href="#lead-form" 
               onClick={() => trackButtonClick('sok_billan_na', 'hero')}
-              className="inline-flex items-center gap-3 bg-[#FF6B35] hover:bg-[#E55A24] text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30"
+              className="group inline-flex items-center gap-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold px-10 py-5 rounded-xl transition-all duration-300 shadow-2xl hover:shadow-3xl focus:outline-none focus:ring-4 focus:ring-blue-500/30 transform hover:scale-105"
               aria-describedby="hero-description"
             >
-              <span>🚗 Søk billån nå</span>
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span className="text-lg">Søk om elite billån</span>
+              <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </a>
             <a
               href="/kalkulator"
               onClick={() => trackButtonClick('proev_kalkulatoren', 'hero')}
-              className="inline-flex items-center gap-3 bg-white text-[#004D61] hover:bg-gray-50 font-bold px-8 py-4 rounded-lg transition-all duration-300 border-2 border-[#004D61] hover:border-[#006B7D] shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#004D61]/30"
+              className="group inline-flex items-center gap-4 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-semibold px-10 py-5 rounded-xl transition-all duration-300 border border-white/30 hover:border-white/50 shadow-xl hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/30"
               aria-label="Prøv lånekalkulatoren"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
               </svg>
-              <span>Prøv kalkulatoren</span>
+              <span className="text-lg">Beregn ditt lån</span>
             </a>
             </div>
 
