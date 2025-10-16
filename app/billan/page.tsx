@@ -265,6 +265,7 @@ export default function BillanGuidePage() {
                   </div>
                 </div>
               </div>
+            </div>
             </section>
 
             {/* Hva koster det - Clean */}
