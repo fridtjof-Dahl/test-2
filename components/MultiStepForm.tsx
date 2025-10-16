@@ -150,7 +150,14 @@ const MultiStepForm = memo(function MultiStepForm() {
                     step="10000"
                     value={formData.itemPrice}
                     onChange={(e) => updateFormData({ itemPrice: parseInt(e.target.value) })}
-                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#FF6B35]"
+                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#FF6B35] focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30"
+                    aria-label="Kjøpesum for bilen"
+                    aria-valuemin={50000}
+                    aria-valuemax={1000000}
+                    aria-valuenow={formData.itemPrice}
+                    aria-valuetext={`${formData.itemPrice.toLocaleString('nb-NO')} kroner`}
+                    role="slider"
+                    tabIndex={0}
                   />
                   <div className="flex justify-between text-sm text-gray-600 mt-2">
                     <span>50 000 kr</span>
@@ -174,7 +181,14 @@ const MultiStepForm = memo(function MultiStepForm() {
                     step="10000"
                     value={formData.loanAmount}
                     onChange={(e) => updateFormData({ loanAmount: parseInt(e.target.value) })}
-                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#FF6B35]"
+                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#FF6B35] focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30"
+                    aria-label="Lånebeløp"
+                    aria-valuemin={0}
+                    aria-valuemax={formData.itemPrice}
+                    aria-valuenow={formData.loanAmount}
+                    aria-valuetext={`${formData.loanAmount.toLocaleString('nb-NO')} kroner`}
+                    role="slider"
+                    tabIndex={0}
                   />
                   <div className="flex justify-between text-sm text-gray-600 mt-2">
                     <span>0 kr</span>
@@ -202,7 +216,14 @@ const MultiStepForm = memo(function MultiStepForm() {
                     step={1}
                     value={formData.loanTerm}
                     onChange={(e) => updateFormData({ loanTerm: parseInt(e.target.value) })}
-                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#FF6B35]"
+                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#FF6B35] focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30"
+                    aria-label="Nedbetalingstid i år"
+                    aria-valuemin={0}
+                    aria-valuemax={10}
+                    aria-valuenow={formData.loanTerm}
+                    aria-valuetext={`${formData.loanTerm} år`}
+                    role="slider"
+                    tabIndex={0}
                   />
                   <div className="flex justify-between text-sm text-gray-600 mt-2">
                     <span>0 år</span>

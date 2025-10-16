@@ -55,7 +55,7 @@ const Header = memo(function Header() {
           <a 
             href="#lead-form" 
             onClick={() => trackButtonClick('sok_billan', 'header')}
-            className="hidden md:inline-block bg-[#FF6B35] hover:bg-[#E55A24] text-white font-semibold px-6 py-2 rounded-full transition"
+            className="hidden md:inline-block bg-[#FF6B35] hover:bg-[#E55A24] text-white font-semibold px-6 py-3 rounded-full transition-all transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30 min-h-[48px]"
             aria-label="Søk om billån"
           >
             Søk billån
@@ -64,7 +64,7 @@ const Header = memo(function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMobileMenu}
-            className="md:hidden p-2 rounded-lg text-gray-700 hover:text-[#FF6B35] hover:bg-gray-100 transition-colors"
+            className="md:hidden p-3 rounded-lg text-gray-700 hover:text-[#FF6B35] hover:bg-gray-100 transition-all focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30 min-h-[48px] min-w-[48px]"
             aria-label="Åpne navigasjonsmeny"
             aria-expanded={isMobileMenuOpen}
           >
@@ -85,7 +85,7 @@ const Header = memo(function Header() {
               {/* Main Navigation */}
               <Link 
                 href="/" 
-                className="text-gray-700 hover:text-[#FF6B35] transition font-medium py-3 px-4 rounded-lg hover:bg-gray-50 flex items-center gap-3"
+                className="text-gray-700 hover:text-[#FF6B35] transition font-medium py-3 px-4 rounded-lg hover:bg-gray-50 flex items-center gap-3 min-h-[48px] focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30"
                 onClick={closeMobileMenu}
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -96,7 +96,7 @@ const Header = memo(function Header() {
               
               <Link 
                 href="/billan" 
-                className="text-gray-700 hover:text-[#FF6B35] transition font-medium py-3 px-4 rounded-lg hover:bg-gray-50 flex items-center gap-3"
+                className="text-gray-700 hover:text-[#FF6B35] transition font-medium py-3 px-4 rounded-lg hover:bg-gray-50 flex items-center gap-3 min-h-[48px] focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30"
                 onClick={closeMobileMenu}
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -161,7 +161,7 @@ const Header = memo(function Header() {
 
               <Link 
                 href="/kontakt" 
-                className="text-gray-700 hover:text-[#FF6B35] transition font-medium py-3 px-4 rounded-lg hover:bg-gray-50 flex items-center gap-3"
+                className="text-gray-700 hover:text-[#FF6B35] transition font-medium py-3 px-4 rounded-lg hover:bg-gray-50 flex items-center gap-3 min-h-[48px] focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30"
                 onClick={closeMobileMenu}
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
