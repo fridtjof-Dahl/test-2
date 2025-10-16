@@ -118,12 +118,12 @@ export default function BillanGuidePage() {
           </div>
         </section>
 
-        {/* Interactive Calculator Section - Seamless Design */}
-        <section id="calculator" className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
-          {/* Background decoration */}
+        {/* Interactive Calculator Section - Clean Design */}
+        <section id="calculator" className="py-20 bg-gray-50 relative overflow-hidden">
+          {/* Clean background */}
           <div className="absolute inset-0">
-            <div className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-br from-[#FF6B35]/10 to-[#E55A24]/10 rounded-full blur-xl"></div>
-            <div className="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-br from-[#004D61]/10 to-[#006B7D]/10 rounded-full blur-xl"></div>
+            <div className="absolute top-20 right-20 w-32 h-32 bg-[#FF6B35] rounded-full opacity-5"></div>
+            <div className="absolute bottom-20 left-20 w-40 h-40 bg-[#004D61] rounded-full opacity-5"></div>
           </div>
           
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -135,7 +135,7 @@ export default function BillanGuidePage() {
                 <span className="text-sm font-semibold text-[#004D61]">🧮 Interaktiv kalkulator</span>
               </div>
               
-              <h2 className="text-4xl font-bold bg-gradient-to-r from-[#004D61] via-[#006B7D] to-[#004D61] bg-clip-text text-transparent mb-6">
+              <h2 className="text-4xl font-bold text-[#004D61] mb-6">
                 Prøv vår billånskalkulator
               </h2>
               <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
@@ -206,12 +206,9 @@ export default function BillanGuidePage() {
           
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-            {/* Hvordan søke - Enhanced */}
+            {/* Hvordan søke - Clean */}
             <section id="hvordan-soke" className="mb-20">
-              <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-10 shadow-xl border border-gray-100 relative overflow-hidden">
-                {/* Subtle gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B35]/5 to-[#004D61]/5 opacity-50"></div>
-                <div className="relative z-10">
+              <div className="bg-white rounded-2xl p-10 shadow-lg border border-gray-100">
                   <div className="text-center mb-8">
                     <div className="inline-flex items-center gap-2 bg-[#FF6B35] text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 shadow-lg">
                       <span>📝 5 enkle steg</span>
@@ -231,7 +228,7 @@ export default function BillanGuidePage() {
                           { step: 5, title: "Hent bilen", desc: "Vi overfører pengene", icon: "🎉" }
                         ].map((item) => (
                           <div key={item.step} className="flex gap-4 group">
-                            <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#FF6B35] to-[#E55A24] text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <div className="flex-shrink-0 w-12 h-12 bg-[#FF6B35] text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
                               {item.step}
                             </div>
                             <div className="flex-1">
@@ -254,7 +251,7 @@ export default function BillanGuidePage() {
                           { item: "Registreringsnummer", icon: "🚗" }
                         ].map((req, index) => (
                           <div key={index} className="flex items-center gap-4 p-4 bg-white/50 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300">
-                            <div className="w-10 h-10 bg-gradient-to-br from-[#10B981] to-[#059669] rounded-full flex items-center justify-center text-white text-lg shadow-lg">
+                            <div className="w-10 h-10 bg-[#10B981] rounded-full flex items-center justify-center text-white text-lg shadow-lg">
                               ✓
                             </div>
                             <div className="flex-1">
@@ -270,12 +267,9 @@ export default function BillanGuidePage() {
               </div>
             </section>
 
-            {/* Hva koster det - Enhanced */}
+            {/* Hva koster det - Clean */}
             <section id="hva-koster" className="mb-20">
-              <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-10 shadow-xl border border-gray-100 relative overflow-hidden">
-                {/* Subtle gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#004D61]/5 to-[#FF6B35]/5 opacity-50"></div>
-                <div className="relative z-10">
+              <div className="bg-white rounded-2xl p-10 shadow-lg border border-gray-100">
                   <div className="text-center mb-8">
                     <div className="inline-flex items-center gap-2 bg-[#004D61] text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 shadow-lg">
                       <span>💰 Kostnader og renter</span>
@@ -334,13 +328,12 @@ export default function BillanGuidePage() {
         </article>
 
 
-        {/* Final CTA - Seamless Integration */}
-        <section id="lead-form" className="py-24 bg-gradient-to-br from-[#004D61] via-[#006B7D] to-[#003847] relative overflow-hidden">
-          {/* Background decoration */}
+        {/* Final CTA - Clean Integration */}
+        <section id="lead-form" className="py-24 bg-[#004D61] relative overflow-hidden">
+          {/* Clean background */}
           <div className="absolute inset-0">
-            <div className="absolute top-20 left-20 w-40 h-40 bg-gradient-to-br from-[#FF6B35]/20 to-[#E55A24]/20 rounded-full blur-2xl"></div>
-            <div className="absolute bottom-20 right-20 w-60 h-60 bg-gradient-to-br from-[#10B981]/20 to-[#059669]/20 rounded-full blur-2xl"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-white/5 to-transparent rounded-full blur-3xl"></div>
+            <div className="absolute top-20 left-20 w-40 h-40 bg-[#FF6B35] rounded-full opacity-10"></div>
+            <div className="absolute bottom-20 right-20 w-60 h-60 bg-[#10B981] rounded-full opacity-10"></div>
           </div>
           
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
