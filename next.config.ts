@@ -11,9 +11,6 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     unoptimized: false,
     loader: 'default',
-    quality: 85,
-    priority: true,
-    placeholder: 'blur',
   },
   
   // Performance optimizations - ULTRA for 100/100 PageSpeed
@@ -39,9 +36,6 @@ const nextConfig: NextConfig = {
   
   // Output optimization
   output: 'standalone',
-  
-  // SWC minification for better performance
-  swcMinify: true,
   
   // Webpack optimizations - ultra aggressive
   webpack: (config, { dev, isServer }) => {

@@ -439,7 +439,6 @@ const MultiStepForm = memo(function MultiStepForm() {
               </p>
             </div>
           </form>
-          </div>
         </div>
       </div>
     </section>
