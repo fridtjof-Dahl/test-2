@@ -4,13 +4,19 @@ import { useState, useEffect } from 'react';
 
 export default function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     // Check if user has already made a choice
     if (typeof window !== 'undefined') {
       const consent = localStorage.getItem('cookie-consent');
       if (!consent) {
-        setIsVisible(true);
+        // Small delay to prevent layout shift
+        const timer = setTimeout(() => {
+          setIsVisible(true);
+          setIsAnimating(true);
+        }, 100);
+        return () => clearTimeout(timer);
       }
     }
   }, []);
@@ -26,7 +32,7 @@ export default function CookieBanner() {
         });
       }
     }
-    setIsVisible(false);
+    handleClose();
   };
 
   const handleReject = () => {
@@ -40,40 +46,96 @@ export default function CookieBanner() {
         });
       }
     }
-    setIsVisible(false);
+    handleClose();
+  };
+
+  const handleClose = () => {
+    setIsAnimating(false);
+    // Wait for animation to complete before hiding
+    setTimeout(() => {
+      setIsVisible(false);
+    }, 300);
   };
 
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-lg" style={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}>
-      <div className="max-w-7xl mx-auto px-4 py-4">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="flex-1">
-            <h3 className="text-lg font-semibold text-[#004D61] mb-2">
-              Vi bruker informasjonskapsler
-            </h3>
-            <p className="text-sm text-gray-600">
-              Vi bruker informasjonskapsler for å forbedre din opplevelse på vår nettside. 
-              Du kan velge hvilke informasjonskapsler du vil tillate.
-            </p>
+    <>
+      {/* Backdrop for better visibility and focus */}
+      <div 
+        className="fixed inset-0 bg-black bg-opacity-20 z-[9998] transition-opacity duration-300"
+        style={{ 
+          opacity: isAnimating ? 1 : 0,
+          pointerEvents: isAnimating ? 'auto' : 'none'
+        }}
+        aria-hidden="true"
+      />
+      
+      {/* Cookie Banner */}
+      <div 
+        className="fixed bottom-0 left-0 right-0 z-[9999] bg-white border-t-2 border-[#004D61] shadow-2xl transform transition-transform duration-300 ease-out"
+        style={{ 
+          transform: isAnimating ? 'translateY(0)' : 'translateY(100%)',
+          willChange: 'transform'
+        }}
+        role="dialog"
+        aria-labelledby="cookie-banner-title"
+        aria-describedby="cookie-banner-description"
+        aria-modal="true"
+      >
+        <div className="max-w-7xl mx-auto px-4 py-6">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+            <div className="flex-1 min-w-0">
+              <h3 
+                id="cookie-banner-title"
+                className="text-xl font-bold text-[#004D61] mb-3 leading-tight"
+              >
+                🍪 Vi bruker informasjonskapsler
+              </h3>
+              <p 
+                id="cookie-banner-description"
+                className="text-base text-gray-700 leading-relaxed"
+              >
+                Vi bruker informasjonskapsler for å forbedre din opplevelse på vår nettside, 
+                analysere trafikk og personalisere innhold. Du kan velge hvilke informasjonskapsler 
+                du vil tillate.
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto lg:flex-shrink-0">
+              <button
+                onClick={handleReject}
+                className="px-6 py-3 text-base font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 active:bg-gray-300 rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-gray-300 focus:ring-opacity-50 min-h-[48px] touch-manipulation"
+                aria-label="Kun tillat nødvendige informasjonskapsler"
+              >
+                Kun nødvendige
+              </button>
+              <button
+                onClick={handleAccept}
+                className="px-8 py-3 text-base font-semibold text-white bg-[#FF6B35] hover:bg-[#E55A24] active:bg-[#D1491F] rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-[#FF6B35] focus:ring-opacity-50 min-h-[48px] touch-manipulation shadow-lg hover:shadow-xl"
+                aria-label="Godta alle informasjonskapsler"
+              >
+                Godta alle
+              </button>
+            </div>
           </div>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <button
-              onClick={handleReject}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
-            >
-              Kun nødvendige
-            </button>
-            <button
-              onClick={handleAccept}
-              className="px-6 py-2 text-sm font-medium text-white bg-[#FF6B35] hover:bg-[#E55A24] rounded-lg transition-colors"
-            >
-              Godta alle
-            </button>
+          
+          {/* Additional info link */}
+          <div className="mt-4 pt-4 border-t border-gray-200">
+            <p className="text-sm text-gray-600">
+              Les mer om vår bruk av informasjonskapsler i vår{' '}
+              <a 
+                href="/personvern" 
+                className="text-[#004D61] hover:text-[#FF6B35] underline underline-offset-2 font-medium transition-colors duration-200"
+                aria-label="Les personvernpolicy for informasjonskapsler"
+              >
+                personvernpolicy
+              </a>
+              .
+            </p>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
