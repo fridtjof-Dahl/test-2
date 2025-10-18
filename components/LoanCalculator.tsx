@@ -61,7 +61,7 @@ const LoanCalculator = memo(function LoanCalculator() {
             <div>
               <label className="flex justify-between text-sm font-medium text-gray-700 mb-2">
                 <span>Kjøpesum</span>
-                <span className="text-[#FF6B35] font-bold">{loanAmount.toLocaleString('nb-NO')} kr</span>
+                <span className="text-[#004D61] font-bold">{loanAmount.toLocaleString('nb-NO')} kr</span>
               </label>
               <input
                 type="range"
@@ -71,7 +71,7 @@ const LoanCalculator = memo(function LoanCalculator() {
                 value={loanAmount}
                 onChange={(e) => handleLoanAmountChange(Number(e.target.value))}
                 onInput={(e) => handleLoanAmountChange(Number((e.target as HTMLInputElement).value))}
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#FF6B35]"
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#004D61]"
               />
               <div className="flex justify-between text-xs text-gray-500 mt-1">
                 <span>50 000 kr</span>
@@ -83,7 +83,7 @@ const LoanCalculator = memo(function LoanCalculator() {
             <div>
               <label className="flex justify-between text-sm font-medium text-gray-700 mb-2">
                 <span>Egenkapital</span>
-                <span className="text-[#FF6B35] font-bold">{downPayment.toLocaleString('nb-NO')} kr</span>
+                <span className="text-[#004D61] font-bold">{downPayment.toLocaleString('nb-NO')} kr</span>
               </label>
               <input
                 type="range"
@@ -93,7 +93,7 @@ const LoanCalculator = memo(function LoanCalculator() {
                 value={downPayment}
                 onChange={(e) => handleDownPaymentChange(Number(e.target.value))}
                 onInput={(e) => handleDownPaymentChange(Number((e.target as HTMLInputElement).value))}
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#FF6B35]"
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#004D61]"
               />
               <div className="flex justify-between text-xs text-gray-500 mt-1">
                 <span>0 kr</span>
@@ -105,7 +105,7 @@ const LoanCalculator = memo(function LoanCalculator() {
             <div>
               <label className="flex justify-between text-sm font-medium text-gray-700 mb-2">
                 <span>Nedbetalingstid</span>
-                <span className="text-[#FF6B35] font-bold">{years} år</span>
+                <span className="text-[#004D61] font-bold">{years} år</span>
               </label>
               <input
                 type="range"
@@ -115,7 +115,7 @@ const LoanCalculator = memo(function LoanCalculator() {
                 value={years}
                 onChange={(e) => handleYearsChange(Number(e.target.value))}
                 onInput={(e) => handleYearsChange(Number((e.target as HTMLInputElement).value))}
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#FF6B35]"
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#004D61]"
               />
               <div className="flex justify-between text-xs text-gray-500 mt-1">
                 <span>1 år</span>
@@ -125,7 +125,7 @@ const LoanCalculator = memo(function LoanCalculator() {
           </div>
 
           {/* Result */}
-          <div className="mt-10 p-6 bg-gradient-to-r from-[#E8F8F0] to-[#FFF4E6] rounded-xl border-2 border-[#FF6B35]/20">
+          <div className="mt-10 p-6 bg-gradient-to-r from-[#E8F4F8] to-[#F0F9FF] rounded-xl border-2 border-[#004D61]/20">
             <div className="text-center">
               <p className="text-sm text-gray-600 mb-2">Estimert månedskostnad</p>
               <p className="text-4xl font-bold text-[#004D61]">
