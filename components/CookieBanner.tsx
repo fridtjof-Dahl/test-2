@@ -19,19 +19,20 @@ export default function CookieBanner() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const consent = localStorage.getItem('cookie-consent');
-      if (!consent) {
-        setIsVisible(true);
-      } else {
-        try {
+      try {
+        const consent = localStorage.getItem('cookie-consent');
+        if (!consent) {
+          setIsVisible(true);
+        } else {
           const savedPreferences = JSON.parse(consent);
           setPreferences(savedPreferences);
           // Update Google Analytics consent mode
           updateConsentMode(savedPreferences);
-        } catch (error) {
-          console.error('Error parsing cookie preferences:', error);
-          setIsVisible(true);
         }
+      } catch (error) {
+        console.error('Error with localStorage:', error);
+        // If localStorage fails (like in incognito), show banner
+        setIsVisible(true);
       }
     }
   }, []);
@@ -86,6 +87,16 @@ export default function CookieBanner() {
     if (key === 'necessary') return;
     setPreferences(prev => ({ ...prev, [key]: value }));
   };
+
+  // Always show banner if localStorage is not available (like in incognito)
+  if (!isVisible && typeof window !== 'undefined') {
+    try {
+      localStorage.getItem('test');
+    } catch {
+      // localStorage not available, show banner
+      setIsVisible(true);
+    }
+  }
 
   if (!isVisible) return null;
 
