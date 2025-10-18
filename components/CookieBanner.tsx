@@ -101,8 +101,9 @@ export default function CookieBanner() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center p-4 pointer-events-none">
-      <div className="bg-white rounded-lg shadow-lg border border-gray-200 max-w-4xl w-full pointer-events-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
+      <div className="absolute inset-0 bg-black/50 pointer-events-auto" onClick={() => setIsVisible(false)}></div>
+      <div className="relative bg-white rounded-lg shadow-xl border border-gray-200 max-w-4xl w-full pointer-events-auto">
         {!showSettings ? (
           <div className="p-6">
             <div className="flex items-start gap-4">
