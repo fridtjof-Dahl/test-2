@@ -118,37 +118,6 @@ export default function BillanGuidePage() {
           </div>
         </section>
 
-        {/* Interactive Calculator Section - Clean Design */}
-        <section id="calculator" className="py-20 bg-gray-50 relative overflow-hidden">
-          {/* Clean background */}
-          <div className="absolute inset-0">
-            <div className="absolute top-20 right-20 w-32 h-32 bg-[#FF6B35] rounded-full opacity-5"></div>
-            <div className="absolute bottom-20 left-20 w-40 h-40 bg-[#004D61] rounded-full opacity-5"></div>
-          </div>
-          
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 mb-8 shadow-lg border border-white/50">
-                <svg className="w-5 h-5 text-[#FF6B35]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-                <span className="text-sm font-semibold text-[#004D61]">🧮 Interaktiv kalkulator</span>
-              </div>
-              
-              <h2 className="text-4xl font-bold text-[#004D61] mb-6">
-                Prøv vår billånskalkulator
-              </h2>
-              <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                Beregn din månedlige kostnad før du leser videre. 
-                <span className="font-bold text-[#FF6B35]">100% gratis og uforpliktende.</span>
-              </p>
-            </div>
-            
-            <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 border border-white/50">
-              <LoanCalculator />
-            </div>
-          </div>
-        </section>
 
         {/* Quick Navigation - Simplified */}
         <section className="py-12 bg-white">
@@ -182,7 +151,7 @@ export default function BillanGuidePage() {
                 <a
                   key={index}
                   href={item.href}
-                  className="group bg-gray-50 rounded-xl p-6 border border-gray-200 hover:border-[#004D61] hover:shadow-lg transition-all duration-300 text-center focus:outline-none focus:ring-4 focus:ring-[#004D61]/30"
+                  className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-white/50 hover:border-[#004D61] hover:shadow-lg transition-all duration-300 text-center focus:outline-none focus:ring-4 focus:ring-[#004D61]/30"
                 >
                   <div className="flex justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                     {item.icon}
@@ -280,11 +249,11 @@ export default function BillanGuidePage() {
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">Rentetyper:</h3>
                     <div className="space-y-4">
-                      <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                      <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-white/40">
                         <h4 className="font-medium text-gray-900 mb-2">Nominell rente</h4>
                         <p className="text-sm text-gray-600">Den grunnleggende renten på lånet</p>
                       </div>
-                      <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                      <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-white/40">
                         <h4 className="font-medium text-gray-900 mb-2">Effektiv rente</h4>
                         <p className="text-sm text-gray-600">Nominell rente + alle gebyrer (den reelle kostnaden)</p>
                       </div>
@@ -293,7 +262,7 @@ export default function BillanGuidePage() {
                   
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">Eksempel (300 000 kr, 7 år):</h3>
-                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                    <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-white/40">
                       <div className="flex justify-between items-center mb-2">
                         <span className="text-gray-600">Nominell rente:</span>
                         <span className="font-semibold">9.2%</span>
@@ -326,6 +295,37 @@ export default function BillanGuidePage() {
           </div>
         </article>
 
+        {/* Interactive Calculator Section - Moved down after content */}
+        <section id="calculator" className="py-20 hero-gradient relative overflow-hidden">
+          {/* Clean background */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 right-20 w-32 h-32 bg-[#FF6B35] rounded-full opacity-5"></div>
+            <div className="absolute bottom-20 left-20 w-40 h-40 bg-[#004D61] rounded-full opacity-5"></div>
+          </div>
+          
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 mb-8 shadow-lg border border-white/50">
+                <svg className="w-5 h-5 text-[#FF6B35]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+                <span className="text-sm font-semibold text-[#004D61]">🧮 Interaktiv kalkulator</span>
+              </div>
+              
+              <h2 className="text-4xl font-bold text-[#004D61] mb-6">
+                Prøv vår billånskalkulator
+              </h2>
+              <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                Nå som du har lest om billån, kan du beregne din månedlige kostnad. 
+                <span className="font-bold text-[#FF6B35]">100% gratis og uforpliktende.</span>
+              </p>
+            </div>
+            
+            <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 border border-white/50">
+              <LoanCalculator />
+            </div>
+          </div>
+        </section>
 
         {/* Final CTA - Clean Integration */}
         <section id="lead-form" className="py-24 bg-[#004D61] relative overflow-hidden">

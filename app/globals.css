@@ -30,7 +30,7 @@
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.02em;
-    color: #1f2937;
+    color: #111827; /* gray-900 for better contrast */
   }
   
   h1 {

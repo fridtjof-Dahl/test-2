@@ -16,7 +16,7 @@ export default function Footer() {
                    <h4 className="font-semibold mb-4 text-white">Snarveier</h4>
                    <ul className="space-y-3 text-sm" role="list">
                      <li><a href="/kalkulator" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Billånskalkulator</a></li>
-                     <li><a href="#lead-form" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Søk billån</a></li>
+                     <li><a href="/kalkulator" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Søk billån</a></li>
                      <li><a href="/om-oss" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Om oss</a></li>
                      <li><a href="/kontakt" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Kontakt</a></li>
                      <li><a href="/faq" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">FAQ</a></li>
@@ -52,7 +52,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-white">Juridisk</h4>
             <ul className="space-y-3 text-sm" role="list">
               <li><a href="/personvern" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Personvernerklæring</a></li>
-              <li><a href="/vilkar" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Vilkår og betingelser</a></li>
+              <li><a href="/personvern" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Vilkår og betingelser</a></li>
               <li><a href="/cookies" className="text-gray-400 hover:text-white transition block py-2 px-1 min-h-[48px] flex items-center">Informasjonskapsler</a></li>
             </ul>
           </div>
@@ -62,7 +62,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
             <p>© {new Date().getFullYear()} Enkel Finansiering. Alle rettigheter reservert.</p>
             <p className="mt-2 md:mt-0">
-              Utviklet av <a href="https://visionmedia.no" className="text-blue-400 hover:text-blue-300 transition">Vision Media</a>
+              Utviklet av <a href="https://enkelfinansiering.no" className="text-blue-400 hover:text-blue-300 transition">Enkel Finansiering</a>
             </p>
           </div>
         </div>

@@ -5,95 +5,76 @@ import { trackButtonClick } from '@/lib/analytics';
 
 const ImprovedHero = memo(function ImprovedHero() {
   return (
-    <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-24 md:py-32 overflow-hidden" role="banner" aria-labelledby="hero-heading">
-      {/* Sophisticated background pattern */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-800/5 to-slate-900/5"></div>
-        <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-blue-600/10 to-indigo-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-br from-slate-600/10 to-slate-700/10 rounded-full blur-3xl"></div>
-      </div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-start lg:items-center">
+    <section className="relative hero-gradient py-20 md:py-28 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
           <div className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-full text-sm font-medium mb-8 shadow-2xl border border-blue-500/20">
-              <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-              <span>Premium finansiering</span>
-              <div className="w-px h-4 bg-white/30"></div>
-              <span>Eksklusiv behandling</span>
+            <div className="inline-flex items-center gap-2 bg-[#FF6B35] rounded-full px-6 py-3 mb-8">
+              <span className="text-white text-xs font-bold">•</span>
+              <span className="text-sm font-medium text-white">Rask behandling</span>
+              <span className="text-white text-xs font-bold">•</span>
+              <span className="text-sm font-medium text-white">Svar innen 24 timer</span>
+              <span className="text-white text-xs font-bold">•</span>
             </div>
             
-            <h1 id="hero-heading" className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              Elite Billån
-              <span className="block text-4xl sm:text-5xl lg:text-6xl font-light text-blue-200 mt-2">
-                for kresne kunder
-              </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#004D61] mb-6 leading-tight">
+              Få billån på dagen
             </h1>
-            
-            <p id="hero-description" className="text-xl sm:text-2xl text-slate-300 mb-8 leading-relaxed max-w-2xl">
-              Opplev finansiering på et helt nytt nivå. Våre eksklusive tilbud er kun for kunder som verdsetter kvalitet og service.
-              <span className="block text-blue-300 font-semibold text-2xl mt-3">100% konfidensielt og uforpliktende</span>
+            <p className="text-lg text-gray-600 mb-10 leading-relaxed max-w-2xl">
+              Få et uforpliktende tilbud innen 24 timer.
+              <span className="font-semibold text-[#FF6B35]"> 100% gratis.</span>
             </p>
-
-            {/* Premium Trust Indicators */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-6 mb-8" role="list" aria-label="Premium tjenester">
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-4 rounded-xl border border-white/20" role="listitem">
-                <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center">
-                  <span className="text-white text-sm font-bold">✓</span>
+            
+            {/* Feature indicators - simple text with icons */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-6 mb-10">
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 bg-[#10B981] rounded-full flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">✓</span>
                 </div>
-                <span className="text-white font-medium">Eksklusiv behandling</span>
+                <span className="text-[#004D61] font-medium">100% gratis</span>
               </div>
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-4 rounded-xl border border-white/20" role="listitem">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                  <span className="text-white text-sm font-bold">⚡</span>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 bg-[#004D61] rounded-full flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">✓</span>
                 </div>
-                <span className="text-white font-medium">Premium service</span>
-              </div>
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-4 rounded-xl border border-white/20" role="listitem">
-                <div className="w-8 h-8 bg-gradient-to-br from-slate-600 to-slate-700 rounded-full flex items-center justify-center">
-                  <span className="text-white text-sm font-bold">🔒</span>
-                </div>
-                <span className="text-white font-medium">Maksimal sikkerhet</span>
+                <span className="text-[#004D61] font-medium">Rask behandling</span>
               </div>
             </div>
-
-            <div className="flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start mb-8" role="group" aria-label="Handlinger">
-            <a 
-              href="#lead-form" 
-              onClick={() => trackButtonClick('sok_billan_na', 'hero')}
-              className="group inline-flex items-center gap-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold px-10 py-5 rounded-xl transition-all duration-300 shadow-2xl hover:shadow-3xl focus:outline-none focus:ring-4 focus:ring-blue-500/30 transform hover:scale-105"
-              aria-describedby="hero-description"
-            >
-              <span className="text-lg">Søk om elite billån</span>
-              <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
-            <a
-              href="/kalkulator"
-              onClick={() => trackButtonClick('proev_kalkulatoren', 'hero')}
-              className="group inline-flex items-center gap-4 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-semibold px-10 py-5 rounded-xl transition-all duration-300 border border-white/30 hover:border-white/50 shadow-xl hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/30"
-              aria-label="Prøv lånekalkulatoren"
-            >
-              <svg className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-              </svg>
-              <span className="text-lg">Beregn ditt lån</span>
-            </a>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+              <a 
+                href="#lead-form" 
+                onClick={() => trackButtonClick('sok_billan_na', 'hero')}
+                className="group inline-flex items-center gap-2 bg-[#FF6B35] hover:bg-[#E55A24] text-white font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30 min-h-[56px]"
+              >
+                <span>Søk billån nå</span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+              <a
+                href="/kalkulator"
+                onClick={() => trackButtonClick('proev_kalkulatoren', 'hero')}
+                className="group inline-flex items-center gap-2 bg-white text-[#004D61] hover:bg-gray-50 font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 border-2 border-[#004D61] hover:border-[#006B7D] shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#004D61]/30 min-h-[56px]"
+              >
+                <svg className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+                <span>Prøv kalkulatoren</span>
+              </a>
             </div>
-
           </div>
 
-          {/* Right Column - Enhanced Interactive Illustration */}
+          {/* Right Column - Professional Illustration */}
           <div className="hidden lg:block">
             <div className="relative max-w-lg mx-auto">
-              {/* Interactive floating elements */}
+              {/* Floating elements for professional look */}
               <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-br from-[#FF6B35] to-[#E55A24] rounded-full animate-bounce delay-1000"></div>
               <div className="absolute top-20 -left-4 w-6 h-6 bg-gradient-to-br from-[#10B981] to-[#059669] rounded-full animate-pulse delay-500"></div>
               <div className="absolute bottom-20 -right-8 w-4 h-4 bg-gradient-to-br from-[#004D61] to-[#006B7D] rounded-full animate-bounce delay-700"></div>
               
-              {/* Enhanced SVG with better performance */}
+              {/* Professional car illustration */}
               <svg viewBox="0 0 500 400" className="w-full h-auto max-h-96 drop-shadow-2xl" aria-hidden="true">
                 <defs>
                   <linearGradient id="carGradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -106,7 +87,7 @@ const ImprovedHero = memo(function ImprovedHero() {
                   </linearGradient>
                 </defs>
                 
-                {/* Background circles */}
+                {/* Background circles for depth */}
                 <circle cx="250" cy="200" r="180" fill="#FFF4E6" opacity="0.5"/>
                 <circle cx="250" cy="200" r="140" fill="#E8F8F0" opacity="0.5"/>
                 
@@ -152,12 +133,11 @@ const ImprovedHero = memo(function ImprovedHero() {
           </div>
         </div>
       </div>
-
-      {/* Minimal fade instead of wave for consistency */}
+      
+      {/* Minimal fade */}
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 md:h-28 bg-gradient-to-t from-white to-transparent"></div>
     </section>
   );
 });
 
 export default ImprovedHero;
-

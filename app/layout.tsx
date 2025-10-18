@@ -5,6 +5,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import "./globals.css";
 import "./critical.css";
 import ServiceWorkerScript from '@/components/ServiceWorkerScript';
+import CookieBanner from '@/components/CookieBanner';
 // import ErrorBoundary from '@/components/ErrorBoundary';
 
 const inter = Inter({ 
@@ -154,7 +155,7 @@ export default function RootLayout({
             *{box-sizing:border-box}*::before,*::after{box-sizing:border-box}
             html{font-size:16px;line-height:1.6;-webkit-text-size-adjust:100%;scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
             body{margin:0;font-family:var(--font-inter),system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;color:#1f2937;background:#fff;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-display:swap;will-change:auto;contain:layout style}
-            .hero-gradient{background:linear-gradient(135deg,#e8f4f8 0%,#d1f4e0 50%,#e8f8f0 100%)}
+            .hero-gradient{background:linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 50%,#f0f9ff 100%)}
             .text-6xl{font-size:3.75rem;line-height:1.1;font-weight:700}
             .text-7xl{font-size:4.5rem;line-height:1.1;font-weight:700}
             .bg-\\[#FF6B35\\]{background:#FF6B35}
@@ -204,9 +205,24 @@ export default function RootLayout({
         <Script id="gtm" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.defer=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-T22X3C9X');`}
         </Script>
+        
+        {/* Google Analytics Consent Mode */}
+        <Script id="ga-consent" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'default', {
+              'analytics_storage': 'denied',
+              'ad_storage': 'denied',
+              'wait_for_update': 500,
+            });
+            gtag('js', new Date());
+          `}
+        </Script>
       </head>
       <body>
         {children}
+        <CookieBanner />
         <GoogleAnalytics 
           gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-MZZN40H83P'}
         />
