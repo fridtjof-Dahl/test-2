@@ -4,19 +4,14 @@ import { useState, useEffect } from 'react';
 
 export default function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     // Check if user has already made a choice
     if (typeof window !== 'undefined') {
       const consent = localStorage.getItem('cookie-consent');
       if (!consent) {
-        // Small delay to prevent layout shift
-        const timer = setTimeout(() => {
-          setIsVisible(true);
-          setIsAnimating(true);
-        }, 100);
-        return () => clearTimeout(timer);
+        // Show immediately
+        setIsVisible(true);
       }
     }
   }, []);
@@ -50,34 +45,16 @@ export default function CookieBanner() {
   };
 
   const handleClose = () => {
-    setIsAnimating(false);
-    // Wait for animation to complete before hiding
-    setTimeout(() => {
-      setIsVisible(false);
-    }, 300);
+    setIsVisible(false);
   };
 
   if (!isVisible) return null;
 
   return (
     <>
-      {/* Backdrop for better visibility and focus */}
-      <div 
-        className="fixed inset-0 bg-black bg-opacity-20 z-[9998] transition-opacity duration-300"
-        style={{ 
-          opacity: isAnimating ? 1 : 0,
-          pointerEvents: isAnimating ? 'auto' : 'none'
-        }}
-        aria-hidden="true"
-      />
-      
       {/* Cookie Banner */}
       <div 
-        className="fixed bottom-0 left-0 right-0 z-[9999] bg-white border-t-2 border-[#004D61] shadow-2xl transform transition-transform duration-300 ease-out"
-        style={{ 
-          transform: isAnimating ? 'translateY(0)' : 'translateY(100%)',
-          willChange: 'transform'
-        }}
+        className="fixed bottom-0 left-0 right-0 z-[9999] bg-white border-t-2 border-[#004D61] shadow-2xl"
         role="dialog"
         aria-labelledby="cookie-banner-title"
         aria-describedby="cookie-banner-description"
