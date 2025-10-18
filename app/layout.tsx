@@ -221,8 +221,8 @@ export default function RootLayout({
         </Script>
       </head>
       <body>
-        {children}
         <CookieBanner />
+        {children}
         <GoogleAnalytics 
           gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-MZZN40H83P'}
         />

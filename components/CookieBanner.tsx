@@ -12,6 +12,7 @@ export default function CookieBanner() {
       if (!consent) {
         // Show immediately
         setIsVisible(true);
+        console.log('Cookie banner should be visible now');
       }
     }
   }, []);
@@ -55,6 +56,14 @@ export default function CookieBanner() {
       {/* Cookie Banner */}
       <div 
         className="fixed bottom-0 left-0 right-0 z-[9999] bg-white border-t-2 border-[#004D61] shadow-2xl"
+        style={{
+          position: 'fixed !important',
+          bottom: '0 !important',
+          left: '0 !important',
+          right: '0 !important',
+          zIndex: '9999 !important',
+          width: '100% !important'
+        }}
         role="dialog"
         aria-labelledby="cookie-banner-title"
         aria-describedby="cookie-banner-description"
