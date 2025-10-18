@@ -123,11 +123,6 @@ export default function UtenEgenkapitalPage() {
       <section className="relative bg-white py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-green-50 rounded-full px-6 py-3 mb-8 border border-green-100">
-              <div className="w-2 h-2 bg-[#10B981] rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium text-[#004D61]">100% finansiering • Ingen egenkapital</span>
-              <div className="w-2 h-2 bg-[#10B981] rounded-full animate-pulse delay-300"></div>
-            </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#004D61] mb-6 leading-tight">
               Billån uten egenkapital
             </h1>
