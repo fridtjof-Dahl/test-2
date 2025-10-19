@@ -148,7 +148,7 @@ export default function KalkulatorPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a 
                 href="#calculator" 
-                className="inline-flex items-center gap-2 bg-[#FF6B35] hover:bg-[#E55A25] text-white font-semibold px-6 py-3 rounded-full transition-all shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30 text-base"
+                className="inline-flex items-center gap-2 bg-[#FF6B35] hover:bg-[#E55A25] text-white font-semibold px-8 py-4 rounded-full transition-all shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30 min-h-[56px]"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
@@ -157,7 +157,7 @@ export default function KalkulatorPage() {
               </a>
               <a 
                 href="#lead-form" 
-                className="inline-flex items-center gap-3 bg-white text-[#004D61] hover:bg-gray-50 font-bold px-10 py-5 rounded-full transition-all border-2 border-[#004D61] hover:border-[#006B7D] focus:outline-none focus:ring-4 focus:ring-[#004D61]/30 text-lg shadow-xl hover:shadow-2xl"
+                className="inline-flex items-center gap-2 bg-white text-[#004D61] hover:bg-gray-50 font-bold px-8 py-4 rounded-full transition-all border-2 border-[#004D61] hover:border-[#006B7D] focus:outline-none focus:ring-4 focus:ring-[#004D61]/30 shadow-lg hover:shadow-xl min-h-[56px]"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -173,13 +173,6 @@ export default function KalkulatorPage() {
       <section id="calculator" className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-white rounded-full px-6 py-3 mb-6 shadow-sm border border-gray-200">
-              <svg className="w-5 h-5 text-[#FF6B35]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-              </svg>
-              <span className="text-sm font-medium text-gray-700">Interaktiv kalkulator</span>
-            </div>
-            
             <h2 className="text-3xl font-bold text-[#004D61] mb-4">
               Prøv vår billånskalkulator
             </h2>
@@ -360,11 +353,7 @@ export default function KalkulatorPage() {
       {/* FAQ Section - Simplified */}
       <section id="faq" className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl font-bold text-[#004D61] mb-4">Ofte stilte spørsmål</h2>
-            <p className="text-lg text-gray-600">Få raske svar på de vanligste spørsmålene om billånskalkulator.</p>
-          </div>
-          <FAQ items={faqItems} />
+          <FAQ items={faqItems} title="Ofte stilte spørsmål om billånskalkulator" />
         </div>
       </section>
 
@@ -374,12 +363,6 @@ export default function KalkulatorPage() {
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-[#004D61] mb-4">Klar til å søke om billån?</h2>
             <p className="text-lg md:text-xl text-gray-600">Få et uforpliktende tilbud innen 24 timer. Gratis, raskt og profesjonelt.</p>
-            <div className="mt-4 inline-flex items-center gap-2 bg-blue-50 rounded-full px-5 py-2 border border-blue-100">
-              <svg className="w-5 h-5 text-[#004D61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span className="text-sm font-medium text-[#004D61]">100% gratis og uforpliktende</span>
-            </div>
           </div>
           <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-gray-200">
             <MultiStepForm />

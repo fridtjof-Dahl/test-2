@@ -113,9 +113,6 @@ const MultiStepForm = memo(function MultiStepForm() {
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 border border-gray-100">
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 bg-[#FF6B35] text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 shadow-lg">
-              <span>🚗 Få tilbud på 2 minutter</span>
-            </div>
             <h2 id="form-heading" className="text-4xl font-bold text-[#004D61] mb-3">
               Søk om billån nå
             </h2>

@@ -92,7 +92,7 @@ export default function BillanGuidePage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a 
                   href="#calculator" 
-                  className="inline-flex items-center gap-2 bg-[#FF6B35] hover:bg-[#E55A25] text-white font-semibold px-6 py-3 rounded-full transition-all shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30 text-base"
+                  className="inline-flex items-center gap-2 bg-[#FF6B35] hover:bg-[#E55A25] text-white font-semibold px-8 py-4 rounded-full transition-all shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30 min-h-[56px]"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
@@ -101,7 +101,7 @@ export default function BillanGuidePage() {
                 </a>
                 <a 
                   href="#lead-form" 
-                  className="inline-flex items-center gap-3 bg-white text-[#004D61] hover:bg-gray-50 font-bold px-10 py-5 rounded-full transition-all border-2 border-[#004D61] hover:border-[#006B7D] focus:outline-none focus:ring-4 focus:ring-[#004D61]/30 text-lg shadow-xl hover:shadow-2xl"
+                  className="inline-flex items-center gap-2 bg-white text-[#004D61] hover:bg-gray-50 font-bold px-8 py-4 rounded-full transition-all border-2 border-[#004D61] hover:border-[#006B7D] focus:outline-none focus:ring-4 focus:ring-[#004D61]/30 shadow-lg hover:shadow-xl min-h-[56px]"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -122,7 +122,7 @@ export default function BillanGuidePage() {
                 Hva vil du vite?
               </h2>
             </div>
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2 gap-6">
               {[
                 { 
                   title: "Hva koster det?", 
@@ -146,12 +146,12 @@ export default function BillanGuidePage() {
                 <a
                   key={index}
                   href={item.href}
-                  className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-white/50 hover:border-[#004D61] hover:shadow-lg transition-all duration-300 text-center focus:outline-none focus:ring-4 focus:ring-[#004D61]/30"
+                  className="group bg-white rounded-xl p-8 border-2 border-gray-200 hover:border-[#004D61] hover:shadow-xl transition-all duration-300 text-center focus:outline-none focus:ring-4 focus:ring-[#004D61]/30 shadow-lg"
                 >
-                  <div className="flex justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <div className="flex justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     {item.icon}
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#004D61] transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#004D61] transition-colors duration-300">
                     {item.title}
                   </h3>
                 </a>
@@ -174,15 +174,12 @@ export default function BillanGuidePage() {
             <section id="hvordan-soke" className="mb-20">
               <div className="bg-white rounded-2xl p-10 shadow-lg border border-gray-100">
                   <div className="text-center mb-8">
-                    <div className="inline-flex items-center gap-2 bg-[#FF6B35] text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 shadow-lg">
-                      <span>📝 5 enkle steg</span>
-                    </div>
                     <h2 className="text-3xl font-bold text-[#004D61] mb-4">Hvordan søke om billån</h2>
                   </div>
                 
                   <div className="grid md:grid-cols-2 gap-8">
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-6">Steg-for-steg:</h3>
+                    <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200 shadow-lg">
+                      <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">Steg-for-steg:</h3>
                       <div className="space-y-6">
                         {[
                           { step: 1, title: "Finn bilen", desc: "Registreringsnummer og pris klart", icon: "🚗" },
@@ -203,10 +200,10 @@ export default function BillanGuidePage() {
                           </div>
                         ))}
                       </div>
-                  </div>
-                  
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-6">Du trenger:</h3>
+                    </div>
+                    
+                    <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200 shadow-lg">
+                      <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">Du trenger:</h3>
                       <div className="space-y-4">
                         {[
                           { item: "Fødselsnummer", icon: "🆔" },
@@ -214,7 +211,7 @@ export default function BillanGuidePage() {
                           { item: "Inntektsinformasjon", icon: "💰" },
                           { item: "Registreringsnummer", icon: "🚗" }
                         ].map((req, index) => (
-                          <div key={index} className="flex items-center gap-4 p-4 bg-white/50 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300">
+                          <div key={index} className="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300">
                             <div className="w-10 h-10 bg-[#10B981] rounded-full flex items-center justify-center text-white text-lg shadow-lg">
                               ✓
                             </div>
@@ -234,9 +231,6 @@ export default function BillanGuidePage() {
             <section id="hva-koster" className="mb-20">
               <div className="bg-white rounded-2xl p-10 shadow-lg border border-gray-100">
                   <div className="text-center mb-8">
-                    <div className="inline-flex items-center gap-2 bg-[#004D61] text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 shadow-lg">
-                      <span>💰 Kostnader og renter</span>
-                    </div>
                     <h2 className="text-3xl font-bold text-[#004D61] mb-4">Hva koster et billån?</h2>
                   </div>
                 
@@ -300,16 +294,6 @@ export default function BillanGuidePage() {
           
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 mb-8 shadow-lg border border-white/50">
-                <svg className="w-5 h-5 text-[#FF6B35]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-                <span className="text-sm font-semibold text-[#004D61]">🧮 Interaktiv kalkulator</span>
-              </div>
-              
-              <h2 className="text-4xl font-bold text-[#004D61] mb-6">
-                Prøv vår billånskalkulator
-              </h2>
               <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
                 Nå som du har lest om billån, kan du beregne din månedlige kostnad. 
                 <span className="font-bold text-[#FF6B35]">100% gratis og uforpliktende.</span>
@@ -332,9 +316,6 @@ export default function BillanGuidePage() {
           
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-white/30">
-                <span className="text-sm font-semibold text-white">🚀 Klar til å starte?</span>
-              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 Klar til å søke om billån?
               </h2>

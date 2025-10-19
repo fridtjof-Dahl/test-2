@@ -46,17 +46,17 @@ const ImprovedHero = memo(function ImprovedHero() {
               <a 
                 href="#lead-form" 
                 onClick={() => trackButtonClick('sok_billan_na', 'hero')}
-                className="group inline-flex items-center gap-3 bg-[#FF6B35] hover:bg-[#E55A24] text-white font-bold px-10 py-5 rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30 min-h-[64px] text-lg"
+                className="group inline-flex items-center gap-2 bg-[#FF6B35] hover:bg-[#E55A24] text-white font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/30 min-h-[56px]"
               >
                 <span>Søk billån nå</span>
-                <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </a>
               <a
                 href="/kalkulator"
                 onClick={() => trackButtonClick('proev_kalkulatoren', 'hero')}
-                className="group inline-flex items-center gap-2 bg-white text-[#004D61] hover:bg-gray-50 font-semibold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 border-2 border-[#004D61] hover:border-[#006B7D] shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#004D61]/30 min-h-[48px] text-base"
+                className="group inline-flex items-center gap-2 bg-white text-[#004D61] hover:bg-gray-50 font-medium px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 border-2 border-[#004D61] hover:border-[#006B7D] shadow-md hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#004D61]/30 min-h-[56px]"
               >
                 <svg className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
