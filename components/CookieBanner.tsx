@@ -54,9 +54,15 @@ export default function CookieBanner() {
 
   return (
     <>
+      {/* Backdrop */}
+      <div 
+        className="fixed inset-0 bg-black bg-opacity-50 z-[9998]"
+        aria-hidden="true"
+      />
+      
       {/* Cookie Banner */}
       <div 
-        className="cookie-banner fixed top-0 left-0 right-0 z-[9999] bg-white border-b-2 border-[#004D61] shadow-2xl"
+        className="cookie-banner fixed z-[9999] bg-white border-2 border-[#004D61]"
         role="dialog"
         aria-labelledby="cookie-banner-title"
         aria-describedby="cookie-banner-description"
