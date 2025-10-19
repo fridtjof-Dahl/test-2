@@ -118,20 +118,20 @@ export async function POST(request: NextRequest) {
         <title>Ny lånesøknad - Enkel Finansiering</title>
       </head>
       <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-        <div style="background: #ffffff; border: 1px solid #e1e5e9; border-radius: 8px; padding: 30px;">
-          <h1 style="color: #004D61; font-size: 24px; margin-bottom: 20px; border-bottom: 2px solid #004D61; padding-bottom: 10px;">
+        <div style="background: #ffffff; border: 1px solid #ddd; border-radius: 8px; padding: 30px;">
+          <h1 style="color: #333; font-size: 24px; margin-bottom: 20px; border-bottom: 2px solid #333; padding-bottom: 10px;">
             Ny lånesøknad mottatt
           </h1>
           
-          <div style="background: #f8f9fa; padding: 20px; border-radius: 6px; margin: 20px 0; border-left: 4px solid #004D61;">
-            <h2 style="color: #004D61; margin-top: 0; font-size: 18px;">Personopplysninger</h2>
+          <div style="background: #f5f5f5; padding: 20px; border-radius: 6px; margin: 20px 0; border-left: 4px solid #666;">
+            <h2 style="color: #333; margin-top: 0; font-size: 18px;">Personopplysninger</h2>
             <p style="margin: 8px 0;"><strong>Navn:</strong> ${name}</p>
-            <p style="margin: 8px 0;"><strong>E-post:</strong> <a href="mailto:${email}" style="color: #004D61; text-decoration: none;">${email}</a></p>
-            <p style="margin: 8px 0;"><strong>Telefon:</strong> <a href="tel:${phone}" style="color: #004D61; text-decoration: none;">${phone}</a></p>
+            <p style="margin: 8px 0;"><strong>E-post:</strong> <a href="mailto:${email}" style="color: #0066cc; text-decoration: none;">${email}</a></p>
+            <p style="margin: 8px 0;"><strong>Telefon:</strong> <a href="tel:${phone}" style="color: #0066cc; text-decoration: none;">${phone}</a></p>
           </div>
           
-          <div style="background: #ffffff; padding: 20px; border: 1px solid #e1e5e9; border-radius: 6px; margin: 20px 0;">
-            <h2 style="color: #004D61; margin-top: 0; font-size: 18px;">Lånedetaljer</h2>
+          <div style="background: #ffffff; padding: 20px; border: 1px solid #ddd; border-radius: 6px; margin: 20px 0;">
+            <h2 style="color: #333; margin-top: 0; font-size: 18px;">Lånedetaljer</h2>
             <p style="margin: 8px 0;"><strong>Gjenstandspris:</strong> ${itemPrice.toLocaleString('no-NO')} kr</p>
             <p style="margin: 8px 0;"><strong>Lånebeløp:</strong> ${loanAmount.toLocaleString('no-NO')} kr</p>
             <p style="margin: 8px 0;"><strong>Egenkapital:</strong> ${downPayment.toLocaleString('no-NO')} kr</p>
@@ -139,15 +139,15 @@ export async function POST(request: NextRequest) {
             <p style="margin: 8px 0;"><strong>Månedlig betaling:</strong> ${Math.round(monthlyPayment).toLocaleString('no-NO')} kr</p>
           </div>
           
-          <div style="background: #ffffff; padding: 20px; border: 1px solid #e1e5e9; border-radius: 6px; margin: 20px 0;">
-            <h2 style="color: #004D61; margin-top: 0; font-size: 18px;">Kjøretøy</h2>
+          <div style="background: #ffffff; padding: 20px; border: 1px solid #ddd; border-radius: 6px; margin: 20px 0;">
+            <h2 style="color: #333; margin-top: 0; font-size: 18px;">Kjøretøy</h2>
             <p style="margin: 8px 0;"><strong>Registreringsnummer:</strong> ${registrationNumber}</p>
             <p style="margin: 8px 0;"><strong>Kilometerstand:</strong> ${kilometers.toLocaleString('no-NO')} km</p>
             ${warranty ? `<p style="margin: 8px 0;"><strong>Garanti:</strong> ${warranty}</p>` : ''}
-            ${adUrl ? `<p style="margin: 8px 0;"><strong>Annonse:</strong> <a href="${adUrl}" target="_blank" style="color: #004D61; text-decoration: none;">Se annonse</a></p>` : ''}
+            ${adUrl ? `<p style="margin: 8px 0;"><strong>Annonse:</strong> <a href="${adUrl}" target="_blank" style="color: #0066cc; text-decoration: none;">Se annonse</a></p>` : ''}
           </div>
           
-          <div style="margin-top: 30px; padding: 15px; background: #e8f4f8; border-radius: 6px; font-size: 14px; color: #666;">
+          <div style="margin-top: 30px; padding: 15px; background: #f9f9f9; border-radius: 6px; font-size: 14px; color: #666;">
             <p style="margin: 0;"><strong>Mottatt:</strong> ${new Date().toLocaleString('no-NO')}</p>
             <p style="margin: 5px 0 0 0;"><strong>Kilde:</strong> Enkel Finansiering - Lånesøknad</p>
           </div>
@@ -228,8 +228,8 @@ https://enkelfinansiering.no
               <title>Bekreftelse - Enkel Finansiering</title>
             </head>
             <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-              <div style="background: #ffffff; border: 1px solid #e1e5e9; border-radius: 8px; padding: 30px;">
-                <h1 style="color: #004D61; font-size: 24px; margin-bottom: 20px; border-bottom: 2px solid #004D61; padding-bottom: 10px;">
+              <div style="background: #ffffff; border: 1px solid #ddd; border-radius: 8px; padding: 30px;">
+                <h1 style="color: #333; font-size: 24px; margin-bottom: 20px; border-bottom: 2px solid #333; padding-bottom: 10px;">
                   Takk for din lånesøknad!
                 </h1>
                 
@@ -237,15 +237,15 @@ https://enkelfinansiering.no
                 
                 <p>Takk for at du søkte om billån hos oss. Vi har mottatt søknaden din og vil kontakte deg innen 24 timer.</p>
                 
-                <div style="background: #f8f9fa; padding: 20px; border-radius: 6px; margin: 20px 0; border-left: 4px solid #10B981;">
-                  <h2 style="color: #004D61; margin-top: 0; font-size: 18px;">Søknadsdetaljer</h2>
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 6px; margin: 20px 0; border-left: 4px solid #666;">
+                  <h2 style="color: #333; margin-top: 0; font-size: 18px;">Søknadsdetaljer</h2>
                   <p style="margin: 8px 0;"><strong>Lånebeløp:</strong> ${loanAmount.toLocaleString('no-NO')} kr</p>
                   <p style="margin: 8px 0;"><strong>Månedlig betaling:</strong> ${Math.round(monthlyPayment).toLocaleString('no-NO')} kr</p>
                   <p style="margin: 8px 0;"><strong>Nedbetalingstid:</strong> ${loanTerm} år</p>
                 </div>
                 
-                <div style="background: #f8f9fa; padding: 20px; border-radius: 6px; margin: 20px 0; border-left: 4px solid #FF6B35;">
-                  <h2 style="color: #004D61; margin-top: 0; font-size: 18px;">Hva skjer nå?</h2>
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 6px; margin: 20px 0; border-left: 4px solid #666;">
+                  <h2 style="color: #333; margin-top: 0; font-size: 18px;">Hva skjer nå?</h2>
                   <ul style="margin: 10px 0; padding-left: 20px;">
                     <li>Vi gjennomgår din søknad</li>
                     <li>Vår samarbeidspartner kontakter deg innen 24 timer</li>
@@ -253,13 +253,13 @@ https://enkelfinansiering.no
                   </ul>
                 </div>
                 
-                <p>Hvis du har spørsmål, kan du kontakte oss på <a href="mailto:kontakt@enkelfinansiering.no" style="color: #004D61; text-decoration: none;">kontakt@enkelfinansiering.no</a>.</p>
+                <p>Hvis du har spørsmål, kan du kontakte oss på <a href="mailto:kontakt@enkelfinansiering.no" style="color: #0066cc; text-decoration: none;">kontakt@enkelfinansiering.no</a>.</p>
                 
-                <div style="margin-top: 30px; padding: 15px; background: #e8f4f8; border-radius: 6px;">
+                <div style="margin-top: 30px; padding: 15px; background: #f9f9f9; border-radius: 6px;">
                   <p style="margin: 0; font-size: 14px; color: #666;">
                     <strong>Med vennlig hilsen,</strong><br>
                     Teamet i Enkel Finansiering<br>
-                    <a href="https://enkelfinansiering.no" style="color: #004D61; text-decoration: none;">enkelfinansiering.no</a>
+                    <a href="https://enkelfinansiering.no" style="color: #0066cc; text-decoration: none;">enkelfinansiering.no</a>
                   </p>
                 </div>
               </div>
