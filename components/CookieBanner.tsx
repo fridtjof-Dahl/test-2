@@ -56,7 +56,7 @@ export default function CookieBanner() {
     <>
       {/* Cookie Banner */}
       <div 
-        className="cookie-banner fixed bottom-0 left-0 right-0 z-[9999] bg-white border-t-2 border-[#004D61] shadow-2xl"
+        className="cookie-banner fixed top-0 left-0 right-0 z-[9999] bg-white border-b-2 border-[#004D61] shadow-2xl"
         role="dialog"
         aria-labelledby="cookie-banner-title"
         aria-describedby="cookie-banner-description"

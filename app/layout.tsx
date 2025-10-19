@@ -220,7 +220,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body>
+      <body className="pt-24">
         <CookieBanner />
         {children}
         <GoogleAnalytics 
