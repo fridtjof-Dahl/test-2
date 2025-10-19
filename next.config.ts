@@ -21,12 +21,16 @@ const nextConfig: NextConfig = {
     keepAlive: true,
   },
   
-  // Experimental features for better performance
+  // Experimental features for better performance - ULTRA-OPTIMIZED for 100/100 PageSpeed
   experimental: {
     optimizePackageImports: ['@next/third-parties', 'react', 'react-dom'],
     scrollRestoration: true,
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'],
+    optimizeServerReact: true,
   },
+  
+  // External packages for server components
+  serverExternalPackages: ['@sendgrid/mail', 'nodemailer'],
   
   // Compiler optimizations
   compiler: {
@@ -40,39 +44,54 @@ const nextConfig: NextConfig = {
   // Webpack optimizations - ultra aggressive
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
-      // Ultra aggressive bundle splitting for mobile performance
+      // ULTRA-AGGRESSIVE bundle splitting for 100/100 PageSpeed
       config.optimization.splitChunks = {
         chunks: 'all',
-        minSize: 10000,
-        maxSize: 150000,
+        minSize: 5000,
+        maxSize: 100000,
         minChunks: 1,
+        maxAsyncRequests: 30,
+        maxInitialRequests: 30,
         cacheGroups: {
-          // Critical vendor libraries
+          // Critical vendor libraries - highest priority
           react: {
             test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
             name: 'react',
             chunks: 'all',
-            priority: 30,
+            priority: 40,
             enforce: true,
             reuseExistingChunk: true,
+            maxSize: 50000,
           },
           // Next.js framework
           next: {
             test: /[\\/]node_modules[\\/]next[\\/]/,
             name: 'next',
             chunks: 'all',
-            priority: 25,
+            priority: 35,
             enforce: true,
             reuseExistingChunk: true,
+            maxSize: 80000,
           },
-          // Third-party analytics
+          // Third-party analytics - lower priority
           analytics: {
             test: /[\\/]node_modules[\\/](@next\/third-parties|web-vitals)[\\/]/,
             name: 'analytics',
-            chunks: 'all',
+            chunks: 'async',
             priority: 20,
             enforce: true,
             reuseExistingChunk: true,
+            maxSize: 30000,
+          },
+          // UI libraries
+          ui: {
+            test: /[\\/]node_modules[\\/](@headlessui|@heroicons)[\\/]/,
+            name: 'ui',
+            chunks: 'all',
+            priority: 25,
+            enforce: true,
+            reuseExistingChunk: true,
+            maxSize: 40000,
           },
           // Other vendors
           vendor: {
@@ -82,6 +101,7 @@ const nextConfig: NextConfig = {
             priority: 10,
             enforce: true,
             reuseExistingChunk: true,
+            maxSize: 60000,
           },
           // Common chunks
           common: {
@@ -91,11 +111,19 @@ const nextConfig: NextConfig = {
             priority: 5,
             reuseExistingChunk: true,
             enforce: true,
+            maxSize: 50000,
+          },
+          // Default
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true,
+            maxSize: 40000,
           },
         },
       };
       
-      // Tree shaking optimization - ULTRA AGGRESSIVE
+      // ULTRA-AGGRESSIVE tree shaking for 100/100 PageSpeed
       config.optimization.usedExports = true;
       config.optimization.sideEffects = false;
       config.optimization.providedExports = true;
@@ -103,20 +131,36 @@ const nextConfig: NextConfig = {
       // Module concatenation for better performance
       config.optimization.concatenateModules = true;
       
-      // Better minification
+      // Better minification with Terser
       config.optimization.minimize = true;
+      config.optimization.minimizer = [
+        ...config.optimization.minimizer,
+        new (require('terser-webpack-plugin'))({
+          terserOptions: {
+            compress: {
+              drop_console: true,
+              drop_debugger: true,
+              pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn'],
+            },
+            mangle: {
+              safari10: true,
+            },
+            format: {
+              comments: false,
+            },
+          },
+          extractComments: false,
+        }),
+      ];
       
-      // Dead code elimination
-      config.optimization.usedExports = true;
-      config.optimization.sideEffects = false;
+      // Performance optimizations
+      config.optimization.moduleIds = 'deterministic';
+      config.optimization.chunkIds = 'deterministic';
+      config.optimization.runtimeChunk = 'single';
       
-      // Better module resolution for tree shaking
-      config.optimization.providedExports = true;
-      config.optimization.usedExports = true;
-      
-      // Remove unused modules more aggressively
-      config.optimization.usedExports = true;
-      config.optimization.sideEffects = false;
+      // Better module resolution
+      config.resolve.symlinks = false;
+      config.resolve.cacheWithContext = false;
     }
     
     // Optimize module resolution

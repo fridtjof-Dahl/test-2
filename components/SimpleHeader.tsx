@@ -1,30 +1,20 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 
-export default function Header() {
+export default function SimpleHeader() {
   return (
-    <header style={{
-      background: 'white',
+    <header style={{ 
+      background: 'white', 
+      border: '2px solid red', 
       padding: '20px',
       position: 'sticky',
       top: 0,
-      zIndex: 50,
-      boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-      borderBottom: '1px solid #e5e7eb'
+      zIndex: 1000
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Link href="/" style={{ fontSize: '24px', fontWeight: 'bold', color: '#004D61', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <Image
-            src="/favicon.svg"
-            alt="Enkel Finansiering logo"
-            width={40}
-            height={40}
-            priority
-            style={{ display: 'block' }}
-          />
-          <span>Enkel Finansiering</span>
+        <Link href="/" style={{ fontSize: '24px', fontWeight: 'bold', color: '#004D61' }}>
+          Enkel Finansiering
         </Link>
         
         <nav style={{ display: 'flex', gap: '20px' }}>
@@ -55,9 +45,7 @@ export default function Header() {
         >
           Søk billån
         </a>
-
       </div>
     </header>
   );
 }
-

@@ -2,27 +2,27 @@ import dynamic from 'next/dynamic';
 import Header from '@/components/Header';
 import ImprovedHero from '@/components/ImprovedHero';
 
-// Lazy load non-critical components
+// ULTRA-OPTIMIZED lazy loading for 100/100 PageSpeed
 const LoanCalculator = dynamic(() => import('@/components/LoanCalculator'), {
-  loading: () => <div className="py-16 bg-gray-50 animate-pulse"><div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"><div className="bg-white rounded-2xl shadow-xl p-8 h-96"></div></div></div>
+  loading: () => <div className="py-16 bg-gray-50"><div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"><div className="bg-white rounded-2xl shadow-xl p-8 h-96"></div></div></div>
 });
 const HowItWorks = dynamic(() => import('@/components/HowItWorks'), {
-  loading: () => <div className="py-20 bg-gray-50 animate-pulse"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div className="h-96"></div></div></div>
+  loading: () => <div className="py-20 bg-gray-50"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div className="h-96"></div></div></div>
 });
 const DarkBenefits = dynamic(() => import('@/components/DarkBenefits'), {
-  loading: () => <div className="py-24 bg-gradient-to-br from-[#003847] via-[#004D61] to-[#003847] animate-pulse"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div className="h-96"></div></div></div>
+  loading: () => <div className="py-24 bg-gradient-to-br from-[#003847] via-[#004D61] to-[#003847]"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div className="h-96"></div></div></div>
 });
 const MultiStepForm = dynamic(() => import('@/components/MultiStepForm'), {
-  loading: () => <div className="py-20 bg-gray-50 animate-pulse"><div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"><div className="h-96"></div></div></div>
+  loading: () => <div className="py-20 bg-gray-50"><div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"><div className="h-96"></div></div></div>
 });
 const TrustSignals = dynamic(() => import('@/components/TrustSignals'), {
-  loading: () => <div className="py-20 bg-gray-50 animate-pulse"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div className="h-96"></div></div></div>
+  loading: () => <div className="py-20 bg-gray-50"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div className="h-96"></div></div></div>
 });
 const FAQ = dynamic(() => import('@/components/FAQ'), {
-  loading: () => <div className="py-20 bg-white animate-pulse"><div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"><div className="h-96"></div></div></div>
+  loading: () => <div className="py-20 bg-white"><div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"><div className="h-96"></div></div></div>
 });
 const Footer = dynamic(() => import('@/components/Footer'), {
-  loading: () => <div className="bg-gray-900 text-white py-12 animate-pulse"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div className="h-32"></div></div></div>
+  loading: () => <div className="bg-gray-900 text-white py-12"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div className="h-32"></div></div></div>
 });
 
 export const metadata = {
