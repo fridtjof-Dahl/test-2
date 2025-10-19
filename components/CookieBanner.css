@@ -1,11 +1,36 @@
 .cookie-banner {
   position: fixed !important;
-  top: 50% !important;
-  left: 50% !important;
+  top: 50vh !important;
+  left: 50vw !important;
   transform: translate(-50%, -50%) !important;
   z-index: 9999 !important;
-  width: 90% !important;
-  max-width: 600px !important;
+  width: 95% !important;
+  max-width: 500px !important;
   border-radius: 16px !important;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+  .cookie-banner {
+    width: 95% !important;
+    max-width: 350px !important;
+    margin: 0 10px !important;
+  }
+}
+
+/* Tablet responsiveness */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .cookie-banner {
+    width: 90% !important;
+    max-width: 500px !important;
+  }
+}
+
+/* Desktop responsiveness */
+@media (min-width: 1025px) {
+  .cookie-banner {
+    width: 80% !important;
+    max-width: 600px !important;
+  }
 }
