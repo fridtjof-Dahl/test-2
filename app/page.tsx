@@ -26,9 +26,9 @@ const Footer = dynamic(() => import('@/components/Footer'), {
 });
 
 export const metadata = {
-  title: 'Billån på dagen: Uforpliktende tilbud innen 24 timer | Enkel Finansiering',
-  description: 'Få et uforpliktende tilbud på billån innen 24 timer. Rask behandling og personlig oppfølging. 100% gratis.',
-  keywords: 'billån på dagen, billån Norge, billån uten egenkapital, billån kalkulator, billån rente, billån søknad, billån samarbeidspartner, billån 24 timer, billån uforpliktende, billån rask behandling',
+  title: 'Billån på dagen 2026: Få tilbud innen 24 timer | Gratis & Uforpliktende',
+  description: 'Billån på dagen? Få et uforpliktende tilbud innen 24 timer. 100% gratis søknad. Rask behandling. Beste rente. Tilgjengelig i hele Norge - Oslo, Bergen, Trondheim, Stavanger.',
+  keywords: 'billån på dagen, billån Norge, billån Oslo, billån Bergen, billån Trondheim, billån Stavanger, billån uten egenkapital, billån kalkulator, billån rente, billån søknad, billån samarbeidspartner, billån 24 timer, billån uforpliktende, billån rask behandling, billån online, billån beste rente',
   openGraph: {
     title: 'Billån på dagen: Uforpliktende tilbud innen 24 timer',
     description: 'Få et uforpliktende tilbud på billån innen 24 timer. Rask behandling og personlig oppfølging. 100% gratis.',
@@ -109,17 +109,56 @@ export default function Home() {
   const structuredData = [
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "FinancialService",
       "name": "Enkel Finansiering",
-      "description": "Norges enkleste vei til billån. Vi hjelper deg med å finne det beste lånetilbudet.",
+      "description": "Norges enkleste vei til billån. Vi hjelper deg med å finne det beste lånetilbudet. Tilgjengelig i hele Norge - Oslo, Bergen, Trondheim, Stavanger, Tromsø og resten av landet.",
       "url": "https://enkelfinansiering.no",
       "logo": "https://enkelfinansiering.no/favicon.svg",
       "foundingDate": "2020",
+      "serviceType": "Billån",
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Norge"
+        },
+        {
+          "@type": "City",
+          "name": "Oslo"
+        },
+        {
+          "@type": "City",
+          "name": "Bergen"
+        },
+        {
+          "@type": "City",
+          "name": "Trondheim"
+        },
+        {
+          "@type": "City",
+          "name": "Stavanger"
+        },
+        {
+          "@type": "City",
+          "name": "Tromsø"
+        },
+        {
+          "@type": "City",
+          "name": "Kristiansand"
+        },
+        {
+          "@type": "City",
+          "name": "Drammen"
+        },
+        {
+          "@type": "City",
+          "name": "Fredrikstad"
+        }
+      ],
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+47-960-07-981",
         "contactType": "customer service",
-        "availableLanguage": "Norwegian",
+        "availableLanguage": ["Norwegian", "Norwegian Bokmål"],
         "areaServed": "NO"
       },
       "sameAs": [
@@ -128,16 +167,21 @@ export default function Home() {
       "offers": {
         "@type": "Offer",
         "name": "Billån på dagen",
-        "description": "Få et uforpliktende tilbud på billån innen 24 timer",
+        "description": "Få et uforpliktende tilbud på billån innen 24 timer. Tilgjengelig i hele Norge.",
         "price": "0",
         "priceCurrency": "NOK",
         "availability": "https://schema.org/InStock",
-        "validFrom": "2025-01-15",
-        "validThrough": "2025-12-31"
+        "validFrom": "2026-01-15",
+        "validThrough": "2026-12-31",
+        "areaServed": {
+          "@type": "Country",
+          "name": "Norge"
+        }
       },
       "address": {
         "@type": "PostalAddress",
-        "addressCountry": "NO"
+        "addressCountry": "NO",
+        "addressLocality": "Norge"
       }
     },
     {

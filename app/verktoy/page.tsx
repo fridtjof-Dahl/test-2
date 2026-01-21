@@ -4,7 +4,7 @@ import VerktoyCard from '@/components/verktoy/VerktoyCard';
 import VerktoyButton from '@/components/verktoy/VerktoyButton';
 
 export const metadata: Metadata = {
-  title: 'Billån Verktøy 2025: Kalkulatorer og Sammenlignere | Enkel Finansiering',
+  title: 'Billån Verktøy 2026: Kalkulatorer og Sammenlignere | Enkel Finansiering',
   description: 'Utforsk våre avanserte billån verktøy. Sammenlign lånetilbud, beregn egenkapital sparing, estimer bilverdi og mye mer. Alle verktøy er 100% gratis.',
   keywords: [
     'billån verktøy',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     'billån beregning'
   ],
   openGraph: {
-    title: 'Billån Verktøy 2025: Kalkulatorer og Sammenlignere',
+    title: 'Billån Verktøy 2026: Kalkulatorer og Sammenlignere',
     description: 'Utforsk våre avanserte billån verktøy. Sammenlign lånetilbud, beregn egenkapital sparing, estimer bilverdi og mye mer.',
     type: 'website',
     url: 'https://enkelfinansiering.no/verktoy',

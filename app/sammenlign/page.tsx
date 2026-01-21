@@ -4,8 +4,8 @@ import Footer from '@/components/Footer';
 import Breadcrumb from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
-  title: 'Sammenlign Billån | Lånetilbud Sammenligning | Enkel Finansiering',
-  description: 'Sammenlign billån fra ulike långivere. Se månedskostnad, totalkostnad og effektiv rente side ved side. Få det beste tilbudet.',
+  title: 'Sammenlign Billån 2026: Beste Rente & Tilbud | Gratis Sammenligning',
+  description: 'Sammenlign billån fra ulike banker. Se månedskostnad, totalkostnad og effektiv rente side ved side. Finn det beste tilbudet. 100% gratis sammenligning.',
   keywords: [
     'sammenlign billån',
     'billån sammenligning',

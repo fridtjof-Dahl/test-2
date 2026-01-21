@@ -77,7 +77,7 @@ const milestones = [
     description: 'Nådd milepælen med over 10,000 fornøyde kunder som har fått hjelp med billån gjennom vår plattform.'
   },
   {
-    year: '2025',
+    year: '2026',
     title: 'Fremtiden',
     description: 'Fortsetter innovasjonen med nye verktøy, bedre teknologier og utvidet samarbeid for å gjøre billån enda enklere.'
   }

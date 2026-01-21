@@ -112,4 +112,4 @@ Google Analytics er allerede integrert og klar til bruk.
 
 Utviklet av [Vision Media](https://visionmedia.no)
 
-© 2025 Enkel Finansiering
+© 2026 Enkel Finansiering

@@ -9,8 +9,8 @@ import Footer from '@/components/Footer';
 import Breadcrumb from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
-  title: 'Billånskalkulator 2025: Gratis Beregning av Billån | Enkel Finansiering',
-  description: 'Beregn billån gratis med vår avanserte kalkulator. Se nøyaktig månedskostnad, renter og totalkostnad for ditt billån. Sammenlign ulike scenarier og finn det beste lånetilbudet.',
+  title: 'Billånskalkulator 2026: Beregn Billån Gratis | Månedskostnad & Rente',
+  description: 'Beregn billån gratis med vår kalkulator. Se nøyaktig månedskostnad, renter og totalkostnad. Sammenlign scenarier. 100% gratis. Tilgjengelig for alle i Norge.',
   keywords: [
     'billånskalkulator',
     'billån kalkulator',
@@ -20,8 +20,12 @@ export const metadata: Metadata = {
     'billån månedskostnad',
     'billån estimat',
     'billån oversikt',
-    'billån beregning 2025',
+    'billån beregning 2026',
     'billån kalkulator Norge',
+    'billån kalkulator Oslo',
+    'billån kalkulator Bergen',
+    'billån kalkulator Trondheim',
+    'billån kalkulator Stavanger',
     'gratis billånskalkulator',
     'billån kalkulator gratis',
     'billån rente beregning',
@@ -29,12 +33,14 @@ export const metadata: Metadata = {
     'billån egenkapital kalkulator',
     'billån sammenligning',
     'billån kostnad oversikt',
-    'billån rente 2025',
+    'billån rente 2026',
     'billån beregning online',
-    'billån kalkulator mobil'
+    'billån kalkulator mobil',
+    'billån kalkulator online',
+    'billån beregning gratis'
   ],
   openGraph: {
-    title: 'Billånskalkulator 2025: Gratis Beregning av Billån',
+    title: 'Billånskalkulator 2026: Gratis Beregning av Billån',
     description: 'Beregn billån gratis med vår avanserte kalkulator. Se nøyaktig månedskostnad, renter og totalkostnad for ditt billån.',
     type: 'website',
     url: 'https://enkelfinansiering.no/kalkulator',
@@ -50,7 +56,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Billånskalkulator 2025: Gratis Beregning av Billån',
+    title: 'Billånskalkulator 2026: Gratis Beregning av Billån',
     description: 'Beregn billån gratis med vår avanserte kalkulator. Se nøyaktig månedskostnad, renter og totalkostnad.',
     images: ['https://enkelfinansiering.no/og-kalkulator.jpg']
   },
@@ -378,7 +384,7 @@ export default function KalkulatorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "Billånskalkulator 2025",
+          "name": "Billånskalkulator 2026",
           "description": "Gratis billånskalkulator for å beregne månedskostnad, renter og totalkostnad for billån",
           "url": "https://enkelfinansiering.no/kalkulator",
           "applicationCategory": "FinanceApplication",

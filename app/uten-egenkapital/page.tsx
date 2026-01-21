@@ -8,10 +8,14 @@ import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Billån Uten Egenkapital 2025 - 100% Finansiering Bil | Enkel Finansiering',
-  description: 'Få billån uten egenkapital med 100% finansiering. Fullfinansiering bil, lån til bil uten egenkapital. Uforpliktende tilbud innen 24 timer. Gratis søknad.',
+  title: 'Billån Uten Egenkapital 2026: 100% Finansiering | Beste Rente',
+  description: 'Billån uten egenkapital? Få 100% finansiering på bil. Fullfinansiering uten egenkapital. Uforpliktende tilbud innen 24 timer. Gratis søknad. Tilgjengelig i hele Norge.',
   keywords: [
     'billån uten egenkapital',
+    'billån uten egenkapital Oslo',
+    'billån uten egenkapital Bergen',
+    'billån uten egenkapital Trondheim',
+    'billån uten egenkapital Stavanger',
     'fullfinansiering bil',
     '100% finansiering bil',
     'lån til bil uten egenkapital',
@@ -21,14 +25,16 @@ export const metadata: Metadata = {
     'billån ingen egenkapital',
     'billån uten egenandel',
     'fullfinansiering billån',
-    'billån uten egenkapital 2025',
+    'billån uten egenkapital 2026',
     'billån uten egenkapital rente',
     'billån uten egenkapital krav',
-    'billån uten egenkapital bank'
+    'billån uten egenkapital bank',
+    'billån uten egenkapital Norge',
+    'billån uten egenkapital online'
   ],
   openGraph: {
-    title: 'Billån Uten Egenkapital 2025 - 100% Finansiering Bil',
-    description: 'Få billån uten egenkapital med 100% finansiering. Fullfinansiering bil, lån til bil uten egenkapital. Uforpliktende tilbud innen 24 timer.',
+    title: 'Billån Uten Egenkapital 2026 - 100% Finansiering Bil',
+    description: 'Få billån uten egenkapital med 100% finansiering. Fullfinansiering bil, lån til bil uten egenkapital. Uforpliktende tilbud innen 24 timer. Tilgjengelig i hele Norge.',
     url: 'https://enkelfinansiering.no/uten-egenkapital',
     siteName: 'Enkel Finansiering',
     type: 'website',
@@ -37,8 +43,8 @@ export const metadata: Metadata = {
     canonical: 'https://enkelfinansiering.no/uten-egenkapital',
   },
   other: {
-    'article:published_time': '2025-01-15T00:00:00.000Z',
-    'article:modified_time': '2025-01-15T00:00:00.000Z',
+    'article:published_time': '2026-01-15T00:00:00.000Z',
+    'article:modified_time': '2026-01-15T00:00:00.000Z',
   },
 };
 
@@ -72,7 +78,7 @@ const faqItems = [
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Billån Uten Egenkapital 2025",
+  "name": "Billån Uten Egenkapital 2026",
   "description": "Få billån uten egenkapital med 100% finansiering. Fullfinansiering bil, lån til bil uten egenkapital.",
   "url": "https://enkelfinansiering.no/uten-egenkapital",
   "mainEntity": {

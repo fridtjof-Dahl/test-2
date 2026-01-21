@@ -7,8 +7,22 @@ import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 
 export const metadata = {
-  title: 'Billån på dagen: Få raskt svar innen 24 timer | Enkel Finansiering',
-  description: 'Trenger du billån raskt? Få et uforpliktende tilbud innen 24 timer og rask overlevering. Søk nå!',
+  title: 'Billån på dagen 2026: Få tilbud innen 24 timer | Raskt & Gratis',
+  description: 'Billån på dagen? Få et uforpliktende tilbud innen 24 timer. Rask overlevering. 100% gratis søknad. Beste rente. Søk nå!',
+  keywords: [
+    'billån på dagen',
+    'billån samme dag',
+    'billån raskt',
+    'billån 24 timer',
+    'billån rask behandling',
+    'billån på dagen Norge',
+    'billån på dagen Oslo',
+    'billån på dagen Bergen',
+    'billån raskt svar',
+    'billån uforpliktende',
+    'billån søknad raskt',
+    'billån godkjent samme dag'
+  ],
 };
 
 const faqItems = [

@@ -12,9 +12,29 @@ const MultiStepForm = dynamic(() => import('@/components/MultiStepForm'));
 const FAQ = dynamic(() => import('@/components/FAQ'));
 
 export const metadata: Metadata = {
-  title: 'Billån i Norge - Alt du trenger å vite | Enkel Finansiering',
-  description: 'Alt du trenger å vite om billån i Norge. Lær om renter, egenkapital og hvordan du får best tilbud. Få et uforpliktende tilbud innen 24 timer.',
-  keywords: 'billån, billån uten egenkapital, billån rente, billån kalkulator, billån norge',
+  title: 'Billån i Norge 2026: Komplett Guide | Renter, Egenkapital & Tips',
+  description: 'Alt om billån i Norge 2026. Lær om renter, egenkapital, beste tilbud og hvordan du får godkjent. Få uforpliktende tilbud innen 24 timer. Tilgjengelig i hele Norge.',
+  keywords: [
+    'billån',
+    'billån Norge',
+    'billån Oslo',
+    'billån Bergen',
+    'billån Trondheim',
+    'billån Stavanger',
+    'billån Tromsø',
+    'billån Kristiansand',
+    'billån uten egenkapital',
+    'billån rente',
+    'billån kalkulator',
+    'billån guide',
+    'billån informasjon',
+    'billån hvordan',
+    'billån beste rente',
+    'billån sammenligning',
+    'billån 2026',
+    'billån online',
+    'billån søknad'
+  ],
 };
 
 export default function BillanGuidePage() {
@@ -341,8 +361,8 @@ export default function BillanGuidePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Billån i Norge - Alt du trenger å vite",
-            "description": "Alt du trenger å vite om billån i Norge. Lær om renter, egenkapital, grønt billån og hvordan du får best tilbud.",
+            "headline": "Billån i Norge 2026: Komplett Guide | Renter, Egenkapital & Tips",
+            "description": "Alt om billån i Norge 2026. Lær om renter, egenkapital, beste tilbud og hvordan du får godkjent. Få uforpliktende tilbud innen 24 timer.",
             "author": {
               "@type": "Organization",
               "name": "Enkel Finansiering"
@@ -355,8 +375,8 @@ export default function BillanGuidePage() {
                 "url": "https://enkelfinansiering.no/logo.png"
               }
             },
-            "datePublished": "2025-01-15",
-            "dateModified": "2025-01-15",
+            "datePublished": "2026-01-15",
+            "dateModified": "2026-01-15",
             "mainEntityOfPage": {
               "@type": "WebPage",
               "@id": "https://enkelfinansiering.no/billan"

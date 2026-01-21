@@ -16,7 +16,7 @@ export default function CookiesPage() {
       <section className="py-16 bg-gradient-to-br from-[#E8F4F8] to-[#D1F4E0]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl sm:text-5xl font-bold text-[#004D61] mb-4">Informasjonskapsler (Cookies)</h1>
-          <p className="text-gray-700">Sist oppdatert: 14. oktober 2025</p>
+          <p className="text-gray-700">Sist oppdatert: 14. oktober 2026</p>
         </div>
       </section>
 
